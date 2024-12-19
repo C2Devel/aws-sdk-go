@@ -1,3 +1,10 @@
+Release v1.44.10-ROCKIT12 (2024-12-19)
+===
+
+### Service client updates
+* `service/eks`: Update service API
+ * Add support for the `legacyClusterParams.masterConfig` block for EKS clusters
+
 Release v1.44.10-ROCKIT11 (2024-11-13)
 ===
 
