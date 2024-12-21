@@ -16,7 +16,7 @@ Jump To:
 * [Contributing](#Contributing)
 * [More Resources](#Resources)
 
-## Using AWS API for C2
+## Using AWS API for K2
 
 Documentation: [docs/c2/README](docs/c2/README.md)
 
