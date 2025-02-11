@@ -2694,6 +2694,8 @@ func (s *SecurityGroup) SetId(v string) *SecurityGroup {
 type Service struct {
 	_ struct{} `type:"structure"`
 
+	AvailableEnvironmentVersions []*string `locationName:"availableEnvironmentVersions" type:"list"`
+
 	BackupSettings *BackupSettingsResponse `locationName:"backupSettings" type:"structure"`
 
 	DataVolumeIops *int64 `locationName:"dataVolumeIops" type:"integer"`
@@ -2705,6 +2707,8 @@ type Service struct {
 	Databases []*DatabaseResponse `locationName:"databases" type:"list"`
 
 	Endpoints []*ServiceEndpoint `locationName:"endpoints" type:"list"`
+
+	EnvironmentVersion *string `locationName:"environmentVersion" type:"string"`
 
 	ErrorCode *string `locationName:"errorCode" type:"string"`
 
@@ -2773,6 +2777,12 @@ func (s Service) GoString() string {
 	return s.String()
 }
 
+// SetAvailableEnvironmentVersions sets the AvailableEnvironmentVersions field's value.
+func (s *Service) SetAvailableEnvironmentVersions(v []*string) *Service {
+	s.AvailableEnvironmentVersions = v
+	return s
+}
+
 // SetBackupSettings sets the BackupSettings field's value.
 func (s *Service) SetBackupSettings(v *BackupSettingsResponse) *Service {
 	s.BackupSettings = v
@@ -2806,6 +2816,12 @@ func (s *Service) SetDatabases(v []*DatabaseResponse) *Service {
 // SetEndpoints sets the Endpoints field's value.
 func (s *Service) SetEndpoints(v []*ServiceEndpoint) *Service {
 	s.Endpoints = v
+	return s
+}
+
+// SetEnvironmentVersion sets the EnvironmentVersion field's value.
+func (s *Service) SetEnvironmentVersion(v string) *Service {
+	s.EnvironmentVersion = &v
 	return s
 }
 
