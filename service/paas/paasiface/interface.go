@@ -26,7 +26,7 @@ import (
 //	// myFunc uses an SDK service client to make a request to
 //	// AWS PaaS.
 //	func myFunc(svc paasiface.PaaSAPI) bool {
-//	    // Make svc.CreateService request
+//	    // Make svc.CreateDatabase request
 //	}
 //
 //	func main() {
@@ -42,7 +42,7 @@ import (
 //	type mockPaaSClient struct {
 //	    paasiface.PaaSAPI
 //	}
-//	func (m *mockPaaSClient) CreateService(input *paas.CreateServiceInput) (*paas.CreateServiceOutput, error) {
+//	func (m *mockPaaSClient) CreateDatabase(input *paas.CreateDatabaseInput) (*paas.CreateDatabaseOutput, error) {
 //	    // mock response/functionality
 //	}
 //
@@ -60,25 +60,105 @@ import (
 // and waiters. Its suggested to use the pattern above for testing, or using
 // tooling to generate mocks to satisfy the interfaces.
 type PaaSAPI interface {
+	CreateDatabase(*paas.CreateDatabaseInput) (*paas.CreateDatabaseOutput, error)
+	CreateDatabaseWithContext(aws.Context, *paas.CreateDatabaseInput, ...request.Option) (*paas.CreateDatabaseOutput, error)
+	CreateDatabaseRequest(*paas.CreateDatabaseInput) (*request.Request, *paas.CreateDatabaseOutput)
+
+	CreateElasticsearchSnapshotRepository(*paas.CreateElasticsearchSnapshotRepositoryInput) (*paas.CreateElasticsearchSnapshotRepositoryOutput, error)
+	CreateElasticsearchSnapshotRepositoryWithContext(aws.Context, *paas.CreateElasticsearchSnapshotRepositoryInput, ...request.Option) (*paas.CreateElasticsearchSnapshotRepositoryOutput, error)
+	CreateElasticsearchSnapshotRepositoryRequest(*paas.CreateElasticsearchSnapshotRepositoryInput) (*request.Request, *paas.CreateElasticsearchSnapshotRepositoryOutput)
+
+	CreateKafkaTopic(*paas.CreateKafkaTopicInput) (*paas.CreateKafkaTopicOutput, error)
+	CreateKafkaTopicWithContext(aws.Context, *paas.CreateKafkaTopicInput, ...request.Option) (*paas.CreateKafkaTopicOutput, error)
+	CreateKafkaTopicRequest(*paas.CreateKafkaTopicInput) (*request.Request, *paas.CreateKafkaTopicOutput)
+
+	CreateLogstashPipeline(*paas.CreateLogstashPipelineInput) (*paas.CreateLogstashPipelineOutput, error)
+	CreateLogstashPipelineWithContext(aws.Context, *paas.CreateLogstashPipelineInput, ...request.Option) (*paas.CreateLogstashPipelineOutput, error)
+	CreateLogstashPipelineRequest(*paas.CreateLogstashPipelineInput) (*request.Request, *paas.CreateLogstashPipelineOutput)
+
+	CreateNotificationChannel(*paas.CreateNotificationChannelInput) (*paas.CreateNotificationChannelOutput, error)
+	CreateNotificationChannelWithContext(aws.Context, *paas.CreateNotificationChannelInput, ...request.Option) (*paas.CreateNotificationChannelOutput, error)
+	CreateNotificationChannelRequest(*paas.CreateNotificationChannelInput) (*request.Request, *paas.CreateNotificationChannelOutput)
+
+	CreatePrometheusRoute(*paas.CreatePrometheusRouteInput) (*paas.CreatePrometheusRouteOutput, error)
+	CreatePrometheusRouteWithContext(aws.Context, *paas.CreatePrometheusRouteInput, ...request.Option) (*paas.CreatePrometheusRouteOutput, error)
+	CreatePrometheusRouteRequest(*paas.CreatePrometheusRouteInput) (*request.Request, *paas.CreatePrometheusRouteOutput)
+
+	CreatePrometheusScrapeJob(*paas.CreatePrometheusScrapeJobInput) (*paas.CreatePrometheusScrapeJobOutput, error)
+	CreatePrometheusScrapeJobWithContext(aws.Context, *paas.CreatePrometheusScrapeJobInput, ...request.Option) (*paas.CreatePrometheusScrapeJobOutput, error)
+	CreatePrometheusScrapeJobRequest(*paas.CreatePrometheusScrapeJobInput) (*request.Request, *paas.CreatePrometheusScrapeJobOutput)
+
 	CreateService(*paas.CreateServiceInput) (*paas.CreateServiceOutput, error)
 	CreateServiceWithContext(aws.Context, *paas.CreateServiceInput, ...request.Option) (*paas.CreateServiceOutput, error)
 	CreateServiceRequest(*paas.CreateServiceInput) (*request.Request, *paas.CreateServiceOutput)
+
+	CreateUser(*paas.CreateUserInput) (*paas.CreateUserOutput, error)
+	CreateUserWithContext(aws.Context, *paas.CreateUserInput, ...request.Option) (*paas.CreateUserOutput, error)
+	CreateUserRequest(*paas.CreateUserInput) (*request.Request, *paas.CreateUserOutput)
 
 	DeleteBackups(*paas.DeleteBackupsInput) (*paas.DeleteBackupsOutput, error)
 	DeleteBackupsWithContext(aws.Context, *paas.DeleteBackupsInput, ...request.Option) (*paas.DeleteBackupsOutput, error)
 	DeleteBackupsRequest(*paas.DeleteBackupsInput) (*request.Request, *paas.DeleteBackupsOutput)
 
+	DeleteDatabase(*paas.DeleteDatabaseInput) (*paas.DeleteDatabaseOutput, error)
+	DeleteDatabaseWithContext(aws.Context, *paas.DeleteDatabaseInput, ...request.Option) (*paas.DeleteDatabaseOutput, error)
+	DeleteDatabaseRequest(*paas.DeleteDatabaseInput) (*request.Request, *paas.DeleteDatabaseOutput)
+
+	DeleteElasticsearchSnapshotRepository(*paas.DeleteElasticsearchSnapshotRepositoryInput) (*paas.DeleteElasticsearchSnapshotRepositoryOutput, error)
+	DeleteElasticsearchSnapshotRepositoryWithContext(aws.Context, *paas.DeleteElasticsearchSnapshotRepositoryInput, ...request.Option) (*paas.DeleteElasticsearchSnapshotRepositoryOutput, error)
+	DeleteElasticsearchSnapshotRepositoryRequest(*paas.DeleteElasticsearchSnapshotRepositoryInput) (*request.Request, *paas.DeleteElasticsearchSnapshotRepositoryOutput)
+
+	DeleteKafkaTopic(*paas.DeleteKafkaTopicInput) (*paas.DeleteKafkaTopicOutput, error)
+	DeleteKafkaTopicWithContext(aws.Context, *paas.DeleteKafkaTopicInput, ...request.Option) (*paas.DeleteKafkaTopicOutput, error)
+	DeleteKafkaTopicRequest(*paas.DeleteKafkaTopicInput) (*request.Request, *paas.DeleteKafkaTopicOutput)
+
+	DeleteLogstashPipeline(*paas.DeleteLogstashPipelineInput) (*paas.DeleteLogstashPipelineOutput, error)
+	DeleteLogstashPipelineWithContext(aws.Context, *paas.DeleteLogstashPipelineInput, ...request.Option) (*paas.DeleteLogstashPipelineOutput, error)
+	DeleteLogstashPipelineRequest(*paas.DeleteLogstashPipelineInput) (*request.Request, *paas.DeleteLogstashPipelineOutput)
+
+	DeleteNotificationChannel(*paas.DeleteNotificationChannelInput) (*paas.DeleteNotificationChannelOutput, error)
+	DeleteNotificationChannelWithContext(aws.Context, *paas.DeleteNotificationChannelInput, ...request.Option) (*paas.DeleteNotificationChannelOutput, error)
+	DeleteNotificationChannelRequest(*paas.DeleteNotificationChannelInput) (*request.Request, *paas.DeleteNotificationChannelOutput)
+
+	DeletePrometheusRoute(*paas.DeletePrometheusRouteInput) (*paas.DeletePrometheusRouteOutput, error)
+	DeletePrometheusRouteWithContext(aws.Context, *paas.DeletePrometheusRouteInput, ...request.Option) (*paas.DeletePrometheusRouteOutput, error)
+	DeletePrometheusRouteRequest(*paas.DeletePrometheusRouteInput) (*request.Request, *paas.DeletePrometheusRouteOutput)
+
+	DeletePrometheusScrapeJob(*paas.DeletePrometheusScrapeJobInput) (*paas.DeletePrometheusScrapeJobOutput, error)
+	DeletePrometheusScrapeJobWithContext(aws.Context, *paas.DeletePrometheusScrapeJobInput, ...request.Option) (*paas.DeletePrometheusScrapeJobOutput, error)
+	DeletePrometheusScrapeJobRequest(*paas.DeletePrometheusScrapeJobInput) (*request.Request, *paas.DeletePrometheusScrapeJobOutput)
+
 	DeleteService(*paas.DeleteServiceInput) (*paas.DeleteServiceOutput, error)
 	DeleteServiceWithContext(aws.Context, *paas.DeleteServiceInput, ...request.Option) (*paas.DeleteServiceOutput, error)
 	DeleteServiceRequest(*paas.DeleteServiceInput) (*request.Request, *paas.DeleteServiceOutput)
+
+	DeleteUser(*paas.DeleteUserInput) (*paas.DeleteUserOutput, error)
+	DeleteUserWithContext(aws.Context, *paas.DeleteUserInput, ...request.Option) (*paas.DeleteUserOutput, error)
+	DeleteUserRequest(*paas.DeleteUserInput) (*request.Request, *paas.DeleteUserOutput)
 
 	DescribeBackup(*paas.DescribeBackupInput) (*paas.DescribeBackupOutput, error)
 	DescribeBackupWithContext(aws.Context, *paas.DescribeBackupInput, ...request.Option) (*paas.DescribeBackupOutput, error)
 	DescribeBackupRequest(*paas.DescribeBackupInput) (*request.Request, *paas.DescribeBackupOutput)
 
+	DescribeDatabase(*paas.DescribeDatabaseInput) (*paas.DescribeDatabaseOutput, error)
+	DescribeDatabaseWithContext(aws.Context, *paas.DescribeDatabaseInput, ...request.Option) (*paas.DescribeDatabaseOutput, error)
+	DescribeDatabaseRequest(*paas.DescribeDatabaseInput) (*request.Request, *paas.DescribeDatabaseOutput)
+
 	DescribeService(*paas.DescribeServiceInput) (*paas.DescribeServiceOutput, error)
 	DescribeServiceWithContext(aws.Context, *paas.DescribeServiceInput, ...request.Option) (*paas.DescribeServiceOutput, error)
 	DescribeServiceRequest(*paas.DescribeServiceInput) (*request.Request, *paas.DescribeServiceOutput)
+
+	DescribeUser(*paas.DescribeUserInput) (*paas.DescribeUserOutput, error)
+	DescribeUserWithContext(aws.Context, *paas.DescribeUserInput, ...request.Option) (*paas.DescribeUserOutput, error)
+	DescribeUserRequest(*paas.DescribeUserInput) (*request.Request, *paas.DescribeUserOutput)
+
+	DisableElasticsearchSnapshotRepository(*paas.DisableElasticsearchSnapshotRepositoryInput) (*paas.DisableElasticsearchSnapshotRepositoryOutput, error)
+	DisableElasticsearchSnapshotRepositoryWithContext(aws.Context, *paas.DisableElasticsearchSnapshotRepositoryInput, ...request.Option) (*paas.DisableElasticsearchSnapshotRepositoryOutput, error)
+	DisableElasticsearchSnapshotRepositoryRequest(*paas.DisableElasticsearchSnapshotRepositoryInput) (*request.Request, *paas.DisableElasticsearchSnapshotRepositoryOutput)
+
+	EnableElasticsearchSnapshotRepository(*paas.EnableElasticsearchSnapshotRepositoryInput) (*paas.EnableElasticsearchSnapshotRepositoryOutput, error)
+	EnableElasticsearchSnapshotRepositoryWithContext(aws.Context, *paas.EnableElasticsearchSnapshotRepositoryInput, ...request.Option) (*paas.EnableElasticsearchSnapshotRepositoryOutput, error)
+	EnableElasticsearchSnapshotRepositoryRequest(*paas.EnableElasticsearchSnapshotRepositoryInput) (*request.Request, *paas.EnableElasticsearchSnapshotRepositoryOutput)
 
 	ListBackupUsers(*paas.ListBackupUsersInput) (*paas.ListBackupUsersOutput, error)
 	ListBackupUsersWithContext(aws.Context, *paas.ListBackupUsersInput, ...request.Option) (*paas.ListBackupUsersOutput, error)
@@ -88,21 +168,129 @@ type PaaSAPI interface {
 	ListBackupsWithContext(aws.Context, *paas.ListBackupsInput, ...request.Option) (*paas.ListBackupsOutput, error)
 	ListBackupsRequest(*paas.ListBackupsInput) (*request.Request, *paas.ListBackupsOutput)
 
+	ListDatabases(*paas.ListDatabasesInput) (*paas.ListDatabasesOutput, error)
+	ListDatabasesWithContext(aws.Context, *paas.ListDatabasesInput, ...request.Option) (*paas.ListDatabasesOutput, error)
+	ListDatabasesRequest(*paas.ListDatabasesInput) (*request.Request, *paas.ListDatabasesOutput)
+
+	ListElasticsearchServicesSuitableForRecovery(*paas.ListElasticsearchServicesSuitableForRecoveryInput) (*paas.ListElasticsearchServicesSuitableForRecoveryOutput, error)
+	ListElasticsearchServicesSuitableForRecoveryWithContext(aws.Context, *paas.ListElasticsearchServicesSuitableForRecoveryInput, ...request.Option) (*paas.ListElasticsearchServicesSuitableForRecoveryOutput, error)
+	ListElasticsearchServicesSuitableForRecoveryRequest(*paas.ListElasticsearchServicesSuitableForRecoveryInput) (*request.Request, *paas.ListElasticsearchServicesSuitableForRecoveryOutput)
+
+	ListElasticsearchSnapshotRepositories(*paas.ListElasticsearchSnapshotRepositoriesInput) (*paas.ListElasticsearchSnapshotRepositoriesOutput, error)
+	ListElasticsearchSnapshotRepositoriesWithContext(aws.Context, *paas.ListElasticsearchSnapshotRepositoriesInput, ...request.Option) (*paas.ListElasticsearchSnapshotRepositoriesOutput, error)
+	ListElasticsearchSnapshotRepositoriesRequest(*paas.ListElasticsearchSnapshotRepositoriesInput) (*request.Request, *paas.ListElasticsearchSnapshotRepositoriesOutput)
+
+	ListKafkaTopics(*paas.ListKafkaTopicsInput) (*paas.ListKafkaTopicsOutput, error)
+	ListKafkaTopicsWithContext(aws.Context, *paas.ListKafkaTopicsInput, ...request.Option) (*paas.ListKafkaTopicsOutput, error)
+	ListKafkaTopicsRequest(*paas.ListKafkaTopicsInput) (*request.Request, *paas.ListKafkaTopicsOutput)
+
+	ListLogstashPipelines(*paas.ListLogstashPipelinesInput) (*paas.ListLogstashPipelinesOutput, error)
+	ListLogstashPipelinesWithContext(aws.Context, *paas.ListLogstashPipelinesInput, ...request.Option) (*paas.ListLogstashPipelinesOutput, error)
+	ListLogstashPipelinesRequest(*paas.ListLogstashPipelinesInput) (*request.Request, *paas.ListLogstashPipelinesOutput)
+
+	ListNotificationChannels(*paas.ListNotificationChannelsInput) (*paas.ListNotificationChannelsOutput, error)
+	ListNotificationChannelsWithContext(aws.Context, *paas.ListNotificationChannelsInput, ...request.Option) (*paas.ListNotificationChannelsOutput, error)
+	ListNotificationChannelsRequest(*paas.ListNotificationChannelsInput) (*request.Request, *paas.ListNotificationChannelsOutput)
+
+	ListPrometheusRoutes(*paas.ListPrometheusRoutesInput) (*paas.ListPrometheusRoutesOutput, error)
+	ListPrometheusRoutesWithContext(aws.Context, *paas.ListPrometheusRoutesInput, ...request.Option) (*paas.ListPrometheusRoutesOutput, error)
+	ListPrometheusRoutesRequest(*paas.ListPrometheusRoutesInput) (*request.Request, *paas.ListPrometheusRoutesOutput)
+
+	ListPrometheusScrapeJobs(*paas.ListPrometheusScrapeJobsInput) (*paas.ListPrometheusScrapeJobsOutput, error)
+	ListPrometheusScrapeJobsWithContext(aws.Context, *paas.ListPrometheusScrapeJobsInput, ...request.Option) (*paas.ListPrometheusScrapeJobsOutput, error)
+	ListPrometheusScrapeJobsRequest(*paas.ListPrometheusScrapeJobsInput) (*request.Request, *paas.ListPrometheusScrapeJobsOutput)
+
 	ListServices(*paas.ListServicesInput) (*paas.ListServicesOutput, error)
 	ListServicesWithContext(aws.Context, *paas.ListServicesInput, ...request.Option) (*paas.ListServicesOutput, error)
 	ListServicesRequest(*paas.ListServicesInput) (*request.Request, *paas.ListServicesOutput)
+
+	ListUsers(*paas.ListUsersInput) (*paas.ListUsersOutput, error)
+	ListUsersWithContext(aws.Context, *paas.ListUsersInput, ...request.Option) (*paas.ListUsersOutput, error)
+	ListUsersRequest(*paas.ListUsersInput) (*request.Request, *paas.ListUsersOutput)
 
 	ModifyBackup(*paas.ModifyBackupInput) (*paas.ModifyBackupOutput, error)
 	ModifyBackupWithContext(aws.Context, *paas.ModifyBackupInput, ...request.Option) (*paas.ModifyBackupOutput, error)
 	ModifyBackupRequest(*paas.ModifyBackupInput) (*request.Request, *paas.ModifyBackupOutput)
 
+	ModifyDatabase(*paas.ModifyDatabaseInput) (*paas.ModifyDatabaseOutput, error)
+	ModifyDatabaseWithContext(aws.Context, *paas.ModifyDatabaseInput, ...request.Option) (*paas.ModifyDatabaseOutput, error)
+	ModifyDatabaseRequest(*paas.ModifyDatabaseInput) (*request.Request, *paas.ModifyDatabaseOutput)
+
+	ModifyInstanceType(*paas.ModifyInstanceTypeInput) (*paas.ModifyInstanceTypeOutput, error)
+	ModifyInstanceTypeWithContext(aws.Context, *paas.ModifyInstanceTypeInput, ...request.Option) (*paas.ModifyInstanceTypeOutput, error)
+	ModifyInstanceTypeRequest(*paas.ModifyInstanceTypeInput) (*request.Request, *paas.ModifyInstanceTypeOutput)
+
+	ModifyInstanceVolumeIops(*paas.ModifyInstanceVolumeIopsInput) (*paas.ModifyInstanceVolumeIopsOutput, error)
+	ModifyInstanceVolumeIopsWithContext(aws.Context, *paas.ModifyInstanceVolumeIopsInput, ...request.Option) (*paas.ModifyInstanceVolumeIopsOutput, error)
+	ModifyInstanceVolumeIopsRequest(*paas.ModifyInstanceVolumeIopsInput) (*request.Request, *paas.ModifyInstanceVolumeIopsOutput)
+
+	ModifyInstanceVolumeSize(*paas.ModifyInstanceVolumeSizeInput) (*paas.ModifyInstanceVolumeSizeOutput, error)
+	ModifyInstanceVolumeSizeWithContext(aws.Context, *paas.ModifyInstanceVolumeSizeInput, ...request.Option) (*paas.ModifyInstanceVolumeSizeOutput, error)
+	ModifyInstanceVolumeSizeRequest(*paas.ModifyInstanceVolumeSizeInput) (*request.Request, *paas.ModifyInstanceVolumeSizeOutput)
+
+	ModifyKafkaTopic(*paas.ModifyKafkaTopicInput) (*paas.ModifyKafkaTopicOutput, error)
+	ModifyKafkaTopicWithContext(aws.Context, *paas.ModifyKafkaTopicInput, ...request.Option) (*paas.ModifyKafkaTopicOutput, error)
+	ModifyKafkaTopicRequest(*paas.ModifyKafkaTopicInput) (*request.Request, *paas.ModifyKafkaTopicOutput)
+
+	ModifyLoadBalancers(*paas.ModifyLoadBalancersInput) (*paas.ModifyLoadBalancersOutput, error)
+	ModifyLoadBalancersWithContext(aws.Context, *paas.ModifyLoadBalancersInput, ...request.Option) (*paas.ModifyLoadBalancersOutput, error)
+	ModifyLoadBalancersRequest(*paas.ModifyLoadBalancersInput) (*request.Request, *paas.ModifyLoadBalancersOutput)
+
+	ModifyLogstashPipeline(*paas.ModifyLogstashPipelineInput) (*paas.ModifyLogstashPipelineOutput, error)
+	ModifyLogstashPipelineWithContext(aws.Context, *paas.ModifyLogstashPipelineInput, ...request.Option) (*paas.ModifyLogstashPipelineOutput, error)
+	ModifyLogstashPipelineRequest(*paas.ModifyLogstashPipelineInput) (*request.Request, *paas.ModifyLogstashPipelineOutput)
+
+	ModifyMaintenancePreferences(*paas.ModifyMaintenancePreferencesInput) (*paas.ModifyMaintenancePreferencesOutput, error)
+	ModifyMaintenancePreferencesWithContext(aws.Context, *paas.ModifyMaintenancePreferencesInput, ...request.Option) (*paas.ModifyMaintenancePreferencesOutput, error)
+	ModifyMaintenancePreferencesRequest(*paas.ModifyMaintenancePreferencesInput) (*request.Request, *paas.ModifyMaintenancePreferencesOutput)
+
+	ModifyNotificationChannel(*paas.ModifyNotificationChannelInput) (*paas.ModifyNotificationChannelOutput, error)
+	ModifyNotificationChannelWithContext(aws.Context, *paas.ModifyNotificationChannelInput, ...request.Option) (*paas.ModifyNotificationChannelOutput, error)
+	ModifyNotificationChannelRequest(*paas.ModifyNotificationChannelInput) (*request.Request, *paas.ModifyNotificationChannelOutput)
+
+	ModifyPrometheusRoute(*paas.ModifyPrometheusRouteInput) (*paas.ModifyPrometheusRouteOutput, error)
+	ModifyPrometheusRouteWithContext(aws.Context, *paas.ModifyPrometheusRouteInput, ...request.Option) (*paas.ModifyPrometheusRouteOutput, error)
+	ModifyPrometheusRouteRequest(*paas.ModifyPrometheusRouteInput) (*request.Request, *paas.ModifyPrometheusRouteOutput)
+
+	ModifyPrometheusScrapeJob(*paas.ModifyPrometheusScrapeJobInput) (*paas.ModifyPrometheusScrapeJobOutput, error)
+	ModifyPrometheusScrapeJobWithContext(aws.Context, *paas.ModifyPrometheusScrapeJobInput, ...request.Option) (*paas.ModifyPrometheusScrapeJobOutput, error)
+	ModifyPrometheusScrapeJobRequest(*paas.ModifyPrometheusScrapeJobInput) (*request.Request, *paas.ModifyPrometheusScrapeJobOutput)
+
 	ModifyService(*paas.ModifyServiceInput) (*paas.ModifyServiceOutput, error)
 	ModifyServiceWithContext(aws.Context, *paas.ModifyServiceInput, ...request.Option) (*paas.ModifyServiceOutput, error)
 	ModifyServiceRequest(*paas.ModifyServiceInput) (*request.Request, *paas.ModifyServiceOutput)
 
+	ModifyServiceEnvironment(*paas.ModifyServiceEnvironmentInput) (*paas.ModifyServiceEnvironmentOutput, error)
+	ModifyServiceEnvironmentWithContext(aws.Context, *paas.ModifyServiceEnvironmentInput, ...request.Option) (*paas.ModifyServiceEnvironmentOutput, error)
+	ModifyServiceEnvironmentRequest(*paas.ModifyServiceEnvironmentInput) (*request.Request, *paas.ModifyServiceEnvironmentOutput)
+
 	ModifyServiceParameters(*paas.ModifyServiceParametersInput) (*paas.ModifyServiceParametersOutput, error)
 	ModifyServiceParametersWithContext(aws.Context, *paas.ModifyServiceParametersInput, ...request.Option) (*paas.ModifyServiceParametersOutput, error)
 	ModifyServiceParametersRequest(*paas.ModifyServiceParametersInput) (*request.Request, *paas.ModifyServiceParametersOutput)
+
+	ModifyUser(*paas.ModifyUserInput) (*paas.ModifyUserOutput, error)
+	ModifyUserWithContext(aws.Context, *paas.ModifyUserInput, ...request.Option) (*paas.ModifyUserOutput, error)
+	ModifyUserRequest(*paas.ModifyUserInput) (*request.Request, *paas.ModifyUserOutput)
+
+	PatchServiceParameters(*paas.PatchServiceParametersInput) (*paas.PatchServiceParametersOutput, error)
+	PatchServiceParametersWithContext(aws.Context, *paas.PatchServiceParametersInput, ...request.Option) (*paas.PatchServiceParametersOutput, error)
+	PatchServiceParametersRequest(*paas.PatchServiceParametersInput) (*request.Request, *paas.PatchServiceParametersOutput)
+
+	RestartService(*paas.RestartServiceInput) (*paas.RestartServiceOutput, error)
+	RestartServiceWithContext(aws.Context, *paas.RestartServiceInput, ...request.Option) (*paas.RestartServiceOutput, error)
+	RestartServiceRequest(*paas.RestartServiceInput) (*request.Request, *paas.RestartServiceOutput)
+
+	StartService(*paas.StartServiceInput) (*paas.StartServiceOutput, error)
+	StartServiceWithContext(aws.Context, *paas.StartServiceInput, ...request.Option) (*paas.StartServiceOutput, error)
+	StartServiceRequest(*paas.StartServiceInput) (*request.Request, *paas.StartServiceOutput)
+
+	StopService(*paas.StopServiceInput) (*paas.StopServiceOutput, error)
+	StopServiceWithContext(aws.Context, *paas.StopServiceInput, ...request.Option) (*paas.StopServiceOutput, error)
+	StopServiceRequest(*paas.StopServiceInput) (*request.Request, *paas.StopServiceOutput)
+
+	SynchronizeServiceStatus(*paas.SynchronizeServiceStatusInput) (*paas.SynchronizeServiceStatusOutput, error)
+	SynchronizeServiceStatusWithContext(aws.Context, *paas.SynchronizeServiceStatusInput, ...request.Option) (*paas.SynchronizeServiceStatusOutput, error)
+	SynchronizeServiceStatusRequest(*paas.SynchronizeServiceStatusInput) (*request.Request, *paas.SynchronizeServiceStatusOutput)
 }
 
 var _ PaaSAPI = (*paas.PaaS)(nil)

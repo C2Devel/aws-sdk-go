@@ -11,6 +11,26 @@
     "uid": "paas-2022-09-06"
   },
   "operations": {
+    "CreateDatabase": {
+      "name": "CreateDatabase",
+      "http": {
+        "method": "POST",
+        "requestUri": "/services/{serviceId}/databases"
+      },
+      "input": {"shape": "CreateDatabaseRequest"},
+      "output": {"shape": "CreateDatabaseResponse"},
+      "documentation": "<p>Creates database.</p>"
+    },
+    "CreateElasticsearchSnapshotRepository": {
+      "name": "CreateElasticsearchSnapshotRepository",
+      "http": {
+        "method": "POST",
+        "requestUri": "/services/{serviceId}/elasticsearch-snapshot-repositories"
+      },
+      "input": {"shape": "CreateElasticsearchSnapshotRepositoryRequest"},
+      "output": {"shape": "CreateElasticsearchSnapshotRepositoryResponse"},
+      "documentation": "<p>Create Elasticsearch snapshot repository.</p>"
+    },
     "CreateService": {
       "name": "CreateService",
       "http": {
@@ -20,6 +40,36 @@
       "input": {"shape": "CreateServiceRequest"},
       "output": {"shape": "CreateServiceResponse"},
       "documentation": "<p>Creates service.</p>"
+    },
+    "CreateKafkaTopic": {
+        "name": "CreateKafkaTopic",
+        "http": {
+            "method": "POST",
+            "requestUri": "/services/{serviceId}/kafka-topics"
+        },
+        "input": {"shape": "CreateKafkaTopicRequest"},
+        "output": {"shape": "CreateKafkaTopicResponse"},
+        "documentation": "<p>Create Kafka topic.</p>"
+    },
+    "CreateLogstashPipeline": {
+      "name": "CreateLogstashPipeline",
+      "http": {
+        "method": "POST",
+        "requestUri": "/services/{serviceId}/logstash-pipelines"
+      },
+      "input": {"shape": "CreateLogstashPipelineRequest"},
+      "output": {"shape": "CreateLogstashPipelineResponse"},
+      "documentation": "<p>Creates logstash pipeline in given service.</p>"
+    },
+    "CreateUser": {
+      "name": "CreateUser",
+      "http": {
+        "method": "POST",
+        "requestUri": "/services/{serviceId}/users"
+      },
+      "input": {"shape": "CreateUserRequest"},
+      "output": {"shape": "CreateUserResponse"},
+      "documentation": "<p>Creates user.</p>"
     },
     "DeleteBackups": {
       "name": "DeleteBackups",
@@ -31,6 +81,46 @@
       "output": {"shape": "DeleteBackupsResponse"},
       "documentation": "<p>Deletes service backups.</p>"
     },
+    "DeleteKafkaTopic": {
+        "name": "DeleteKafkaTopic",
+        "http": {
+            "method": "DELETE",
+            "requestUri": "/services/{serviceId}/kafka-topics/{topicId}"
+        },
+        "input": {"shape": "DeleteKafkaTopicRequest"},
+        "output": {"shape": "DeleteKafkaTopicResponse"},
+        "documentation": "<p>Deletes a Kafka topic.</p>"
+    },
+    "DeleteLogstashPipeline": {
+      "name": "DeleteLogstashPipeline",
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/services/{serviceId}/logstash-pipelines/{pipelineId}"
+      },
+      "input": {"shape": "DeleteLogstashPipelineRequest"},
+      "output": {"shape": "DeleteLogstashPipelineResponse"},
+      "documentation": "<p>Deletes logstash pipeline in given service.</p>"
+    },
+    "DeleteDatabase": {
+      "name": "DeleteDatabase",
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/services/{serviceId}/databases/{databaseId}"
+      },
+      "input": {"shape": "DeleteDatabaseRequest"},
+      "output": {"shape": "DeleteDatabaseResponse"},
+      "documentation": "<p>Deletes database.</p>"
+    },
+    "DeleteElasticsearchSnapshotRepository": {
+      "name": "DeleteElasticsearchSnapshotRepository",
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/services/{serviceId}/elasticsearch-snapshot-repositories/{repositoryId}"
+      },
+      "input": {"shape": "DeleteElasticsearchSnapshotRepositoryRequest"},
+      "output": {"shape": "DeleteElasticsearchSnapshotRepositoryResponse"},
+      "documentation": "<p>Delete Elasticsearch snapshot repository.</p>"
+    },
     "DeleteService": {
       "name": "DeleteService",
       "http": {
@@ -40,6 +130,16 @@
       "input": {"shape": "DeleteServiceRequest"},
       "output": {"shape": "DeleteServiceResponse"},
       "documentation": "<p>Deletes service.</p>"
+    },
+    "DeleteUser": {
+      "name": "DeleteUser",
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/services/{serviceId}/users/{userId}"
+      },
+      "input": {"shape": "DeleteUserRequest"},
+      "output": {"shape": "DeleteUserResponse"},
+      "documentation": "<p>Deletes user.</p>"
     },
     "DescribeBackup": {
       "name": "DescribeBackup",
@@ -51,6 +151,16 @@
       "output": {"shape": "DescribeBackupResponse"},
       "documentation": "<p>Returns descriptive information about backup.</p>"
     },
+    "DescribeDatabase": {
+      "name": "DescribeDatabase",
+      "http": {
+        "method": "GET",
+        "requestUri": "/services/{serviceId}/databases/{databaseId}"
+      },
+      "input": {"shape": "DescribeDatabaseRequest"},
+      "output": {"shape": "DescribeDatabaseResponse"},
+      "documentation": "<p>Returns descriptive information about database.</p>"
+    },
     "DescribeService": {
       "name": "DescribeService",
       "http": {
@@ -60,6 +170,36 @@
       "input": {"shape": "DescribeServiceRequest"},
       "output": {"shape": "DescribeServiceResponse"},
       "documentation": "<p>Returns descriptive information about PaaS service.</p>"
+    },
+    "DescribeUser": {
+      "name": "DescribeUser",
+      "http": {
+        "method": "GET",
+        "requestUri": "/services/{serviceId}/users/{userId}"
+      },
+      "input": {"shape": "DescribeUserRequest"},
+      "output": {"shape": "DescribeUserResponse"},
+      "documentation": "<p>Returns descriptive information about user.</p>"
+    },
+    "DisableElasticsearchSnapshotRepository": {
+      "name": "DisableElasticsearchSnapshotRepository",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/elasticsearch-snapshot-repositories/{repositoryId}/disable"
+      },
+      "input": {"shape": "DisableElasticsearchSnapshotRepositoryRequest"},
+      "output": {"shape": "DisableElasticsearchSnapshotRepositoryResponse"},
+      "documentation": "<p>Disable Elasticsearch snapshot repository.</p>"
+    },
+    "EnableElasticsearchSnapshotRepository": {
+      "name": "EnableElasticsearchSnapshotRepository",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/elasticsearch-snapshot-repositories/{repositoryId}/enable"
+      },
+      "input": {"shape": "EnableElasticsearchSnapshotRepositoryRequest"},
+      "output": {"shape": "EnableElasticsearchSnapshotRepositoryResponse"},
+      "documentation": "<p>Enable Elasticsearch snapshot repository.</p>"
     },
     "ListBackups": {
       "name": "ListBackups",
@@ -81,6 +221,56 @@
       "output": {"shape": "ListBackupUsersResponse"},
       "documentation": "<p>Returns users list, available for service backup.</p>"
     },
+    "ListDatabases": {
+      "name": "ListDatabases",
+      "http": {
+        "method": "GET",
+        "requestUri": "/services/{serviceId}/databases"
+      },
+      "input": {"shape": "ListDatabasesRequest"},
+      "output": {"shape": "ListDatabasesResponse"},
+      "documentation": "<p>Returns databases list.</p>"
+    },
+    "ListElasticsearchServicesSuitableForRecovery": {
+      "name": "ListElasticsearchServicesSuitableForRecovery",
+      "http": {
+        "method": "GET",
+        "requestUri": "/services/{serviceId}/elasticsearch-services-suitable-for-recovery"
+      },
+      "input": {"shape": "ListElasticsearchServicesSuitableForRecoveryRequest"},
+      "output": {"shape": "ListElasticsearchServicesSuitableForRecoveryResponse"},
+      "documentation": "<p>Returns elasticsearch services suitable for target service recovery.</p>"
+    },
+    "ListElasticsearchSnapshotRepositories": {
+      "name": "ListElasticsearchSnapshotRepositories",
+      "http": {
+        "method": "GET",
+        "requestUri": "/services/{serviceId}/elasticsearch-snapshot-repositories"
+      },
+      "input": {"shape": "ListElasticsearchSnapshotRepositoriesRequest"},
+      "output": {"shape": "ListElasticsearchSnapshotRepositoriesResponse"},
+      "documentation": "<p>Returns list of Elasticsearch snapshot repositories.</p>"
+    },
+    "ListKafkaTopics": {
+        "name": "ListKafkaTopics",
+        "http": {
+            "method": "GET",
+            "requestUri": "/services/{serviceId}/kafka-topics"
+        },
+        "input": {"shape": "ListKafkaTopicsRequest"},
+        "output": {"shape": "ListKafkaTopicsResponse"},
+        "documentation": "<p>Returns list of Kafka topics.</p>"
+    },
+    "ListLogstashPipelines": {
+      "name": "ListLogstashPipelines",
+      "http": {
+        "method": "GET",
+        "requestUri": "/services/{serviceId}/logstash-pipelines"
+      },
+      "input": {"shape": "ListLogstashPipelinesRequest"},
+      "output": {"shape": "ListLogstashPipelinesResponse"},
+      "documentation": "<p>Lists logstash pipelines in given service.</p>"
+    },
     "ListServices": {
       "name": "ListServices",
       "http": {
@@ -91,6 +281,16 @@
       "output": {"shape": "ListServicesResponse"},
       "documentation": "<p>Returns list of PaaS services.</p>"
     },
+    "ListUsers": {
+      "name": "ListUsers",
+      "http": {
+        "method": "GET",
+        "requestUri": "/services/{serviceId}/users"
+      },
+      "input": {"shape": "ListUsersRequest"},
+      "output": {"shape": "ListUsersResponse"},
+      "documentation": "<p>Returns users list.</p>"
+    },
     "ModifyBackup": {
       "name": "ModifyBackup",
       "http": {
@@ -100,6 +300,86 @@
       "input": {"shape": "ModifyBackupRequest"},
       "output": {"shape": "ModifyBackupResponse"},
       "documentation": "<p>Modifies the PaaS backup.</p>"
+    },
+    "ModifyLogstashPipeline": {
+      "name": "ModifyLogstashPipeline",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/logstash-pipelines/{pipelineId}"
+      },
+      "input": {"shape": "ModifyLogstashPipelineRequest"},
+      "output": {"shape": "ModifyLogstashPipelineResponse"},
+      "documentation": "<p>Modifies logstash pipeline in given service.</p>"
+    },
+    "ModifyDatabase": {
+      "name": "ModifyDatabase",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/databases/{databaseId}"
+      },
+      "input": {"shape": "ModifyDatabaseRequest"},
+      "output": {"shape": "ModifyDatabaseResponse"},
+      "documentation": "<p>Modifies database.</p>"
+    },
+    "ModifyKafkaTopic": {
+        "name": "ModifyKafkaTopic",
+        "http": {
+            "method": "PUT",
+            "requestUri": "/services/{serviceId}/kafka-topics/{topicId}"
+        },
+        "input": {"shape": "ModifyKafkaTopicRequest"},
+        "output": {"shape": "ModifyKafkaTopicResponse"},
+        "documentation": "<p>Modifies a Kafka topic in given service.</p>"
+    },
+    "ModifyLoadBalancers": {
+      "name": "ModifyLoadBalancers",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/load-balancers"
+      },
+      "input": {"shape": "ModifyLoadBalancersRequest"},
+      "output": {"shape": "ModifyLoadBalancersResponse"},
+      "documentation": "<p>Modifies PaaS load balancers.</p>"
+    },
+    "ModifyServiceEnvironment": {
+      "name": "ModifyServiceEnvironment",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/environment"
+      },
+      "input": {"shape": "ModifyEnvironmentRequest"},
+      "output": {"shape": "ModifyEnvironmentResponse"},
+      "documentation": "<p>Modifies the PaaS service environment.</p>"
+    },
+    "ModifyInstanceVolumeSize": {
+      "name": "ModifyInstanceVolumeSize",
+      "http": {
+        "method": "PUT",
+        "requestUri": "services/{serviceId}/instance-volume-size"
+      },
+      "input": {"shape": "ModifyInstanceVolumeSizeRequest"},
+      "output": {"shape": "ModifyInstanceVolumeSizeResponse"},
+      "documentation": "<p>Modifies the PaaS service volumes size.</p>"
+    },
+    "ModifyInstanceVolumeIops": {
+      "name": "ModifyInstanceVolumeIops",
+      "http": {
+        "method": "PUT",
+        "requestUri": "services/{serviceId}/instance-volume-iops"
+      },
+      "input": {"shape": "ModifyInstanceVolumeIopsRequest"},
+      "output": {"shape": "ModifyInstanceVolumeIopsResponse"},
+      "documentation": "<p>Modifies the PaaS service volumes IOPS.</p>"
+    },
+    "ModifyInstanceType": {
+      "name": "ModifyInstanceType",
+      "http": {
+        "method": "PUT",
+        "requestUri": "services/{serviceId}/instance-type"
+      },
+      "input": {"shape": "ModifyInstanceTypeRequest"},
+      "output": {"shape": "ModifyInstanceTypeResponse"},
+      "documentation": "<p>Modifies the instance type of PaaS service nodes.</p>"
     },
     "ModifyService": {
       "name": "ModifyService",
@@ -120,6 +400,196 @@
       "input": {"shape": "ModifyServiceParametersRequest"},
       "output": {"shape": "ModifyServiceParametersResponse"},
       "documentation": "<p>Modifies the PaaS service parameters.</p>"
+    },
+    "ModifyUser": {
+      "name": "ModifyUser",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/users/{userId}"
+      },
+      "input": {"shape": "ModifyUserRequest"},
+      "output": {"shape": "ModifyUserResponse"},
+      "documentation": "<p>Modifies database.</p>"
+    },
+    "PatchServiceParameters": {
+      "name": "PatchServiceParameters",
+      "http": {
+        "method": "PATCH",
+        "requestUri": "/services/{serviceId}/parameters"
+      },
+      "input": {"shape": "PatchServiceParametersRequest"},
+      "output": {"shape": "PatchServiceParametersResponse"},
+      "documentation": "<p>Modifies the PaaS service parameters.</p>"
+    },
+    "RestartService": {
+      "name": "RestartService",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/restart"
+      },
+      "input": {"shape": "RestartServiceRequest"},
+      "output": {"shape": "RestartServiceResponse"},
+      "documentation": "<p>Restart service.</p>"
+    },
+    "StartService": {
+      "name": "StartService",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/start"
+      },
+      "input": {"shape": "StartServiceRequest"},
+      "output": {"shape": "StartServiceResponse"},
+      "documentation": "<p>Start service.</p>"
+    },
+    "StopService": {
+      "name": "StopService",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/stop"
+      },
+      "input": {"shape": "StopServiceRequest"},
+      "output": {"shape": "StopServiceResponse"},
+      "documentation": "<p>Stop service.</p>"
+    },
+    "SynchronizeServiceStatus": {
+      "name": "SynchronizeServiceStatus",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/synchronize-status"
+      },
+      "input": {"shape": "SynchronizeServiceStatusRequest"},
+      "output": {"shape": "SynchronizeServiceStatusResponse"},
+      "documentation": "<p>Synchronize service status.</p>"
+    },
+    "ModifyMaintenancePreferences": {
+      "name": "ModifyMaintenancePreferences",
+      "http": {
+        "method": "POST",
+        "requestUri": "/services/{serviceId}/maintenance/preferences"
+      },
+      "input": {"shape": "ModifyMaintenancePreferencesRequest"},
+      "output": {"shape": "ModifyMaintenancePreferencesResponse"},
+      "documentation": "<p>Modifies maintenance preferences.</p>"
+    },
+    "CreatePrometheusRoute": {
+      "name": "CreatePrometheusRoute",
+      "http": {
+        "method": "POST",
+        "requestUri": "/services/{serviceId}/prometheus-routes"
+      },
+      "input": {"shape": "CreatePrometheusRouteRequest"},
+      "output": {"shape": "CreatePrometheusRouteResponse"},
+      "documentation": "<p>Creates prometheus route in given service.</p>"
+    },
+    "DeletePrometheusRoute": {
+      "name": "DeletePrometheusRoute",
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/services/{serviceId}/prometheus-routes/{routeId}"
+      },
+      "input": {"shape": "DeletePrometheusRouteRequest"},
+      "output": {"shape": "DeletePrometheusRouteResponse"},
+      "documentation": "<p>Deletes prometheus route in given service.</p>"
+    },
+    "ListPrometheusRoutes": {
+      "name": "ListPrometheusRoutes",
+      "http": {
+        "method": "GET",
+        "requestUri": "/services/{serviceId}/prometheus-routes"
+      },
+      "input": {"shape": "ListPrometheusRoutesRequest"},
+      "output": {"shape": "ListPrometheusRoutesResponse"},
+      "documentation": "<p>Lists prometheus routes in given service.</p>"
+    },
+    "ModifyPrometheusRoute": {
+      "name": "ModifyPrometheusRoute",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/prometheus-routes/{routeId}"
+      },
+      "input": {"shape": "ModifyPrometheusRouteRequest"},
+      "output": {"shape": "ModifyPrometheusRouteResponse"},
+      "documentation": "<p>Modifies prometheus route in given service.</p>"
+    },
+    "CreatePrometheusScrapeJob": {
+      "name": "CreatePrometheusScrapeJob",
+      "http": {
+        "method": "POST",
+        "requestUri": "/services/{serviceId}/prometheus-scrape-jobs"
+      },
+      "input": {"shape": "CreatePrometheusScrapeJobRequest"},
+      "output": {"shape": "CreatePrometheusScrapeJobResponse"},
+      "documentation": "<p>Creates prometheus scrape job in given service.</p>"
+    },
+    "DeletePrometheusScrapeJob": {
+      "name": "DeletePrometheusScrapeJob",
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/services/{serviceId}/prometheus-scrape-jobs/{jobId}"
+      },
+      "input": {"shape": "DeletePrometheusScrapeJobRequest"},
+      "output": {"shape": "DeletePrometheusScrapeJobResponse"},
+      "documentation": "<p>Deletes prometheus scrape job in given service.</p>"
+    },
+    "ListPrometheusScrapeJobs": {
+      "name": "ListPrometheusScrapeJobs",
+      "http": {
+        "method": "GET",
+        "requestUri": "/services/{serviceId}/prometheus-scrape-jobs"
+      },
+      "input": {"shape": "ListPrometheusScrapeJobsRequest"},
+      "output": {"shape": "ListPrometheusScrapeJobsResponse"},
+      "documentation": "<p>Lists prometheus scrape jobs in given service.</p>"
+    },
+    "ModifyPrometheusScrapeJob": {
+      "name": "ModifyPrometheusScrapeJob",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/prometheus-scrape-jobs/{jobId}"
+      },
+      "input": {"shape": "ModifyPrometheusScrapeJobRequest"},
+      "output": {"shape": "ModifyPrometheusScrapeJobResponse"},
+      "documentation": "<p>Modifies prometheus scrape job in given service.</p>"
+    },
+    "CreateNotificationChannel": {
+      "name": "CreateNotificationChannel",
+      "http": {
+        "method": "POST",
+        "requestUri": "/services/{serviceId}/notification-channels"
+      },
+      "input": {"shape": "CreateNotificationChannelRequest"},
+      "output": {"shape": "CreateNotificationChannelResponse"},
+      "documentation": "<p>Creates notification channel in given service.</p>"
+    },
+    "DeleteNotificationChannel": {
+      "name": "DeleteNotificationChannel",
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/services/{serviceId}/notification-channels/{channelId}"
+      },
+      "input": {"shape": "DeleteNotificationChannelRequest"},
+      "output": {"shape": "DeleteNotificationChannelResponse"},
+      "documentation": "<p>Deletes notification channel in given service.</p>"
+    },
+    "ListNotificationChannels": {
+      "name": "ListNotificationChannels",
+      "http": {
+        "method": "GET",
+        "requestUri": "/services/{serviceId}/notification-channels"
+      },
+      "input": {"shape": "ListNotificationChannelsRequest"},
+      "output": {"shape": "ListNotificationChannelsResponse"},
+      "documentation": "<p>Lists notification channels in given service.</p>"
+    },
+    "ModifyNotificationChannel": {
+      "name": "ModifyNotificationChannel",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/services/{serviceId}/notification-channels/{channelId}"
+      },
+      "input": {"shape": "ModifyNotificationChannelRequest"},
+      "output": {"shape": "ModifyNotificationChannelResponse"},
+      "documentation": "<p>Modifies notification channel in given service.</p>"
     }
   },
   "shapes": {
@@ -171,10 +641,97 @@
         "login": {"shape": "String"},
         "name": {"shape": "String"},
         "email": {"shape": "String"},
-        "enabled": {"shape": "Boolean"}
+        "enabled": {"shape": "Boolean"},
+        "lastLoginTime": {"shape": "Integer"},
+        "modifyTime": {"shape": "Integer"},
+        "projectGrants": {"shape": "StringList"}
+      }
+    },
+    "BalancerTarget": {
+      "type": "structure",
+      "members": {
+        "serviceCaption": {"shape": "String"},
+        "serviceType": {"shape": "String"},
+        "protocol": {"shape": "String"},
+        "port": {"shape": "Integer"}
+      }
+    },
+    "BalancerTargets": {
+      "type": "list",
+      "member": {
+        "shape": "BalancerTarget"
       }
     },
     "Boolean": {"type": "boolean"},
+    "CreateDatabaseRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "database"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "database": {"shape": "DatabaseCreateRequest"}
+      }
+    },
+    "CreateDatabaseResponse": {
+      "type": "structure",
+      "members": {
+        "database": {"shape": "DatabaseResponse"}
+      }
+    },
+    "CreateElasticsearchSnapshotRepositoryRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "parameters"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "parameters": {"shape": "None"}
+      }
+    },
+    "CreateElasticsearchSnapshotRepositoryResponse": {
+      "type": "structure",
+      "members": {
+        "repository": {"shape": "ElasticsearchSnapshotRepositoryResponse"}
+      }
+    },
+    "CreateKafkaTopicRequest": {
+        "type": "structure",
+        "required": [
+          "serviceId",
+          "name",
+          "parameters"
+        ],
+        "members": {
+          "serviceId": {
+            "shape": "String",
+            "documentation": "<p>The service ID to modify.</p>",
+            "location": "uri",
+            "locationName": "serviceId"
+          },
+          "name": {"shape": "String"},
+          "parameters": {"shape": "None"}
+        }
+    },
+    "CreateKafkaTopicResponse": {
+        "type": "structure",
+        "members": {
+          "kafkaTopic": {
+            "shape": "KafkaTopic",
+            "documentation": "<p>The full description of created kafka topic.</p>"
+          }
+        }
+    },
     "CreateServiceRequest": {
       "type": "structure",
       "required": [
@@ -201,6 +758,8 @@
         "dataVolumeType": {"shape": "String"},
         "dataVolumeSize": {"shape": "Integer"},
         "dataVolumeIops": {"shape": "Integer"},
+        "additionalRoles": {"shape": "StringList"},
+        "instanceQty": {"shape": "Integer"},
         "instanceType": {"shape": "String"},
         "highAvailability": {"shape": "Boolean"},
         "sshKeyName": {"shape": "String"},
@@ -208,7 +767,12 @@
         "userData": {"shape": "String"},
         "userDataContentType": {"shape": "String"},
         "backupSettings": {"shape": "BackupSettingsRequest"},
-        "arbitratorRequired": {"shape": "Boolean"}
+        "arbitratorRequired": {"shape": "Boolean"},
+        "internalBalancerRequired": {"shape": "Boolean"},
+        "externalBalancerRequired": {"shape": "Boolean"},
+        "coordinator": {"shape": "NodeRequest"},
+        "maintenance": {"shape": "MaintenancePeriod"},
+        "tags": {"shape":  "TagList"}
       }
     },
     "CreateServiceResponse": {
@@ -219,6 +783,54 @@
           "documentation": "<p>The full description of the new service.</p>"
         }
       }
+    },
+    "CreateUserRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "user"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "user": {"shape": "UserCreateRequest"}
+      }
+    },
+    "CreateUserResponse": {
+      "type": "structure",
+      "members": {
+        "user": {"shape": "UserResponse"}
+      }
+    },
+    "DatabaseBackup": {
+      "type": "structure",
+      "members": {
+        "name": {"shape": "String"},
+        "size": {"shape": "Integer"},
+        "status": {"shape": "String"},
+        "parameters": {"shape": "None"},
+        "logfile": {"shape": "String"},
+        "location": {"shape": "String"}
+      }
+    },
+    "DatabaseBackupList": {
+      "type": "list",
+      "member": {"shape": "DatabaseBackup"}
+    },
+    "DatabaseCompactResponse": {
+      "type": "structure",
+      "members": {
+        "id": {"shape": "String"},
+        "name": {"shape": "String"},
+        "status": {"shape": "String"}
+      }
+    },
+    "DatabaseCompactResponseList": {
+      "type": "list",
+      "member": {"shape": "DatabaseCompactResponse"}
     },
     "DatabaseCreateRequest": {
       "type": "structure",
@@ -236,6 +848,39 @@
       "type": "list",
       "member": {"shape": "DatabaseCreateRequest"}
     },
+    "DeleteKafkaTopicRequest": {
+        "type": "structure",
+        "required": [
+          "serviceId",
+          "topicId"
+        ],
+        "members": {
+          "serviceId": {
+            "shape": "String",
+            "documentation": "<p>The ID of service.</p>",
+            "location": "uri",
+            "locationName": "serviceId"
+          },
+          "topicId": {
+            "shape": "String",
+            "documentation": "<p>The ID of kafka topic to delete.</p>",
+            "location": "uri",
+            "locationName": "topicId"
+          }
+        }
+    },
+    "DeleteKafkaTopicResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "DatabaseModifyRequest": {
+      "type": "structure",
+      "members": {
+        "backupEnabled": {"shape": "Boolean"},
+        "parameters": {"shape": "None"},
+        "users": {"shape": "UserCreateRequestList"}
+      }
+    },
     "DatabaseResponse": {
       "type": "structure",
       "required": [
@@ -244,6 +889,7 @@
       "members": {
         "id": {"shape": "String"},
         "name": {"shape": "String"},
+        "status": {"shape": "String"},
         "backupEnabled": {"shape": "Boolean"},
         "parameters": {"shape": "None"},
         "users": {"shape": "UserResponseList"}
@@ -252,24 +898,6 @@
     "DatabaseResponseList": {
       "type": "list",
       "member": {"shape": "DatabaseResponse"}
-    },
-    "DatabaseBackup": {
-      "type": "structure",
-      "members": {
-        "backupEnabled": {"shape": "Boolean"},
-        "id": {"shape": "String"},
-        "name": {"shape": "String"},
-        "size": {"shape": "Integer"},
-        "status": {"shape": "String"},
-        "parameters": {"shape": "None"},
-        "logfile": {"shape": "String"},
-        "location": {"shape": "String"},
-        "users": {"shape": "UserResponseList"}
-      }
-    },
-    "DatabaseBackupList": {
-      "type": "list",
-      "member": {"shape": "DatabaseBackup"}
     },
     "DeleteBackupsRequest": {
       "type": "structure",
@@ -290,6 +918,52 @@
       }
     },
     "DeleteBackupsResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "DeleteDatabaseRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "databaseId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "databaseId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "databaseId"
+        }
+      }
+    },
+    "DeleteDatabaseResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "DeleteElasticsearchSnapshotRepositoryRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "repositoryId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "repositoryId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "repositoryId"
+        }
+      }
+    },
+    "DeleteElasticsearchSnapshotRepositoryResponse": {
       "type": "structure",
       "members": {}
     },
@@ -316,6 +990,29 @@
       "type": "structure",
       "members": {}
     },
+    "DeleteUserRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "userId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "userId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "userId"
+        }
+      }
+    },
+    "DeleteUserResponse": {
+      "type": "structure",
+      "members": {}
+    },
     "DescribeBackupRequest": {
       "type": "structure",
       "required": [
@@ -339,6 +1036,31 @@
         }
       }
     },
+    "DescribeDatabaseRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "databaseId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "databaseId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "databaseId"
+        }
+      }
+    },
+    "DescribeDatabaseResponse": {
+      "type": "structure",
+      "members": {
+        "database": {"shape": "DatabaseResponse"}
+      }
+    },
     "DescribeServiceRequest": {
       "type": "structure",
       "required": [
@@ -360,6 +1082,93 @@
           "shape": "Service",
           "documentation": "<p>The full description of the specified service.</p>"
         }
+      }
+    },
+    "DescribeUserRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "userId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "userId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "userId"
+        }
+      }
+    },
+    "DescribeUserResponse": {
+      "type": "structure",
+      "members": {
+        "user": {"shape": "UserResponse"}
+      }
+    },
+    "DisableElasticsearchSnapshotRepositoryRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "repositoryId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "repositoryId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "repositoryId"
+        }
+      }
+    },
+    "DisableElasticsearchSnapshotRepositoryResponse": {
+      "type": "structure",
+      "members": {
+        "repository": {"shape": "ElasticsearchSnapshotRepositoryResponse"}
+      }
+    },
+    "ElasticsearchSnapshotRepositoriesResponseList": {
+      "type": "list",
+      "member": {"shape": "ElasticsearchSnapshotRepositoryResponse"}
+    },
+    "ElasticsearchSnapshotRepositoryResponse": {
+      "type": "structure",
+      "members": {
+        "id": {"shape": "String"},
+        "name": {"shape": "String"},
+        "parameters": {"shape": "None"}
+      }
+    },
+    "EnableElasticsearchSnapshotRepositoryRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "repositoryId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "repositoryId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "repositoryId"
+        }
+      }
+    },
+    "EnableElasticsearchSnapshotRepositoryResponse": {
+      "type": "structure",
+      "members": {
+        "repository": {"shape": "ElasticsearchSnapshotRepositoryResponse"}
       }
     },
     "Instance": {
@@ -391,9 +1200,26 @@
       "member": {"shape": "Instance"}
     },
     "Integer": {"type": "integer"},
+    "KafkaTopic": {
+        "type": "structure",
+        "members": {
+          "id": {"shape": "String"},
+          "name": {"shape": "String"},
+          "parameters": {"shape": "None"}
+        }
+    },
+    "KafkaTopicsList": {
+        "type": "list",
+        "member": {"shape": "KafkaTopic"}
+    },
     "ListBackups": {
       "type": "list",
       "member": {"shape": "Backup"}
+    },
+    "MaxItems": {
+      "type": "integer",
+      "max": 1000,
+      "min": 1
     },
     "ListBackupsRequest": {
       "type": "structure",
@@ -409,6 +1235,14 @@
         "serviceId": {
           "shape": "String",
           "documentation": "<p>The service ID filter.</p>"
+        },
+        "maxResults": {
+          "shape": "MaxItems",
+          "documentation": "<p>The maximum number of identity provider configurations returned by <code>ListBackups</code> in paginated output. When you use this parameter, <code>ListBackups</code> returns only <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListBackups</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If you don't use this parameter, <code>ListBackups</code> returns all results.</p>"
+        },
+        "nextToken": {
+          "shape": "String",
+          "documentation": "<p>The <code>nextToken</code> value returned from a previous paginated <code>ListBackups</code> where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.</p>"
         }
       }
     },
@@ -418,6 +1252,10 @@
         "backups": {
           "shape": "ListBackups",
           "documentation": "<p>A list of all backups for the account in the specified Region.</p>"
+        },
+        "nextToken": {
+          "shape": "String",
+          "documentation": "<p>The <code>nextToken</code> value returned from a previous paginated <code>ListBackups</code> where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.</p>"
         }
       }
     },
@@ -440,6 +1278,86 @@
         }
       }
     },
+    "ListDatabasesRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        }
+      }
+    },
+    "ListDatabasesResponse": {
+      "type": "structure",
+      "members": {
+        "databases": {"shape": "DatabaseCompactResponseList"}
+      }
+    },
+    "ListElasticsearchServicesSuitableForRecoveryRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        }
+      }
+    },
+    "ListElasticsearchSnapshotRepositoriesRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        }
+      }
+    },
+    "ListElasticsearchServicesSuitableForRecoveryResponse": {
+      "type": "structure",
+      "members": {
+        "services": {"shape": "ListServices"}
+      }
+    },
+    "ListElasticsearchSnapshotRepositoriesResponse": {
+      "type": "structure",
+      "members": {
+        "repositories": {"shape": "ElasticsearchSnapshotRepositoriesResponseList"}
+      }
+    },
+    "ListKafkaTopicsRequest": {
+        "type": "structure",
+        "required": [
+          "serviceId"
+        ],
+        "members": {
+          "serviceId": {
+            "shape": "String",
+            "documentation": "<p>The ID of service.</p>",
+            "location": "uri",
+            "locationName": "serviceId"
+          }
+        }
+    },
+    "ListKafkaTopicsResponse": {
+        "type": "structure",
+        "members": {
+          "kafkaTopics": {
+            "shape": "KafkaTopicsList",
+            "documentation": "<p>A list of kafka topics, available for service.</p>"
+          }
+        }
+    },
     "ListServiceItem": {
       "type": "structure",
       "members": {
@@ -451,8 +1369,13 @@
         "serviceTypeCaption": {"shape": "String"},
         "version": {"shape": "String"},
         "errorCode": {"shape": "String"},
+        "errorRecoverable": {"shape": "Boolean"},
         "totalCpuCount": {"shape": "Integer"},
-        "totalMemory": {"shape": "Integer"}
+        "totalMemory": {"shape": "Integer"},
+        "vpcId": {"shape": "String"},
+        "environmentVersion": {"shape":  "String"},
+        "supportedFeatures": {"shape": "StringList"},
+        "tags": {"shape":  "TagList"}
       }
     },
     "ListServices": {
@@ -481,6 +1404,71 @@
         }
       }
     },
+    "ListUsersRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        }
+      }
+    },
+    "ListUsersResponse": {
+      "type": "structure",
+      "members": {
+        "users": {"shape": "UserCompactResponseList"}
+      }
+    },
+    "LoadBalancerTargetGroup": {
+      "type": "structure",
+      "members": {
+        "arn": {"shape": "String"},
+        "port": {"shape": "Integer"},
+        "protocol": {"shape": "String"},
+        "targetType": {"shape": "String"}
+      }
+    },
+    "LoadBalancerListener": {
+      "type": "structure",
+      "members": {
+        "arn": {"shape": "String"},
+        "port": {"shape": "Integer"},
+        "protocol": {"shape": "String"}
+      }
+    },
+    "targetGroupsList": {
+      "type": "list",
+      "member": {"shape": "LoadBalancerTargetGroup"}
+    },
+    "listenersList": {
+      "type": "list",
+      "member": {"shape": "LoadBalancerListener"}
+    },
+    "LoadBalancer": {
+      "type": "structure",
+      "members": {
+        "balancerId": {"shape": "String"},
+        "dnsName": {"shape": "String"},
+        "balancerName": {"shape": "String"},
+        "targetGroups": {"shape": "targetGroupsList"},
+        "listeners": {"shape": "listenersList"}
+      }
+    },
+    "LoadBalancerList": {
+      "type": "list",
+      "member": {"shape": "LoadBalancer"}
+    },
+    "LoadBalancers": {
+      "type": "structure",
+      "members": {
+        "internalBalancers": {"shape": "LoadBalancerList"},
+        "externalBalancers": {"shape": "LoadBalancerList"}
+      }
+    },
     "ModifyBackupRequest": {
       "type": "structure",
       "required": [
@@ -505,6 +1493,179 @@
         "backup": {
           "shape": "Backup",
           "documentation": "<p>The full description of the specified backup.</p>"
+        }
+      }
+    },
+    "ModifyDatabaseRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "databaseId",
+        "database"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "databaseId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "databaseId"
+        },
+        "database": {"shape": "DatabaseModifyRequest"}
+      }
+    },
+    "ModifyDatabaseResponse": {
+      "type": "structure",
+      "members": {
+        "database": {"shape": "DatabaseResponse"}
+      }
+    },
+    "ModifyEnvironmentRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "environmentVersion": {
+          "shape": "String"
+        }
+      }
+    },
+    "ModifyEnvironmentResponse": {
+      "type": "structure",
+      "members": {
+        "service": {
+          "shape": "Service",
+          "documentation": "<p>The full description of your modified service.</p>"
+        }
+      }
+    },
+    "ModifyKafkaTopicRequest": {
+        "type": "structure",
+        "required": [
+          "serviceId",
+          "topicId",
+          "parameters"
+        ],
+        "members": {
+          "serviceId": {
+            "shape": "String",
+            "documentation": "<p>The ID of service to modify.</p>",
+            "location": "uri",
+            "locationName": "serviceId"
+          },
+          "topicId": {
+            "shape": "String",
+            "documentation": "<p>The ID of kafka topic to modify.</p>",
+            "location": "uri",
+            "locationName": "topicId"
+          },
+          "parameters": {"shape": "None"}
+        }
+    },
+    "ModifyKafkaTopicResponse": {
+        "type": "structure",
+        "members": {
+          "kafkaTopic": {
+            "shape": "KafkaTopic",
+            "documentation": "<p>The full description of modified kafka topic.</p>"
+          }
+        }
+    },
+    "ModifyInstanceVolumeSizeRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "size"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "size": {
+          "shape": "Integer",
+          "documentation": "<p>The size of the virtual disk, GiB.</p>"
+        }
+      }
+    },
+    "ModifyInstanceVolumeSizeResponse": {
+      "type": "structure",
+      "members": {
+        "service": {
+          "shape": "Service",
+          "documentation": "<p>The full description of your modified service.</p>"
+        }
+      }
+    },
+    "ModifyInstanceVolumeIopsRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "iops"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "iops": {
+          "shape": "Integer",
+          "documentation": "<p>The number of I/O operations per second.</p>"
+        }
+      }
+    },
+    "ModifyInstanceVolumeIopsResponse": {
+      "type": "structure",
+      "members": {
+        "service": {
+          "shape": "Service",
+          "documentation": "<p>The full description of your modified service.</p>"
+        }
+      }
+    },
+    "ModifyInstanceTypeRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "instanceType",
+        "nodeRole"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "instanceType": {
+          "shape": "String",
+          "documentation": "<p>The name of the new instance type.</p>"
+        },
+        "nodeRole": {
+          "shape": "String",
+          "documentation": "<p>The name of the node role to be changed.</p>"
+        }
+      }
+    },
+    "ModifyInstanceTypeResponse": {
+      "type": "structure",
+      "members": {
+        "service": {
+          "shape": "Service",
+          "documentation": "<p>The full description of your modified service.</p>"
         }
       }
     },
@@ -559,7 +1720,145 @@
         }
       }
     },
+    "PatchServiceParametersRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "parameters"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The service ID to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "parameters": {"shape": "None"}
+      }
+    },
+    "PatchServiceParametersResponse": {
+      "type": "structure",
+      "members": {
+        "service": {
+          "shape": "Service",
+          "documentation": "<p>The full description of your modified service.</p>"
+        }
+      }
+    },
+    "ModifyUserRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "userId",
+        "user"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "userId": {
+          "shape": "String",
+          "location": "uri",
+          "locationName": "userId"
+        },
+        "user": {"shape": "UserModifyRequest"}
+      }
+    },
+    "ModifyUserResponse": {
+      "type": "structure",
+      "members": {
+        "user": {"shape": "UserResponse"}
+      }
+    },
+    "ModifyLoadBalancersRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>ID of the service to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "internalBalancerRequired": {"shape": "Boolean"},
+        "externalBalancerRequired": {"shape": "Boolean"}
+      }
+    },
+    "ModifyLoadBalancersResponse": {
+      "type": "structure",
+      "members": {
+        "internalBalancerRequired": {"shape": "Boolean"},
+        "externalBalancerRequired": {"shape": "Boolean"}
+      }
+    },
+    "Node": {
+        "type": "structure",
+        "members": {
+            "role": {"shape": "String"},
+            "isMain": {"shape": "Boolean"},
+            "instanceType": {"shape": "String"},
+            "nodeQty": {"shape": "Integer"},
+            "rootVolumeType": {"shape": "String"},
+            "rootVolumeSize": {"shape": "Integer"},
+            "rootVolumeIops": {"shape": "Integer"},
+            "dataVolumeType": {"shape": "String"},
+            "dataVolumeSize": {"shape": "Integer"},
+            "dataVolumeIops": {"shape": "Integer"}
+        }
+    },
+    "Nodes": {
+        "type": "structure",
+        "members": {
+            "main": {"shape": "Node"},
+            "arbitrator": {"shape": "Node"},
+            "coordinator": {"shape": "Node"}
+        }
+    },
+    "NodeRequest": {
+        "type": "structure",
+        "required": [
+            "instanceType",
+            "rootVolumeType",
+            "rootVolumeSize"
+        ],
+        "members": {
+            "instanceType": {"shape": "String"},
+            "rootVolumeType": {"shape": "String"},
+            "rootVolumeSize": {"shape": "Integer"},
+            "rootVolumeIops": {"shape": "Integer"},
+            "dataVolumeType": {"shape": "String"},
+            "dataVolumeSize": {"shape": "Integer"},
+            "dataVolumeIops": {"shape": "Integer"}
+        }
+    },
     "None": {"type": "none"},
+    "RestartServiceResponse": {
+      "type": "structure",
+      "members": {
+        "service": {
+          "shape": "Service",
+          "documentation": "<p>The full description of the specified service.</p>"
+        }
+      }
+    },
+    "RestartServiceRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of the service to restart.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        }
+      }
+    },
     "SecurityGroup": {
       "type": "structure",
       "members": {
@@ -589,6 +1888,8 @@
         "dataVolumeIops": {"shape": "Integer"},
         "instanceType": {"shape": "String"},
         "highAvailability": {"shape": "Boolean"},
+        "instanceQty": {"shape": "Integer"},
+        "nodes": {"shape": "Nodes"},
         "sshKeyName": {"shape": "String"},
         "parameters": {"shape": "None"},
         "users": {"shape": "UserResponseList"},
@@ -596,16 +1897,26 @@
         "status": {"shape": "String"},
         "errorCode": {"shape": "String"},
         "errorDescription": {"shape": "String"},
-        "environmentVersion": {"shape": "String"},
+        "errorRecoverable": {"shape": "Boolean"},
         "endpoints": {"shape": "ServiceEndpoints"},
         "instances": {"shape": "InstanceList"},
         "supportedFeatures": {"shape": "StringList"},
-        "availableEnvironmentVersions": {"shape": "StringList"},
         "backupSettings": {"shape": "BackupSettingsResponse"},
         "totalCpuCount": {"shape": "Integer"},
         "totalMemory": {"shape": "Integer"},
         "vpcId": {"shape": "String"},
-        "isRolledBack": {"shape": "Boolean"}
+        "internalBalancerRequired": {"shape": "Boolean"},
+        "externalBalancerRequired": {"shape": "Boolean"},
+        "internalBalancerAllowed": {"shape": "Boolean"},
+        "externalBalancerAllowed": {"shape": "Boolean"},
+        "internalBalancerTargets": {"shape": "BalancerTargets"},
+        "externalBalancerTargets": {"shape": "BalancerTargets"},
+        "loadBalancers": {"shape": "LoadBalancers"},
+        "environmentVersion": {"shape": "String"},
+        "availableEnvironmentVersions": {"shape": "StringList"},
+        "isRolledBack": {"shape": "Boolean"},
+        "maintenance": {"shape": "MaintenancePreferences"},
+        "tags": {"shape":  "TagList"}
       }
     },
     "ServiceEndpoint": {
@@ -619,12 +1930,166 @@
       "type": "list",
       "member": {"shape": "ServiceEndpoint"}
     },
+    "MaintenancePeriod": {
+      "type": "structure",
+      "members": {
+        "dayOfWeek": {"shape": "String"},
+        "hour": {"shape": "Integer"}
+      }
+    },
+    "MaintenancePreferences": {
+      "type": "structure",
+      "members": {
+        "anytime": {"shape": "Boolean"},
+        "period": {"shape": "MaintenancePeriod"}
+      }
+    },
+    "StartServiceResponse": {
+      "type": "structure",
+      "members": {
+        "service": {
+          "shape": "Service",
+          "documentation": "<p>The full description of the specified service.</p>"
+        }
+      }
+    },
+    "StartServiceRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of the service to start.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        }
+      }
+    },
+    "StopServiceResponse": {
+      "type": "structure",
+      "members": {
+        "service": {
+          "shape": "Service",
+          "documentation": "<p>The full description of the specified service.</p>"
+        }
+      }
+    },
+    "StopServiceRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of the service to stop.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        }
+      }
+    },
     "String": {"type": "string"},
     "StringList": {
       "type": "list",
       "member": {"shape": "String"}
     },
+    "Tag":{
+      "type": "structure",
+      "members":{
+        "Key":{
+          "shape": "String",
+          "documentation": "<p>The key of the tag. </p> <p>Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with <code>aws:</code></p>",
+          "locationName": "key"
+        },
+        "Value":{
+          "shape": "String",
+          "documentation": "<p>The value of the tag.</p> <p>Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.</p>",
+          "locationName": "value"
+        }
+      },
+      "documentation": "<p>Describes a tag.</p>"
+    },
+    "TagKey": {"type": "string"},
+    "TagValue":{
+      "type": "string",
+      "max": 256
+    },
+    "TagList": {
+      "type": "list",
+      "member": {
+        "shape": "Tag",
+        "locationName": "item"
+      }
+    },
+    "TagMap": {
+      "type": "map",
+      "key": {"shape": "TagKey"},
+      "value": {"shape": "TagValue"},
+      "max": 50,
+      "min": 1
+    },
+    "SynchronizeServiceStatusResponse": {
+      "type": "structure",
+      "members": {
+        "service": {
+          "shape": "Service",
+          "documentation": "<p>The full description of the specified service.</p>"
+        }
+      }
+    },
+    "SynchronizeServiceStatusRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of the service to synchronize its status.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        }
+      }
+    },
+    "ModifyMaintenancePreferencesRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of the service to modify its maintenance preferences.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "anytime": {"shape": "Boolean"},
+        "period": {"shape": "MaintenancePeriod"}
+      }
+    },
+    "ModifyMaintenancePreferencesResponse": {
+      "type": "structure",
+      "members": {
+        "service": {
+          "shape": "Service",
+          "documentation": "<p>The full description of the specified service.</p>"
+        }
+      }
+    },
     "Timestamp": {"type": "timestamp"},
+    "UserCompactResponse": {
+      "type": "structure",
+      "members": {
+        "id": {"shape": "String"},
+        "name": {"shape": "String"}
+      }
+    },
+    "UserCompactResponseList": {
+      "type": "list",
+      "member": {"shape": "UserCompactResponse"}
+    },
     "UserCreateRequest": {
       "type": "structure",
       "required": [
@@ -638,6 +2103,12 @@
     "UserCreateRequestList": {
       "type": "list",
       "member": {"shape": "UserCreateRequest"}
+    },
+    "UserModifyRequest": {
+      "type": "structure",
+      "members": {
+        "parameters": {"shape": "None"}
+      }
     },
     "UserResponse": {
       "type": "structure",
@@ -653,6 +2124,482 @@
     "UserResponseList": {
       "type": "list",
       "member": {"shape": "UserResponse"}
+    },
+    "CreateLogstashPipelineRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "name",
+        "configuration"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The service ID to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "name": {"shape": "String"},
+        "configuration": {"shape": "String"}
+      }
+    },
+    "CreateLogstashPipelineResponse": {
+      "type": "structure",
+      "members": {
+        "logstashPipeline": {
+          "shape": "LogstashPipeline",
+          "documentation": "<p>The full description of created logstash pipeline.</p>"
+        }
+      }
+    },
+    "DeleteLogstashPipelineRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "pipelineId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "pipelineId": {
+          "shape": "String",
+          "documentation": "<p>The ID of pipeline to delete.</p>",
+          "location": "uri",
+          "locationName": "pipelineId"
+        }
+      }
+    },
+    "DeleteLogstashPipelineResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "ListLogstashPipelinesRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        }
+      }
+    },
+    "ListLogstashPipelinesResponse": {
+      "type": "structure",
+      "members": {
+        "logstashPipelines": {
+          "shape": "LogstashPipelineList",
+          "documentation": "<p>A list of logstash pipelines, available for service.</p>"
+        }
+      }
+    },
+    "LogstashPipeline": {
+      "type": "structure",
+      "members": {
+        "id": {"shape": "String"},
+        "name": {"shape": "String"},
+        "configuration": {"shape": "String"}
+      }
+    },
+    "LogstashPipelineList": {
+      "type": "list",
+      "member": {"shape": "LogstashPipeline"}
+    },
+    "ModifyLogstashPipelineRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "pipelineId",
+        "configuration"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "pipelineId": {
+          "shape": "String",
+          "documentation": "<p>The ID of pipeline to modify.</p>",
+          "location": "uri",
+          "locationName": "pipelineId"
+        },
+        "configuration": {"shape": "String"}
+      }
+    },
+    "ModifyLogstashPipelineResponse": {
+      "type": "structure",
+      "members": {
+        "logstashPipeline": {
+          "shape": "LogstashPipeline",
+          "documentation": "<p>The full description of modified logstash pipeline.</p>"
+        }
+      }
+    },
+    "CreatePrometheusRouteRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "name",
+        "parameters"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The service ID to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "name": {"shape": "String"},
+        "parameters": {"shape": "None"}
+      }
+    },
+    "CreatePrometheusRouteResponse": {
+      "type": "structure",
+      "members": {
+        "prometheusRoute": {
+          "shape": "PrometheusRoute",
+          "documentation": "<p>The full description of created prometheus route.</p>"
+        }
+      }
+    },
+    "DeletePrometheusRouteRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "routeId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "routeId": {
+          "shape": "String",
+          "documentation": "<p>The ID of route to delete.</p>",
+          "location": "uri",
+          "locationName": "routeId"
+        }
+      }
+    },
+    "DeletePrometheusRouteResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "ListPrometheusRoutesRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        }
+      }
+    },
+    "ListPrometheusRoutesResponse": {
+      "type": "structure",
+      "members": {
+        "prometheusRoutes": {
+          "shape": "PrometheusRouteList",
+          "documentation": "<p>A list of Prometheus routes, available for service.</p>"
+        }
+      }
+    },
+    "PrometheusRoute": {
+      "type": "structure",
+      "members": {
+        "id": {"shape": "String"},
+        "name": {"shape": "String"},
+        "parameters": {"shape": "None"}
+      }
+    },
+    "PrometheusRouteList": {
+      "type": "list",
+      "member": {"shape": "PrometheusRoute"}
+    },
+    "ModifyPrometheusRouteRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "routeId",
+        "parameters"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "routeId": {
+          "shape": "String",
+          "documentation": "<p>The ID of route to modify.</p>",
+          "location": "uri",
+          "locationName": "routeId"
+        },
+        "parameters": {"shape": "None"}
+      }
+    },
+    "ModifyPrometheusRouteResponse": {
+      "type": "structure",
+      "members": {
+        "prometheusRoute": {
+          "shape": "PrometheusRoute",
+          "documentation": "<p>The full description of modified Prometheus route.</p>"
+        }
+      }
+    },
+    "CreatePrometheusScrapeJobRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "name",
+        "parameters"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The service ID to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "name": {"shape": "String"},
+        "parameters": {"shape": "None"}
+      }
+    },
+    "CreatePrometheusScrapeJobResponse": {
+      "type": "structure",
+      "members": {
+        "prometheusScrapeJob": {
+          "shape": "PrometheusScrapeJob",
+          "documentation": "<p>The full description of created prometheus job.</p>"
+        }
+      }
+    },
+    "DeletePrometheusScrapeJobRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "jobId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "jobId": {
+          "shape": "String",
+          "documentation": "<p>The ID of job to delete.</p>",
+          "location": "uri",
+          "locationName": "jobId"
+        }
+      }
+    },
+    "DeletePrometheusScrapeJobResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "ListPrometheusScrapeJobsRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        }
+      }
+    },
+    "ListPrometheusScrapeJobsResponse": {
+      "type": "structure",
+      "members": {
+        "prometheusScrapeJobs": {
+          "shape": "PrometheusScrapeJobList",
+          "documentation": "<p>A list of Prometheus jobs, available for service.</p>"
+        }
+      }
+    },
+    "PrometheusScrapeJob": {
+      "type": "structure",
+      "members": {
+        "id": {"shape": "String"},
+        "name": {"shape": "String"},
+        "parameters": {"shape": "None"}
+      }
+    },
+    "PrometheusScrapeJobList": {
+      "type": "list",
+      "member": {"shape": "PrometheusScrapeJob"}
+    },
+    "ModifyPrometheusScrapeJobRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "jobId",
+        "parameters"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "jobId": {
+          "shape": "String",
+          "documentation": "<p>The ID of job to modify.</p>",
+          "location": "uri",
+          "locationName": "jobId"
+        },
+        "parameters": {"shape": "None"}
+      }
+    },
+    "ModifyPrometheusScrapeJobResponse": {
+      "type": "structure",
+      "members": {
+        "prometheusScrapeJob": {
+          "shape": "PrometheusScrapeJob",
+          "documentation": "<p>The full description of modified Prometheus job.</p>"
+        }
+      }
+    },
+    "CreateNotificationChannelRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "name",
+        "parameters"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The service ID to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "name": {"shape": "String"},
+        "parameters": {"shape": "None"}
+      }
+    },
+    "CreateNotificationChannelResponse": {
+      "type": "structure",
+      "members": {
+        "notificationChannel": {
+          "shape": "NotificationChannel",
+          "documentation": "<p>The full description of created notification channel.</p>"
+        }
+      }
+    },
+    "DeleteNotificationChannelRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "channelId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "channelId": {
+          "shape": "String",
+          "documentation": "<p>The ID of channel to delete.</p>",
+          "location": "uri",
+          "locationName": "channelId"
+        }
+      }
+    },
+    "DeleteNotificationChannelResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "ListNotificationChannelsRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        }
+      }
+    },
+    "ListNotificationChannelsResponse": {
+      "type": "structure",
+      "members": {
+        "notificationChannels": {
+          "shape": "NotificationChannelList",
+          "documentation": "<p>A list of notification channels, available for service.</p>"
+        }
+      }
+    },
+    "NotificationChannel": {
+      "type": "structure",
+      "members": {
+        "id": {"shape": "String"},
+        "name": {"shape": "String"},
+        "parameters": {"shape": "None"}
+      }
+    },
+    "NotificationChannelList": {
+      "type": "list",
+      "member": {"shape": "NotificationChannel"}
+    },
+    "ModifyNotificationChannelRequest": {
+      "type": "structure",
+      "required": [
+        "serviceId",
+        "channelId",
+        "parameters"
+      ],
+      "members": {
+        "serviceId": {
+          "shape": "String",
+          "documentation": "<p>The ID of service to modify.</p>",
+          "location": "uri",
+          "locationName": "serviceId"
+        },
+        "channelId": {
+          "shape": "String",
+          "documentation": "<p>The ID of channel to modify.</p>",
+          "location": "uri",
+          "locationName": "channelId"
+        },
+        "parameters": {"shape": "None"}
+      }
+    },
+    "ModifyNotificationChannelResponse": {
+      "type": "structure",
+      "members": {
+        "notificationChannel": {
+          "shape": "NotificationChannel",
+          "documentation": "<p>The full description of modified notification channel.</p>"
+        }
+      }
     }
   }
 }

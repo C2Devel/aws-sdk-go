@@ -12,6 +12,503 @@ import (
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
 )
 
+const opCreateDatabase = "CreateDatabase"
+
+// CreateDatabaseRequest generates a "aws/request.Request" representing the
+// client's request for the CreateDatabase operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateDatabase for more information on using the CreateDatabase
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateDatabaseRequest method.
+//	req, resp := client.CreateDatabaseRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreateDatabase
+func (c *PaaS) CreateDatabaseRequest(input *CreateDatabaseInput) (req *request.Request, output *CreateDatabaseOutput) {
+	op := &request.Operation{
+		Name:       opCreateDatabase,
+		HTTPMethod: "POST",
+		HTTPPath:   "/services/{serviceId}/databases",
+	}
+
+	if input == nil {
+		input = &CreateDatabaseInput{}
+	}
+
+	output = &CreateDatabaseOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateDatabase API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation CreateDatabase for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreateDatabase
+func (c *PaaS) CreateDatabase(input *CreateDatabaseInput) (*CreateDatabaseOutput, error) {
+	req, out := c.CreateDatabaseRequest(input)
+	return out, req.Send()
+}
+
+// CreateDatabaseWithContext is the same as CreateDatabase with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateDatabase for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) CreateDatabaseWithContext(ctx aws.Context, input *CreateDatabaseInput, opts ...request.Option) (*CreateDatabaseOutput, error) {
+	req, out := c.CreateDatabaseRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateElasticsearchSnapshotRepository = "CreateElasticsearchSnapshotRepository"
+
+// CreateElasticsearchSnapshotRepositoryRequest generates a "aws/request.Request" representing the
+// client's request for the CreateElasticsearchSnapshotRepository operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateElasticsearchSnapshotRepository for more information on using the CreateElasticsearchSnapshotRepository
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateElasticsearchSnapshotRepositoryRequest method.
+//	req, resp := client.CreateElasticsearchSnapshotRepositoryRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreateElasticsearchSnapshotRepository
+func (c *PaaS) CreateElasticsearchSnapshotRepositoryRequest(input *CreateElasticsearchSnapshotRepositoryInput) (req *request.Request, output *CreateElasticsearchSnapshotRepositoryOutput) {
+	op := &request.Operation{
+		Name:       opCreateElasticsearchSnapshotRepository,
+		HTTPMethod: "POST",
+		HTTPPath:   "/services/{serviceId}/elasticsearch-snapshot-repositories",
+	}
+
+	if input == nil {
+		input = &CreateElasticsearchSnapshotRepositoryInput{}
+	}
+
+	output = &CreateElasticsearchSnapshotRepositoryOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateElasticsearchSnapshotRepository API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation CreateElasticsearchSnapshotRepository for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreateElasticsearchSnapshotRepository
+func (c *PaaS) CreateElasticsearchSnapshotRepository(input *CreateElasticsearchSnapshotRepositoryInput) (*CreateElasticsearchSnapshotRepositoryOutput, error) {
+	req, out := c.CreateElasticsearchSnapshotRepositoryRequest(input)
+	return out, req.Send()
+}
+
+// CreateElasticsearchSnapshotRepositoryWithContext is the same as CreateElasticsearchSnapshotRepository with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateElasticsearchSnapshotRepository for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) CreateElasticsearchSnapshotRepositoryWithContext(ctx aws.Context, input *CreateElasticsearchSnapshotRepositoryInput, opts ...request.Option) (*CreateElasticsearchSnapshotRepositoryOutput, error) {
+	req, out := c.CreateElasticsearchSnapshotRepositoryRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateKafkaTopic = "CreateKafkaTopic"
+
+// CreateKafkaTopicRequest generates a "aws/request.Request" representing the
+// client's request for the CreateKafkaTopic operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateKafkaTopic for more information on using the CreateKafkaTopic
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateKafkaTopicRequest method.
+//	req, resp := client.CreateKafkaTopicRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreateKafkaTopic
+func (c *PaaS) CreateKafkaTopicRequest(input *CreateKafkaTopicInput) (req *request.Request, output *CreateKafkaTopicOutput) {
+	op := &request.Operation{
+		Name:       opCreateKafkaTopic,
+		HTTPMethod: "POST",
+		HTTPPath:   "/services/{serviceId}/kafka-topics",
+	}
+
+	if input == nil {
+		input = &CreateKafkaTopicInput{}
+	}
+
+	output = &CreateKafkaTopicOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateKafkaTopic API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation CreateKafkaTopic for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreateKafkaTopic
+func (c *PaaS) CreateKafkaTopic(input *CreateKafkaTopicInput) (*CreateKafkaTopicOutput, error) {
+	req, out := c.CreateKafkaTopicRequest(input)
+	return out, req.Send()
+}
+
+// CreateKafkaTopicWithContext is the same as CreateKafkaTopic with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateKafkaTopic for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) CreateKafkaTopicWithContext(ctx aws.Context, input *CreateKafkaTopicInput, opts ...request.Option) (*CreateKafkaTopicOutput, error) {
+	req, out := c.CreateKafkaTopicRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateLogstashPipeline = "CreateLogstashPipeline"
+
+// CreateLogstashPipelineRequest generates a "aws/request.Request" representing the
+// client's request for the CreateLogstashPipeline operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateLogstashPipeline for more information on using the CreateLogstashPipeline
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateLogstashPipelineRequest method.
+//	req, resp := client.CreateLogstashPipelineRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreateLogstashPipeline
+func (c *PaaS) CreateLogstashPipelineRequest(input *CreateLogstashPipelineInput) (req *request.Request, output *CreateLogstashPipelineOutput) {
+	op := &request.Operation{
+		Name:       opCreateLogstashPipeline,
+		HTTPMethod: "POST",
+		HTTPPath:   "/services/{serviceId}/logstash-pipelines",
+	}
+
+	if input == nil {
+		input = &CreateLogstashPipelineInput{}
+	}
+
+	output = &CreateLogstashPipelineOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateLogstashPipeline API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation CreateLogstashPipeline for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreateLogstashPipeline
+func (c *PaaS) CreateLogstashPipeline(input *CreateLogstashPipelineInput) (*CreateLogstashPipelineOutput, error) {
+	req, out := c.CreateLogstashPipelineRequest(input)
+	return out, req.Send()
+}
+
+// CreateLogstashPipelineWithContext is the same as CreateLogstashPipeline with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateLogstashPipeline for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) CreateLogstashPipelineWithContext(ctx aws.Context, input *CreateLogstashPipelineInput, opts ...request.Option) (*CreateLogstashPipelineOutput, error) {
+	req, out := c.CreateLogstashPipelineRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateNotificationChannel = "CreateNotificationChannel"
+
+// CreateNotificationChannelRequest generates a "aws/request.Request" representing the
+// client's request for the CreateNotificationChannel operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateNotificationChannel for more information on using the CreateNotificationChannel
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateNotificationChannelRequest method.
+//	req, resp := client.CreateNotificationChannelRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreateNotificationChannel
+func (c *PaaS) CreateNotificationChannelRequest(input *CreateNotificationChannelInput) (req *request.Request, output *CreateNotificationChannelOutput) {
+	op := &request.Operation{
+		Name:       opCreateNotificationChannel,
+		HTTPMethod: "POST",
+		HTTPPath:   "/services/{serviceId}/notification-channels",
+	}
+
+	if input == nil {
+		input = &CreateNotificationChannelInput{}
+	}
+
+	output = &CreateNotificationChannelOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateNotificationChannel API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation CreateNotificationChannel for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreateNotificationChannel
+func (c *PaaS) CreateNotificationChannel(input *CreateNotificationChannelInput) (*CreateNotificationChannelOutput, error) {
+	req, out := c.CreateNotificationChannelRequest(input)
+	return out, req.Send()
+}
+
+// CreateNotificationChannelWithContext is the same as CreateNotificationChannel with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateNotificationChannel for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) CreateNotificationChannelWithContext(ctx aws.Context, input *CreateNotificationChannelInput, opts ...request.Option) (*CreateNotificationChannelOutput, error) {
+	req, out := c.CreateNotificationChannelRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreatePrometheusRoute = "CreatePrometheusRoute"
+
+// CreatePrometheusRouteRequest generates a "aws/request.Request" representing the
+// client's request for the CreatePrometheusRoute operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreatePrometheusRoute for more information on using the CreatePrometheusRoute
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreatePrometheusRouteRequest method.
+//	req, resp := client.CreatePrometheusRouteRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreatePrometheusRoute
+func (c *PaaS) CreatePrometheusRouteRequest(input *CreatePrometheusRouteInput) (req *request.Request, output *CreatePrometheusRouteOutput) {
+	op := &request.Operation{
+		Name:       opCreatePrometheusRoute,
+		HTTPMethod: "POST",
+		HTTPPath:   "/services/{serviceId}/prometheus-routes",
+	}
+
+	if input == nil {
+		input = &CreatePrometheusRouteInput{}
+	}
+
+	output = &CreatePrometheusRouteOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreatePrometheusRoute API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation CreatePrometheusRoute for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreatePrometheusRoute
+func (c *PaaS) CreatePrometheusRoute(input *CreatePrometheusRouteInput) (*CreatePrometheusRouteOutput, error) {
+	req, out := c.CreatePrometheusRouteRequest(input)
+	return out, req.Send()
+}
+
+// CreatePrometheusRouteWithContext is the same as CreatePrometheusRoute with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreatePrometheusRoute for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) CreatePrometheusRouteWithContext(ctx aws.Context, input *CreatePrometheusRouteInput, opts ...request.Option) (*CreatePrometheusRouteOutput, error) {
+	req, out := c.CreatePrometheusRouteRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreatePrometheusScrapeJob = "CreatePrometheusScrapeJob"
+
+// CreatePrometheusScrapeJobRequest generates a "aws/request.Request" representing the
+// client's request for the CreatePrometheusScrapeJob operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreatePrometheusScrapeJob for more information on using the CreatePrometheusScrapeJob
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreatePrometheusScrapeJobRequest method.
+//	req, resp := client.CreatePrometheusScrapeJobRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreatePrometheusScrapeJob
+func (c *PaaS) CreatePrometheusScrapeJobRequest(input *CreatePrometheusScrapeJobInput) (req *request.Request, output *CreatePrometheusScrapeJobOutput) {
+	op := &request.Operation{
+		Name:       opCreatePrometheusScrapeJob,
+		HTTPMethod: "POST",
+		HTTPPath:   "/services/{serviceId}/prometheus-scrape-jobs",
+	}
+
+	if input == nil {
+		input = &CreatePrometheusScrapeJobInput{}
+	}
+
+	output = &CreatePrometheusScrapeJobOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreatePrometheusScrapeJob API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation CreatePrometheusScrapeJob for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreatePrometheusScrapeJob
+func (c *PaaS) CreatePrometheusScrapeJob(input *CreatePrometheusScrapeJobInput) (*CreatePrometheusScrapeJobOutput, error) {
+	req, out := c.CreatePrometheusScrapeJobRequest(input)
+	return out, req.Send()
+}
+
+// CreatePrometheusScrapeJobWithContext is the same as CreatePrometheusScrapeJob with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreatePrometheusScrapeJob for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) CreatePrometheusScrapeJobWithContext(ctx aws.Context, input *CreatePrometheusScrapeJobInput, opts ...request.Option) (*CreatePrometheusScrapeJobOutput, error) {
+	req, out := c.CreatePrometheusScrapeJobRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCreateService = "CreateService"
 
 // CreateServiceRequest generates a "aws/request.Request" representing the
@@ -78,6 +575,77 @@ func (c *PaaS) CreateService(input *CreateServiceInput) (*CreateServiceOutput, e
 // for more information on using Contexts.
 func (c *PaaS) CreateServiceWithContext(ctx aws.Context, input *CreateServiceInput, opts ...request.Option) (*CreateServiceOutput, error) {
 	req, out := c.CreateServiceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateUser = "CreateUser"
+
+// CreateUserRequest generates a "aws/request.Request" representing the
+// client's request for the CreateUser operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateUser for more information on using the CreateUser
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateUserRequest method.
+//	req, resp := client.CreateUserRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreateUser
+func (c *PaaS) CreateUserRequest(input *CreateUserInput) (req *request.Request, output *CreateUserOutput) {
+	op := &request.Operation{
+		Name:       opCreateUser,
+		HTTPMethod: "POST",
+		HTTPPath:   "/services/{serviceId}/users",
+	}
+
+	if input == nil {
+		input = &CreateUserInput{}
+	}
+
+	output = &CreateUserOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateUser API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation CreateUser for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/CreateUser
+func (c *PaaS) CreateUser(input *CreateUserInput) (*CreateUserOutput, error) {
+	req, out := c.CreateUserRequest(input)
+	return out, req.Send()
+}
+
+// CreateUserWithContext is the same as CreateUser with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateUser for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) CreateUserWithContext(ctx aws.Context, input *CreateUserInput, opts ...request.Option) (*CreateUserOutput, error) {
+	req, out := c.CreateUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -155,6 +723,510 @@ func (c *PaaS) DeleteBackupsWithContext(ctx aws.Context, input *DeleteBackupsInp
 	return out, req.Send()
 }
 
+const opDeleteDatabase = "DeleteDatabase"
+
+// DeleteDatabaseRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteDatabase operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteDatabase for more information on using the DeleteDatabase
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteDatabaseRequest method.
+//	req, resp := client.DeleteDatabaseRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeleteDatabase
+func (c *PaaS) DeleteDatabaseRequest(input *DeleteDatabaseInput) (req *request.Request, output *DeleteDatabaseOutput) {
+	op := &request.Operation{
+		Name:       opDeleteDatabase,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/services/{serviceId}/databases/{databaseId}",
+	}
+
+	if input == nil {
+		input = &DeleteDatabaseInput{}
+	}
+
+	output = &DeleteDatabaseOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteDatabase API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation DeleteDatabase for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeleteDatabase
+func (c *PaaS) DeleteDatabase(input *DeleteDatabaseInput) (*DeleteDatabaseOutput, error) {
+	req, out := c.DeleteDatabaseRequest(input)
+	return out, req.Send()
+}
+
+// DeleteDatabaseWithContext is the same as DeleteDatabase with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteDatabase for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) DeleteDatabaseWithContext(ctx aws.Context, input *DeleteDatabaseInput, opts ...request.Option) (*DeleteDatabaseOutput, error) {
+	req, out := c.DeleteDatabaseRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteElasticsearchSnapshotRepository = "DeleteElasticsearchSnapshotRepository"
+
+// DeleteElasticsearchSnapshotRepositoryRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteElasticsearchSnapshotRepository operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteElasticsearchSnapshotRepository for more information on using the DeleteElasticsearchSnapshotRepository
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteElasticsearchSnapshotRepositoryRequest method.
+//	req, resp := client.DeleteElasticsearchSnapshotRepositoryRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeleteElasticsearchSnapshotRepository
+func (c *PaaS) DeleteElasticsearchSnapshotRepositoryRequest(input *DeleteElasticsearchSnapshotRepositoryInput) (req *request.Request, output *DeleteElasticsearchSnapshotRepositoryOutput) {
+	op := &request.Operation{
+		Name:       opDeleteElasticsearchSnapshotRepository,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/services/{serviceId}/elasticsearch-snapshot-repositories/{repositoryId}",
+	}
+
+	if input == nil {
+		input = &DeleteElasticsearchSnapshotRepositoryInput{}
+	}
+
+	output = &DeleteElasticsearchSnapshotRepositoryOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteElasticsearchSnapshotRepository API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation DeleteElasticsearchSnapshotRepository for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeleteElasticsearchSnapshotRepository
+func (c *PaaS) DeleteElasticsearchSnapshotRepository(input *DeleteElasticsearchSnapshotRepositoryInput) (*DeleteElasticsearchSnapshotRepositoryOutput, error) {
+	req, out := c.DeleteElasticsearchSnapshotRepositoryRequest(input)
+	return out, req.Send()
+}
+
+// DeleteElasticsearchSnapshotRepositoryWithContext is the same as DeleteElasticsearchSnapshotRepository with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteElasticsearchSnapshotRepository for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) DeleteElasticsearchSnapshotRepositoryWithContext(ctx aws.Context, input *DeleteElasticsearchSnapshotRepositoryInput, opts ...request.Option) (*DeleteElasticsearchSnapshotRepositoryOutput, error) {
+	req, out := c.DeleteElasticsearchSnapshotRepositoryRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteKafkaTopic = "DeleteKafkaTopic"
+
+// DeleteKafkaTopicRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteKafkaTopic operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteKafkaTopic for more information on using the DeleteKafkaTopic
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteKafkaTopicRequest method.
+//	req, resp := client.DeleteKafkaTopicRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeleteKafkaTopic
+func (c *PaaS) DeleteKafkaTopicRequest(input *DeleteKafkaTopicInput) (req *request.Request, output *DeleteKafkaTopicOutput) {
+	op := &request.Operation{
+		Name:       opDeleteKafkaTopic,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/services/{serviceId}/kafka-topics/{topicId}",
+	}
+
+	if input == nil {
+		input = &DeleteKafkaTopicInput{}
+	}
+
+	output = &DeleteKafkaTopicOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteKafkaTopic API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation DeleteKafkaTopic for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeleteKafkaTopic
+func (c *PaaS) DeleteKafkaTopic(input *DeleteKafkaTopicInput) (*DeleteKafkaTopicOutput, error) {
+	req, out := c.DeleteKafkaTopicRequest(input)
+	return out, req.Send()
+}
+
+// DeleteKafkaTopicWithContext is the same as DeleteKafkaTopic with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteKafkaTopic for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) DeleteKafkaTopicWithContext(ctx aws.Context, input *DeleteKafkaTopicInput, opts ...request.Option) (*DeleteKafkaTopicOutput, error) {
+	req, out := c.DeleteKafkaTopicRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteLogstashPipeline = "DeleteLogstashPipeline"
+
+// DeleteLogstashPipelineRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteLogstashPipeline operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteLogstashPipeline for more information on using the DeleteLogstashPipeline
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteLogstashPipelineRequest method.
+//	req, resp := client.DeleteLogstashPipelineRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeleteLogstashPipeline
+func (c *PaaS) DeleteLogstashPipelineRequest(input *DeleteLogstashPipelineInput) (req *request.Request, output *DeleteLogstashPipelineOutput) {
+	op := &request.Operation{
+		Name:       opDeleteLogstashPipeline,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/services/{serviceId}/logstash-pipelines/{pipelineId}",
+	}
+
+	if input == nil {
+		input = &DeleteLogstashPipelineInput{}
+	}
+
+	output = &DeleteLogstashPipelineOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteLogstashPipeline API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation DeleteLogstashPipeline for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeleteLogstashPipeline
+func (c *PaaS) DeleteLogstashPipeline(input *DeleteLogstashPipelineInput) (*DeleteLogstashPipelineOutput, error) {
+	req, out := c.DeleteLogstashPipelineRequest(input)
+	return out, req.Send()
+}
+
+// DeleteLogstashPipelineWithContext is the same as DeleteLogstashPipeline with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteLogstashPipeline for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) DeleteLogstashPipelineWithContext(ctx aws.Context, input *DeleteLogstashPipelineInput, opts ...request.Option) (*DeleteLogstashPipelineOutput, error) {
+	req, out := c.DeleteLogstashPipelineRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteNotificationChannel = "DeleteNotificationChannel"
+
+// DeleteNotificationChannelRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteNotificationChannel operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteNotificationChannel for more information on using the DeleteNotificationChannel
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteNotificationChannelRequest method.
+//	req, resp := client.DeleteNotificationChannelRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeleteNotificationChannel
+func (c *PaaS) DeleteNotificationChannelRequest(input *DeleteNotificationChannelInput) (req *request.Request, output *DeleteNotificationChannelOutput) {
+	op := &request.Operation{
+		Name:       opDeleteNotificationChannel,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/services/{serviceId}/notification-channels/{channelId}",
+	}
+
+	if input == nil {
+		input = &DeleteNotificationChannelInput{}
+	}
+
+	output = &DeleteNotificationChannelOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteNotificationChannel API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation DeleteNotificationChannel for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeleteNotificationChannel
+func (c *PaaS) DeleteNotificationChannel(input *DeleteNotificationChannelInput) (*DeleteNotificationChannelOutput, error) {
+	req, out := c.DeleteNotificationChannelRequest(input)
+	return out, req.Send()
+}
+
+// DeleteNotificationChannelWithContext is the same as DeleteNotificationChannel with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteNotificationChannel for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) DeleteNotificationChannelWithContext(ctx aws.Context, input *DeleteNotificationChannelInput, opts ...request.Option) (*DeleteNotificationChannelOutput, error) {
+	req, out := c.DeleteNotificationChannelRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeletePrometheusRoute = "DeletePrometheusRoute"
+
+// DeletePrometheusRouteRequest generates a "aws/request.Request" representing the
+// client's request for the DeletePrometheusRoute operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeletePrometheusRoute for more information on using the DeletePrometheusRoute
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeletePrometheusRouteRequest method.
+//	req, resp := client.DeletePrometheusRouteRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeletePrometheusRoute
+func (c *PaaS) DeletePrometheusRouteRequest(input *DeletePrometheusRouteInput) (req *request.Request, output *DeletePrometheusRouteOutput) {
+	op := &request.Operation{
+		Name:       opDeletePrometheusRoute,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/services/{serviceId}/prometheus-routes/{routeId}",
+	}
+
+	if input == nil {
+		input = &DeletePrometheusRouteInput{}
+	}
+
+	output = &DeletePrometheusRouteOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeletePrometheusRoute API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation DeletePrometheusRoute for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeletePrometheusRoute
+func (c *PaaS) DeletePrometheusRoute(input *DeletePrometheusRouteInput) (*DeletePrometheusRouteOutput, error) {
+	req, out := c.DeletePrometheusRouteRequest(input)
+	return out, req.Send()
+}
+
+// DeletePrometheusRouteWithContext is the same as DeletePrometheusRoute with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeletePrometheusRoute for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) DeletePrometheusRouteWithContext(ctx aws.Context, input *DeletePrometheusRouteInput, opts ...request.Option) (*DeletePrometheusRouteOutput, error) {
+	req, out := c.DeletePrometheusRouteRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeletePrometheusScrapeJob = "DeletePrometheusScrapeJob"
+
+// DeletePrometheusScrapeJobRequest generates a "aws/request.Request" representing the
+// client's request for the DeletePrometheusScrapeJob operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeletePrometheusScrapeJob for more information on using the DeletePrometheusScrapeJob
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeletePrometheusScrapeJobRequest method.
+//	req, resp := client.DeletePrometheusScrapeJobRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeletePrometheusScrapeJob
+func (c *PaaS) DeletePrometheusScrapeJobRequest(input *DeletePrometheusScrapeJobInput) (req *request.Request, output *DeletePrometheusScrapeJobOutput) {
+	op := &request.Operation{
+		Name:       opDeletePrometheusScrapeJob,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/services/{serviceId}/prometheus-scrape-jobs/{jobId}",
+	}
+
+	if input == nil {
+		input = &DeletePrometheusScrapeJobInput{}
+	}
+
+	output = &DeletePrometheusScrapeJobOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeletePrometheusScrapeJob API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation DeletePrometheusScrapeJob for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeletePrometheusScrapeJob
+func (c *PaaS) DeletePrometheusScrapeJob(input *DeletePrometheusScrapeJobInput) (*DeletePrometheusScrapeJobOutput, error) {
+	req, out := c.DeletePrometheusScrapeJobRequest(input)
+	return out, req.Send()
+}
+
+// DeletePrometheusScrapeJobWithContext is the same as DeletePrometheusScrapeJob with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeletePrometheusScrapeJob for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) DeletePrometheusScrapeJobWithContext(ctx aws.Context, input *DeletePrometheusScrapeJobInput, opts ...request.Option) (*DeletePrometheusScrapeJobOutput, error) {
+	req, out := c.DeletePrometheusScrapeJobRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteService = "DeleteService"
 
 // DeleteServiceRequest generates a "aws/request.Request" representing the
@@ -222,6 +1294,78 @@ func (c *PaaS) DeleteService(input *DeleteServiceInput) (*DeleteServiceOutput, e
 // for more information on using Contexts.
 func (c *PaaS) DeleteServiceWithContext(ctx aws.Context, input *DeleteServiceInput, opts ...request.Option) (*DeleteServiceOutput, error) {
 	req, out := c.DeleteServiceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteUser = "DeleteUser"
+
+// DeleteUserRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteUser operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteUser for more information on using the DeleteUser
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteUserRequest method.
+//	req, resp := client.DeleteUserRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeleteUser
+func (c *PaaS) DeleteUserRequest(input *DeleteUserInput) (req *request.Request, output *DeleteUserOutput) {
+	op := &request.Operation{
+		Name:       opDeleteUser,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/services/{serviceId}/users/{userId}",
+	}
+
+	if input == nil {
+		input = &DeleteUserInput{}
+	}
+
+	output = &DeleteUserOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteUser API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation DeleteUser for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DeleteUser
+func (c *PaaS) DeleteUser(input *DeleteUserInput) (*DeleteUserOutput, error) {
+	req, out := c.DeleteUserRequest(input)
+	return out, req.Send()
+}
+
+// DeleteUserWithContext is the same as DeleteUser with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteUser for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) DeleteUserWithContext(ctx aws.Context, input *DeleteUserInput, opts ...request.Option) (*DeleteUserOutput, error) {
+	req, out := c.DeleteUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -298,6 +1442,77 @@ func (c *PaaS) DescribeBackupWithContext(ctx aws.Context, input *DescribeBackupI
 	return out, req.Send()
 }
 
+const opDescribeDatabase = "DescribeDatabase"
+
+// DescribeDatabaseRequest generates a "aws/request.Request" representing the
+// client's request for the DescribeDatabase operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeDatabase for more information on using the DescribeDatabase
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DescribeDatabaseRequest method.
+//	req, resp := client.DescribeDatabaseRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DescribeDatabase
+func (c *PaaS) DescribeDatabaseRequest(input *DescribeDatabaseInput) (req *request.Request, output *DescribeDatabaseOutput) {
+	op := &request.Operation{
+		Name:       opDescribeDatabase,
+		HTTPMethod: "GET",
+		HTTPPath:   "/services/{serviceId}/databases/{databaseId}",
+	}
+
+	if input == nil {
+		input = &DescribeDatabaseInput{}
+	}
+
+	output = &DescribeDatabaseOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DescribeDatabase API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation DescribeDatabase for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DescribeDatabase
+func (c *PaaS) DescribeDatabase(input *DescribeDatabaseInput) (*DescribeDatabaseOutput, error) {
+	req, out := c.DescribeDatabaseRequest(input)
+	return out, req.Send()
+}
+
+// DescribeDatabaseWithContext is the same as DescribeDatabase with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeDatabase for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) DescribeDatabaseWithContext(ctx aws.Context, input *DescribeDatabaseInput, opts ...request.Option) (*DescribeDatabaseOutput, error) {
+	req, out := c.DescribeDatabaseRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDescribeService = "DescribeService"
 
 // DescribeServiceRequest generates a "aws/request.Request" representing the
@@ -364,6 +1579,219 @@ func (c *PaaS) DescribeService(input *DescribeServiceInput) (*DescribeServiceOut
 // for more information on using Contexts.
 func (c *PaaS) DescribeServiceWithContext(ctx aws.Context, input *DescribeServiceInput, opts ...request.Option) (*DescribeServiceOutput, error) {
 	req, out := c.DescribeServiceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeUser = "DescribeUser"
+
+// DescribeUserRequest generates a "aws/request.Request" representing the
+// client's request for the DescribeUser operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeUser for more information on using the DescribeUser
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DescribeUserRequest method.
+//	req, resp := client.DescribeUserRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DescribeUser
+func (c *PaaS) DescribeUserRequest(input *DescribeUserInput) (req *request.Request, output *DescribeUserOutput) {
+	op := &request.Operation{
+		Name:       opDescribeUser,
+		HTTPMethod: "GET",
+		HTTPPath:   "/services/{serviceId}/users/{userId}",
+	}
+
+	if input == nil {
+		input = &DescribeUserInput{}
+	}
+
+	output = &DescribeUserOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DescribeUser API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation DescribeUser for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DescribeUser
+func (c *PaaS) DescribeUser(input *DescribeUserInput) (*DescribeUserOutput, error) {
+	req, out := c.DescribeUserRequest(input)
+	return out, req.Send()
+}
+
+// DescribeUserWithContext is the same as DescribeUser with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeUser for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) DescribeUserWithContext(ctx aws.Context, input *DescribeUserInput, opts ...request.Option) (*DescribeUserOutput, error) {
+	req, out := c.DescribeUserRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDisableElasticsearchSnapshotRepository = "DisableElasticsearchSnapshotRepository"
+
+// DisableElasticsearchSnapshotRepositoryRequest generates a "aws/request.Request" representing the
+// client's request for the DisableElasticsearchSnapshotRepository operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DisableElasticsearchSnapshotRepository for more information on using the DisableElasticsearchSnapshotRepository
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DisableElasticsearchSnapshotRepositoryRequest method.
+//	req, resp := client.DisableElasticsearchSnapshotRepositoryRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DisableElasticsearchSnapshotRepository
+func (c *PaaS) DisableElasticsearchSnapshotRepositoryRequest(input *DisableElasticsearchSnapshotRepositoryInput) (req *request.Request, output *DisableElasticsearchSnapshotRepositoryOutput) {
+	op := &request.Operation{
+		Name:       opDisableElasticsearchSnapshotRepository,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/elasticsearch-snapshot-repositories/{repositoryId}/disable",
+	}
+
+	if input == nil {
+		input = &DisableElasticsearchSnapshotRepositoryInput{}
+	}
+
+	output = &DisableElasticsearchSnapshotRepositoryOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DisableElasticsearchSnapshotRepository API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation DisableElasticsearchSnapshotRepository for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/DisableElasticsearchSnapshotRepository
+func (c *PaaS) DisableElasticsearchSnapshotRepository(input *DisableElasticsearchSnapshotRepositoryInput) (*DisableElasticsearchSnapshotRepositoryOutput, error) {
+	req, out := c.DisableElasticsearchSnapshotRepositoryRequest(input)
+	return out, req.Send()
+}
+
+// DisableElasticsearchSnapshotRepositoryWithContext is the same as DisableElasticsearchSnapshotRepository with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisableElasticsearchSnapshotRepository for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) DisableElasticsearchSnapshotRepositoryWithContext(ctx aws.Context, input *DisableElasticsearchSnapshotRepositoryInput, opts ...request.Option) (*DisableElasticsearchSnapshotRepositoryOutput, error) {
+	req, out := c.DisableElasticsearchSnapshotRepositoryRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opEnableElasticsearchSnapshotRepository = "EnableElasticsearchSnapshotRepository"
+
+// EnableElasticsearchSnapshotRepositoryRequest generates a "aws/request.Request" representing the
+// client's request for the EnableElasticsearchSnapshotRepository operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See EnableElasticsearchSnapshotRepository for more information on using the EnableElasticsearchSnapshotRepository
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the EnableElasticsearchSnapshotRepositoryRequest method.
+//	req, resp := client.EnableElasticsearchSnapshotRepositoryRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/EnableElasticsearchSnapshotRepository
+func (c *PaaS) EnableElasticsearchSnapshotRepositoryRequest(input *EnableElasticsearchSnapshotRepositoryInput) (req *request.Request, output *EnableElasticsearchSnapshotRepositoryOutput) {
+	op := &request.Operation{
+		Name:       opEnableElasticsearchSnapshotRepository,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/elasticsearch-snapshot-repositories/{repositoryId}/enable",
+	}
+
+	if input == nil {
+		input = &EnableElasticsearchSnapshotRepositoryInput{}
+	}
+
+	output = &EnableElasticsearchSnapshotRepositoryOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// EnableElasticsearchSnapshotRepository API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation EnableElasticsearchSnapshotRepository for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/EnableElasticsearchSnapshotRepository
+func (c *PaaS) EnableElasticsearchSnapshotRepository(input *EnableElasticsearchSnapshotRepositoryInput) (*EnableElasticsearchSnapshotRepositoryOutput, error) {
+	req, out := c.EnableElasticsearchSnapshotRepositoryRequest(input)
+	return out, req.Send()
+}
+
+// EnableElasticsearchSnapshotRepositoryWithContext is the same as EnableElasticsearchSnapshotRepository with the addition of
+// the ability to pass a context and additional request options.
+//
+// See EnableElasticsearchSnapshotRepository for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) EnableElasticsearchSnapshotRepositoryWithContext(ctx aws.Context, input *EnableElasticsearchSnapshotRepositoryInput, opts ...request.Option) (*EnableElasticsearchSnapshotRepositoryOutput, error) {
+	req, out := c.EnableElasticsearchSnapshotRepositoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -511,6 +1939,574 @@ func (c *PaaS) ListBackupsWithContext(ctx aws.Context, input *ListBackupsInput, 
 	return out, req.Send()
 }
 
+const opListDatabases = "ListDatabases"
+
+// ListDatabasesRequest generates a "aws/request.Request" representing the
+// client's request for the ListDatabases operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListDatabases for more information on using the ListDatabases
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListDatabasesRequest method.
+//	req, resp := client.ListDatabasesRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListDatabases
+func (c *PaaS) ListDatabasesRequest(input *ListDatabasesInput) (req *request.Request, output *ListDatabasesOutput) {
+	op := &request.Operation{
+		Name:       opListDatabases,
+		HTTPMethod: "GET",
+		HTTPPath:   "/services/{serviceId}/databases",
+	}
+
+	if input == nil {
+		input = &ListDatabasesInput{}
+	}
+
+	output = &ListDatabasesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListDatabases API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ListDatabases for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListDatabases
+func (c *PaaS) ListDatabases(input *ListDatabasesInput) (*ListDatabasesOutput, error) {
+	req, out := c.ListDatabasesRequest(input)
+	return out, req.Send()
+}
+
+// ListDatabasesWithContext is the same as ListDatabases with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListDatabases for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ListDatabasesWithContext(ctx aws.Context, input *ListDatabasesInput, opts ...request.Option) (*ListDatabasesOutput, error) {
+	req, out := c.ListDatabasesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opListElasticsearchServicesSuitableForRecovery = "ListElasticsearchServicesSuitableForRecovery"
+
+// ListElasticsearchServicesSuitableForRecoveryRequest generates a "aws/request.Request" representing the
+// client's request for the ListElasticsearchServicesSuitableForRecovery operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListElasticsearchServicesSuitableForRecovery for more information on using the ListElasticsearchServicesSuitableForRecovery
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListElasticsearchServicesSuitableForRecoveryRequest method.
+//	req, resp := client.ListElasticsearchServicesSuitableForRecoveryRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListElasticsearchServicesSuitableForRecovery
+func (c *PaaS) ListElasticsearchServicesSuitableForRecoveryRequest(input *ListElasticsearchServicesSuitableForRecoveryInput) (req *request.Request, output *ListElasticsearchServicesSuitableForRecoveryOutput) {
+	op := &request.Operation{
+		Name:       opListElasticsearchServicesSuitableForRecovery,
+		HTTPMethod: "GET",
+		HTTPPath:   "/services/{serviceId}/elasticsearch-services-suitable-for-recovery",
+	}
+
+	if input == nil {
+		input = &ListElasticsearchServicesSuitableForRecoveryInput{}
+	}
+
+	output = &ListElasticsearchServicesSuitableForRecoveryOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListElasticsearchServicesSuitableForRecovery API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ListElasticsearchServicesSuitableForRecovery for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListElasticsearchServicesSuitableForRecovery
+func (c *PaaS) ListElasticsearchServicesSuitableForRecovery(input *ListElasticsearchServicesSuitableForRecoveryInput) (*ListElasticsearchServicesSuitableForRecoveryOutput, error) {
+	req, out := c.ListElasticsearchServicesSuitableForRecoveryRequest(input)
+	return out, req.Send()
+}
+
+// ListElasticsearchServicesSuitableForRecoveryWithContext is the same as ListElasticsearchServicesSuitableForRecovery with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListElasticsearchServicesSuitableForRecovery for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ListElasticsearchServicesSuitableForRecoveryWithContext(ctx aws.Context, input *ListElasticsearchServicesSuitableForRecoveryInput, opts ...request.Option) (*ListElasticsearchServicesSuitableForRecoveryOutput, error) {
+	req, out := c.ListElasticsearchServicesSuitableForRecoveryRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opListElasticsearchSnapshotRepositories = "ListElasticsearchSnapshotRepositories"
+
+// ListElasticsearchSnapshotRepositoriesRequest generates a "aws/request.Request" representing the
+// client's request for the ListElasticsearchSnapshotRepositories operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListElasticsearchSnapshotRepositories for more information on using the ListElasticsearchSnapshotRepositories
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListElasticsearchSnapshotRepositoriesRequest method.
+//	req, resp := client.ListElasticsearchSnapshotRepositoriesRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListElasticsearchSnapshotRepositories
+func (c *PaaS) ListElasticsearchSnapshotRepositoriesRequest(input *ListElasticsearchSnapshotRepositoriesInput) (req *request.Request, output *ListElasticsearchSnapshotRepositoriesOutput) {
+	op := &request.Operation{
+		Name:       opListElasticsearchSnapshotRepositories,
+		HTTPMethod: "GET",
+		HTTPPath:   "/services/{serviceId}/elasticsearch-snapshot-repositories",
+	}
+
+	if input == nil {
+		input = &ListElasticsearchSnapshotRepositoriesInput{}
+	}
+
+	output = &ListElasticsearchSnapshotRepositoriesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListElasticsearchSnapshotRepositories API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ListElasticsearchSnapshotRepositories for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListElasticsearchSnapshotRepositories
+func (c *PaaS) ListElasticsearchSnapshotRepositories(input *ListElasticsearchSnapshotRepositoriesInput) (*ListElasticsearchSnapshotRepositoriesOutput, error) {
+	req, out := c.ListElasticsearchSnapshotRepositoriesRequest(input)
+	return out, req.Send()
+}
+
+// ListElasticsearchSnapshotRepositoriesWithContext is the same as ListElasticsearchSnapshotRepositories with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListElasticsearchSnapshotRepositories for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ListElasticsearchSnapshotRepositoriesWithContext(ctx aws.Context, input *ListElasticsearchSnapshotRepositoriesInput, opts ...request.Option) (*ListElasticsearchSnapshotRepositoriesOutput, error) {
+	req, out := c.ListElasticsearchSnapshotRepositoriesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opListKafkaTopics = "ListKafkaTopics"
+
+// ListKafkaTopicsRequest generates a "aws/request.Request" representing the
+// client's request for the ListKafkaTopics operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListKafkaTopics for more information on using the ListKafkaTopics
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListKafkaTopicsRequest method.
+//	req, resp := client.ListKafkaTopicsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListKafkaTopics
+func (c *PaaS) ListKafkaTopicsRequest(input *ListKafkaTopicsInput) (req *request.Request, output *ListKafkaTopicsOutput) {
+	op := &request.Operation{
+		Name:       opListKafkaTopics,
+		HTTPMethod: "GET",
+		HTTPPath:   "/services/{serviceId}/kafka-topics",
+	}
+
+	if input == nil {
+		input = &ListKafkaTopicsInput{}
+	}
+
+	output = &ListKafkaTopicsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListKafkaTopics API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ListKafkaTopics for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListKafkaTopics
+func (c *PaaS) ListKafkaTopics(input *ListKafkaTopicsInput) (*ListKafkaTopicsOutput, error) {
+	req, out := c.ListKafkaTopicsRequest(input)
+	return out, req.Send()
+}
+
+// ListKafkaTopicsWithContext is the same as ListKafkaTopics with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListKafkaTopics for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ListKafkaTopicsWithContext(ctx aws.Context, input *ListKafkaTopicsInput, opts ...request.Option) (*ListKafkaTopicsOutput, error) {
+	req, out := c.ListKafkaTopicsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opListLogstashPipelines = "ListLogstashPipelines"
+
+// ListLogstashPipelinesRequest generates a "aws/request.Request" representing the
+// client's request for the ListLogstashPipelines operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListLogstashPipelines for more information on using the ListLogstashPipelines
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListLogstashPipelinesRequest method.
+//	req, resp := client.ListLogstashPipelinesRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListLogstashPipelines
+func (c *PaaS) ListLogstashPipelinesRequest(input *ListLogstashPipelinesInput) (req *request.Request, output *ListLogstashPipelinesOutput) {
+	op := &request.Operation{
+		Name:       opListLogstashPipelines,
+		HTTPMethod: "GET",
+		HTTPPath:   "/services/{serviceId}/logstash-pipelines",
+	}
+
+	if input == nil {
+		input = &ListLogstashPipelinesInput{}
+	}
+
+	output = &ListLogstashPipelinesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListLogstashPipelines API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ListLogstashPipelines for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListLogstashPipelines
+func (c *PaaS) ListLogstashPipelines(input *ListLogstashPipelinesInput) (*ListLogstashPipelinesOutput, error) {
+	req, out := c.ListLogstashPipelinesRequest(input)
+	return out, req.Send()
+}
+
+// ListLogstashPipelinesWithContext is the same as ListLogstashPipelines with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListLogstashPipelines for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ListLogstashPipelinesWithContext(ctx aws.Context, input *ListLogstashPipelinesInput, opts ...request.Option) (*ListLogstashPipelinesOutput, error) {
+	req, out := c.ListLogstashPipelinesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opListNotificationChannels = "ListNotificationChannels"
+
+// ListNotificationChannelsRequest generates a "aws/request.Request" representing the
+// client's request for the ListNotificationChannels operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListNotificationChannels for more information on using the ListNotificationChannels
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListNotificationChannelsRequest method.
+//	req, resp := client.ListNotificationChannelsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListNotificationChannels
+func (c *PaaS) ListNotificationChannelsRequest(input *ListNotificationChannelsInput) (req *request.Request, output *ListNotificationChannelsOutput) {
+	op := &request.Operation{
+		Name:       opListNotificationChannels,
+		HTTPMethod: "GET",
+		HTTPPath:   "/services/{serviceId}/notification-channels",
+	}
+
+	if input == nil {
+		input = &ListNotificationChannelsInput{}
+	}
+
+	output = &ListNotificationChannelsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListNotificationChannels API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ListNotificationChannels for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListNotificationChannels
+func (c *PaaS) ListNotificationChannels(input *ListNotificationChannelsInput) (*ListNotificationChannelsOutput, error) {
+	req, out := c.ListNotificationChannelsRequest(input)
+	return out, req.Send()
+}
+
+// ListNotificationChannelsWithContext is the same as ListNotificationChannels with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListNotificationChannels for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ListNotificationChannelsWithContext(ctx aws.Context, input *ListNotificationChannelsInput, opts ...request.Option) (*ListNotificationChannelsOutput, error) {
+	req, out := c.ListNotificationChannelsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opListPrometheusRoutes = "ListPrometheusRoutes"
+
+// ListPrometheusRoutesRequest generates a "aws/request.Request" representing the
+// client's request for the ListPrometheusRoutes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListPrometheusRoutes for more information on using the ListPrometheusRoutes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListPrometheusRoutesRequest method.
+//	req, resp := client.ListPrometheusRoutesRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListPrometheusRoutes
+func (c *PaaS) ListPrometheusRoutesRequest(input *ListPrometheusRoutesInput) (req *request.Request, output *ListPrometheusRoutesOutput) {
+	op := &request.Operation{
+		Name:       opListPrometheusRoutes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/services/{serviceId}/prometheus-routes",
+	}
+
+	if input == nil {
+		input = &ListPrometheusRoutesInput{}
+	}
+
+	output = &ListPrometheusRoutesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListPrometheusRoutes API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ListPrometheusRoutes for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListPrometheusRoutes
+func (c *PaaS) ListPrometheusRoutes(input *ListPrometheusRoutesInput) (*ListPrometheusRoutesOutput, error) {
+	req, out := c.ListPrometheusRoutesRequest(input)
+	return out, req.Send()
+}
+
+// ListPrometheusRoutesWithContext is the same as ListPrometheusRoutes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListPrometheusRoutes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ListPrometheusRoutesWithContext(ctx aws.Context, input *ListPrometheusRoutesInput, opts ...request.Option) (*ListPrometheusRoutesOutput, error) {
+	req, out := c.ListPrometheusRoutesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opListPrometheusScrapeJobs = "ListPrometheusScrapeJobs"
+
+// ListPrometheusScrapeJobsRequest generates a "aws/request.Request" representing the
+// client's request for the ListPrometheusScrapeJobs operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListPrometheusScrapeJobs for more information on using the ListPrometheusScrapeJobs
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListPrometheusScrapeJobsRequest method.
+//	req, resp := client.ListPrometheusScrapeJobsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListPrometheusScrapeJobs
+func (c *PaaS) ListPrometheusScrapeJobsRequest(input *ListPrometheusScrapeJobsInput) (req *request.Request, output *ListPrometheusScrapeJobsOutput) {
+	op := &request.Operation{
+		Name:       opListPrometheusScrapeJobs,
+		HTTPMethod: "GET",
+		HTTPPath:   "/services/{serviceId}/prometheus-scrape-jobs",
+	}
+
+	if input == nil {
+		input = &ListPrometheusScrapeJobsInput{}
+	}
+
+	output = &ListPrometheusScrapeJobsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListPrometheusScrapeJobs API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ListPrometheusScrapeJobs for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListPrometheusScrapeJobs
+func (c *PaaS) ListPrometheusScrapeJobs(input *ListPrometheusScrapeJobsInput) (*ListPrometheusScrapeJobsOutput, error) {
+	req, out := c.ListPrometheusScrapeJobsRequest(input)
+	return out, req.Send()
+}
+
+// ListPrometheusScrapeJobsWithContext is the same as ListPrometheusScrapeJobs with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListPrometheusScrapeJobs for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ListPrometheusScrapeJobsWithContext(ctx aws.Context, input *ListPrometheusScrapeJobsInput, opts ...request.Option) (*ListPrometheusScrapeJobsOutput, error) {
+	req, out := c.ListPrometheusScrapeJobsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opListServices = "ListServices"
 
 // ListServicesRequest generates a "aws/request.Request" representing the
@@ -577,6 +2573,77 @@ func (c *PaaS) ListServices(input *ListServicesInput) (*ListServicesOutput, erro
 // for more information on using Contexts.
 func (c *PaaS) ListServicesWithContext(ctx aws.Context, input *ListServicesInput, opts ...request.Option) (*ListServicesOutput, error) {
 	req, out := c.ListServicesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opListUsers = "ListUsers"
+
+// ListUsersRequest generates a "aws/request.Request" representing the
+// client's request for the ListUsers operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListUsers for more information on using the ListUsers
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListUsersRequest method.
+//	req, resp := client.ListUsersRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListUsers
+func (c *PaaS) ListUsersRequest(input *ListUsersInput) (req *request.Request, output *ListUsersOutput) {
+	op := &request.Operation{
+		Name:       opListUsers,
+		HTTPMethod: "GET",
+		HTTPPath:   "/services/{serviceId}/users",
+	}
+
+	if input == nil {
+		input = &ListUsersInput{}
+	}
+
+	output = &ListUsersOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListUsers API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ListUsers for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ListUsers
+func (c *PaaS) ListUsers(input *ListUsersInput) (*ListUsersOutput, error) {
+	req, out := c.ListUsersRequest(input)
+	return out, req.Send()
+}
+
+// ListUsersWithContext is the same as ListUsers with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListUsers for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ListUsersWithContext(ctx aws.Context, input *ListUsersInput, opts ...request.Option) (*ListUsersOutput, error) {
+	req, out := c.ListUsersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -653,6 +2720,787 @@ func (c *PaaS) ModifyBackupWithContext(ctx aws.Context, input *ModifyBackupInput
 	return out, req.Send()
 }
 
+const opModifyDatabase = "ModifyDatabase"
+
+// ModifyDatabaseRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyDatabase operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyDatabase for more information on using the ModifyDatabase
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyDatabaseRequest method.
+//	req, resp := client.ModifyDatabaseRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyDatabase
+func (c *PaaS) ModifyDatabaseRequest(input *ModifyDatabaseInput) (req *request.Request, output *ModifyDatabaseOutput) {
+	op := &request.Operation{
+		Name:       opModifyDatabase,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/databases/{databaseId}",
+	}
+
+	if input == nil {
+		input = &ModifyDatabaseInput{}
+	}
+
+	output = &ModifyDatabaseOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyDatabase API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyDatabase for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyDatabase
+func (c *PaaS) ModifyDatabase(input *ModifyDatabaseInput) (*ModifyDatabaseOutput, error) {
+	req, out := c.ModifyDatabaseRequest(input)
+	return out, req.Send()
+}
+
+// ModifyDatabaseWithContext is the same as ModifyDatabase with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyDatabase for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyDatabaseWithContext(ctx aws.Context, input *ModifyDatabaseInput, opts ...request.Option) (*ModifyDatabaseOutput, error) {
+	req, out := c.ModifyDatabaseRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyInstanceType = "ModifyInstanceType"
+
+// ModifyInstanceTypeRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyInstanceType operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyInstanceType for more information on using the ModifyInstanceType
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyInstanceTypeRequest method.
+//	req, resp := client.ModifyInstanceTypeRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyInstanceType
+func (c *PaaS) ModifyInstanceTypeRequest(input *ModifyInstanceTypeInput) (req *request.Request, output *ModifyInstanceTypeOutput) {
+	op := &request.Operation{
+		Name:       opModifyInstanceType,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/instance-type",
+	}
+
+	if input == nil {
+		input = &ModifyInstanceTypeInput{}
+	}
+
+	output = &ModifyInstanceTypeOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyInstanceType API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyInstanceType for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyInstanceType
+func (c *PaaS) ModifyInstanceType(input *ModifyInstanceTypeInput) (*ModifyInstanceTypeOutput, error) {
+	req, out := c.ModifyInstanceTypeRequest(input)
+	return out, req.Send()
+}
+
+// ModifyInstanceTypeWithContext is the same as ModifyInstanceType with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyInstanceType for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyInstanceTypeWithContext(ctx aws.Context, input *ModifyInstanceTypeInput, opts ...request.Option) (*ModifyInstanceTypeOutput, error) {
+	req, out := c.ModifyInstanceTypeRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyInstanceVolumeIops = "ModifyInstanceVolumeIops"
+
+// ModifyInstanceVolumeIopsRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyInstanceVolumeIops operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyInstanceVolumeIops for more information on using the ModifyInstanceVolumeIops
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyInstanceVolumeIopsRequest method.
+//	req, resp := client.ModifyInstanceVolumeIopsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyInstanceVolumeIops
+func (c *PaaS) ModifyInstanceVolumeIopsRequest(input *ModifyInstanceVolumeIopsInput) (req *request.Request, output *ModifyInstanceVolumeIopsOutput) {
+	op := &request.Operation{
+		Name:       opModifyInstanceVolumeIops,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/instance-volume-iops",
+	}
+
+	if input == nil {
+		input = &ModifyInstanceVolumeIopsInput{}
+	}
+
+	output = &ModifyInstanceVolumeIopsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyInstanceVolumeIops API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyInstanceVolumeIops for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyInstanceVolumeIops
+func (c *PaaS) ModifyInstanceVolumeIops(input *ModifyInstanceVolumeIopsInput) (*ModifyInstanceVolumeIopsOutput, error) {
+	req, out := c.ModifyInstanceVolumeIopsRequest(input)
+	return out, req.Send()
+}
+
+// ModifyInstanceVolumeIopsWithContext is the same as ModifyInstanceVolumeIops with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyInstanceVolumeIops for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyInstanceVolumeIopsWithContext(ctx aws.Context, input *ModifyInstanceVolumeIopsInput, opts ...request.Option) (*ModifyInstanceVolumeIopsOutput, error) {
+	req, out := c.ModifyInstanceVolumeIopsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyInstanceVolumeSize = "ModifyInstanceVolumeSize"
+
+// ModifyInstanceVolumeSizeRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyInstanceVolumeSize operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyInstanceVolumeSize for more information on using the ModifyInstanceVolumeSize
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyInstanceVolumeSizeRequest method.
+//	req, resp := client.ModifyInstanceVolumeSizeRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyInstanceVolumeSize
+func (c *PaaS) ModifyInstanceVolumeSizeRequest(input *ModifyInstanceVolumeSizeInput) (req *request.Request, output *ModifyInstanceVolumeSizeOutput) {
+	op := &request.Operation{
+		Name:       opModifyInstanceVolumeSize,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/instance-volume-size",
+	}
+
+	if input == nil {
+		input = &ModifyInstanceVolumeSizeInput{}
+	}
+
+	output = &ModifyInstanceVolumeSizeOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyInstanceVolumeSize API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyInstanceVolumeSize for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyInstanceVolumeSize
+func (c *PaaS) ModifyInstanceVolumeSize(input *ModifyInstanceVolumeSizeInput) (*ModifyInstanceVolumeSizeOutput, error) {
+	req, out := c.ModifyInstanceVolumeSizeRequest(input)
+	return out, req.Send()
+}
+
+// ModifyInstanceVolumeSizeWithContext is the same as ModifyInstanceVolumeSize with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyInstanceVolumeSize for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyInstanceVolumeSizeWithContext(ctx aws.Context, input *ModifyInstanceVolumeSizeInput, opts ...request.Option) (*ModifyInstanceVolumeSizeOutput, error) {
+	req, out := c.ModifyInstanceVolumeSizeRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyKafkaTopic = "ModifyKafkaTopic"
+
+// ModifyKafkaTopicRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyKafkaTopic operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyKafkaTopic for more information on using the ModifyKafkaTopic
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyKafkaTopicRequest method.
+//	req, resp := client.ModifyKafkaTopicRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyKafkaTopic
+func (c *PaaS) ModifyKafkaTopicRequest(input *ModifyKafkaTopicInput) (req *request.Request, output *ModifyKafkaTopicOutput) {
+	op := &request.Operation{
+		Name:       opModifyKafkaTopic,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/kafka-topics/{topicId}",
+	}
+
+	if input == nil {
+		input = &ModifyKafkaTopicInput{}
+	}
+
+	output = &ModifyKafkaTopicOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyKafkaTopic API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyKafkaTopic for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyKafkaTopic
+func (c *PaaS) ModifyKafkaTopic(input *ModifyKafkaTopicInput) (*ModifyKafkaTopicOutput, error) {
+	req, out := c.ModifyKafkaTopicRequest(input)
+	return out, req.Send()
+}
+
+// ModifyKafkaTopicWithContext is the same as ModifyKafkaTopic with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyKafkaTopic for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyKafkaTopicWithContext(ctx aws.Context, input *ModifyKafkaTopicInput, opts ...request.Option) (*ModifyKafkaTopicOutput, error) {
+	req, out := c.ModifyKafkaTopicRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyLoadBalancers = "ModifyLoadBalancers"
+
+// ModifyLoadBalancersRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyLoadBalancers operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyLoadBalancers for more information on using the ModifyLoadBalancers
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyLoadBalancersRequest method.
+//	req, resp := client.ModifyLoadBalancersRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyLoadBalancers
+func (c *PaaS) ModifyLoadBalancersRequest(input *ModifyLoadBalancersInput) (req *request.Request, output *ModifyLoadBalancersOutput) {
+	op := &request.Operation{
+		Name:       opModifyLoadBalancers,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/load-balancers",
+	}
+
+	if input == nil {
+		input = &ModifyLoadBalancersInput{}
+	}
+
+	output = &ModifyLoadBalancersOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyLoadBalancers API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyLoadBalancers for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyLoadBalancers
+func (c *PaaS) ModifyLoadBalancers(input *ModifyLoadBalancersInput) (*ModifyLoadBalancersOutput, error) {
+	req, out := c.ModifyLoadBalancersRequest(input)
+	return out, req.Send()
+}
+
+// ModifyLoadBalancersWithContext is the same as ModifyLoadBalancers with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyLoadBalancers for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyLoadBalancersWithContext(ctx aws.Context, input *ModifyLoadBalancersInput, opts ...request.Option) (*ModifyLoadBalancersOutput, error) {
+	req, out := c.ModifyLoadBalancersRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyLogstashPipeline = "ModifyLogstashPipeline"
+
+// ModifyLogstashPipelineRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyLogstashPipeline operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyLogstashPipeline for more information on using the ModifyLogstashPipeline
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyLogstashPipelineRequest method.
+//	req, resp := client.ModifyLogstashPipelineRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyLogstashPipeline
+func (c *PaaS) ModifyLogstashPipelineRequest(input *ModifyLogstashPipelineInput) (req *request.Request, output *ModifyLogstashPipelineOutput) {
+	op := &request.Operation{
+		Name:       opModifyLogstashPipeline,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/logstash-pipelines/{pipelineId}",
+	}
+
+	if input == nil {
+		input = &ModifyLogstashPipelineInput{}
+	}
+
+	output = &ModifyLogstashPipelineOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyLogstashPipeline API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyLogstashPipeline for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyLogstashPipeline
+func (c *PaaS) ModifyLogstashPipeline(input *ModifyLogstashPipelineInput) (*ModifyLogstashPipelineOutput, error) {
+	req, out := c.ModifyLogstashPipelineRequest(input)
+	return out, req.Send()
+}
+
+// ModifyLogstashPipelineWithContext is the same as ModifyLogstashPipeline with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyLogstashPipeline for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyLogstashPipelineWithContext(ctx aws.Context, input *ModifyLogstashPipelineInput, opts ...request.Option) (*ModifyLogstashPipelineOutput, error) {
+	req, out := c.ModifyLogstashPipelineRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyMaintenancePreferences = "ModifyMaintenancePreferences"
+
+// ModifyMaintenancePreferencesRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyMaintenancePreferences operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyMaintenancePreferences for more information on using the ModifyMaintenancePreferences
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyMaintenancePreferencesRequest method.
+//	req, resp := client.ModifyMaintenancePreferencesRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyMaintenancePreferences
+func (c *PaaS) ModifyMaintenancePreferencesRequest(input *ModifyMaintenancePreferencesInput) (req *request.Request, output *ModifyMaintenancePreferencesOutput) {
+	op := &request.Operation{
+		Name:       opModifyMaintenancePreferences,
+		HTTPMethod: "POST",
+		HTTPPath:   "/services/{serviceId}/maintenance/preferences",
+	}
+
+	if input == nil {
+		input = &ModifyMaintenancePreferencesInput{}
+	}
+
+	output = &ModifyMaintenancePreferencesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyMaintenancePreferences API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyMaintenancePreferences for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyMaintenancePreferences
+func (c *PaaS) ModifyMaintenancePreferences(input *ModifyMaintenancePreferencesInput) (*ModifyMaintenancePreferencesOutput, error) {
+	req, out := c.ModifyMaintenancePreferencesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyMaintenancePreferencesWithContext is the same as ModifyMaintenancePreferences with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyMaintenancePreferences for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyMaintenancePreferencesWithContext(ctx aws.Context, input *ModifyMaintenancePreferencesInput, opts ...request.Option) (*ModifyMaintenancePreferencesOutput, error) {
+	req, out := c.ModifyMaintenancePreferencesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyNotificationChannel = "ModifyNotificationChannel"
+
+// ModifyNotificationChannelRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyNotificationChannel operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyNotificationChannel for more information on using the ModifyNotificationChannel
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyNotificationChannelRequest method.
+//	req, resp := client.ModifyNotificationChannelRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyNotificationChannel
+func (c *PaaS) ModifyNotificationChannelRequest(input *ModifyNotificationChannelInput) (req *request.Request, output *ModifyNotificationChannelOutput) {
+	op := &request.Operation{
+		Name:       opModifyNotificationChannel,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/notification-channels/{channelId}",
+	}
+
+	if input == nil {
+		input = &ModifyNotificationChannelInput{}
+	}
+
+	output = &ModifyNotificationChannelOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyNotificationChannel API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyNotificationChannel for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyNotificationChannel
+func (c *PaaS) ModifyNotificationChannel(input *ModifyNotificationChannelInput) (*ModifyNotificationChannelOutput, error) {
+	req, out := c.ModifyNotificationChannelRequest(input)
+	return out, req.Send()
+}
+
+// ModifyNotificationChannelWithContext is the same as ModifyNotificationChannel with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyNotificationChannel for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyNotificationChannelWithContext(ctx aws.Context, input *ModifyNotificationChannelInput, opts ...request.Option) (*ModifyNotificationChannelOutput, error) {
+	req, out := c.ModifyNotificationChannelRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyPrometheusRoute = "ModifyPrometheusRoute"
+
+// ModifyPrometheusRouteRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyPrometheusRoute operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyPrometheusRoute for more information on using the ModifyPrometheusRoute
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyPrometheusRouteRequest method.
+//	req, resp := client.ModifyPrometheusRouteRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyPrometheusRoute
+func (c *PaaS) ModifyPrometheusRouteRequest(input *ModifyPrometheusRouteInput) (req *request.Request, output *ModifyPrometheusRouteOutput) {
+	op := &request.Operation{
+		Name:       opModifyPrometheusRoute,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/prometheus-routes/{routeId}",
+	}
+
+	if input == nil {
+		input = &ModifyPrometheusRouteInput{}
+	}
+
+	output = &ModifyPrometheusRouteOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyPrometheusRoute API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyPrometheusRoute for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyPrometheusRoute
+func (c *PaaS) ModifyPrometheusRoute(input *ModifyPrometheusRouteInput) (*ModifyPrometheusRouteOutput, error) {
+	req, out := c.ModifyPrometheusRouteRequest(input)
+	return out, req.Send()
+}
+
+// ModifyPrometheusRouteWithContext is the same as ModifyPrometheusRoute with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyPrometheusRoute for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyPrometheusRouteWithContext(ctx aws.Context, input *ModifyPrometheusRouteInput, opts ...request.Option) (*ModifyPrometheusRouteOutput, error) {
+	req, out := c.ModifyPrometheusRouteRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyPrometheusScrapeJob = "ModifyPrometheusScrapeJob"
+
+// ModifyPrometheusScrapeJobRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyPrometheusScrapeJob operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyPrometheusScrapeJob for more information on using the ModifyPrometheusScrapeJob
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyPrometheusScrapeJobRequest method.
+//	req, resp := client.ModifyPrometheusScrapeJobRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyPrometheusScrapeJob
+func (c *PaaS) ModifyPrometheusScrapeJobRequest(input *ModifyPrometheusScrapeJobInput) (req *request.Request, output *ModifyPrometheusScrapeJobOutput) {
+	op := &request.Operation{
+		Name:       opModifyPrometheusScrapeJob,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/prometheus-scrape-jobs/{jobId}",
+	}
+
+	if input == nil {
+		input = &ModifyPrometheusScrapeJobInput{}
+	}
+
+	output = &ModifyPrometheusScrapeJobOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyPrometheusScrapeJob API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyPrometheusScrapeJob for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyPrometheusScrapeJob
+func (c *PaaS) ModifyPrometheusScrapeJob(input *ModifyPrometheusScrapeJobInput) (*ModifyPrometheusScrapeJobOutput, error) {
+	req, out := c.ModifyPrometheusScrapeJobRequest(input)
+	return out, req.Send()
+}
+
+// ModifyPrometheusScrapeJobWithContext is the same as ModifyPrometheusScrapeJob with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyPrometheusScrapeJob for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyPrometheusScrapeJobWithContext(ctx aws.Context, input *ModifyPrometheusScrapeJobInput, opts ...request.Option) (*ModifyPrometheusScrapeJobOutput, error) {
+	req, out := c.ModifyPrometheusScrapeJobRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opModifyService = "ModifyService"
 
 // ModifyServiceRequest generates a "aws/request.Request" representing the
@@ -724,6 +3572,77 @@ func (c *PaaS) ModifyServiceWithContext(ctx aws.Context, input *ModifyServiceInp
 	return out, req.Send()
 }
 
+const opModifyServiceEnvironment = "ModifyServiceEnvironment"
+
+// ModifyServiceEnvironmentRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyServiceEnvironment operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyServiceEnvironment for more information on using the ModifyServiceEnvironment
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyServiceEnvironmentRequest method.
+//	req, resp := client.ModifyServiceEnvironmentRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyServiceEnvironment
+func (c *PaaS) ModifyServiceEnvironmentRequest(input *ModifyServiceEnvironmentInput) (req *request.Request, output *ModifyServiceEnvironmentOutput) {
+	op := &request.Operation{
+		Name:       opModifyServiceEnvironment,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/environment",
+	}
+
+	if input == nil {
+		input = &ModifyServiceEnvironmentInput{}
+	}
+
+	output = &ModifyServiceEnvironmentOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyServiceEnvironment API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyServiceEnvironment for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyServiceEnvironment
+func (c *PaaS) ModifyServiceEnvironment(input *ModifyServiceEnvironmentInput) (*ModifyServiceEnvironmentOutput, error) {
+	req, out := c.ModifyServiceEnvironmentRequest(input)
+	return out, req.Send()
+}
+
+// ModifyServiceEnvironmentWithContext is the same as ModifyServiceEnvironment with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyServiceEnvironment for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyServiceEnvironmentWithContext(ctx aws.Context, input *ModifyServiceEnvironmentInput, opts ...request.Option) (*ModifyServiceEnvironmentOutput, error) {
+	req, out := c.ModifyServiceEnvironmentRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opModifyServiceParameters = "ModifyServiceParameters"
 
 // ModifyServiceParametersRequest generates a "aws/request.Request" representing the
@@ -790,6 +3709,432 @@ func (c *PaaS) ModifyServiceParameters(input *ModifyServiceParametersInput) (*Mo
 // for more information on using Contexts.
 func (c *PaaS) ModifyServiceParametersWithContext(ctx aws.Context, input *ModifyServiceParametersInput, opts ...request.Option) (*ModifyServiceParametersOutput, error) {
 	req, out := c.ModifyServiceParametersRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyUser = "ModifyUser"
+
+// ModifyUserRequest generates a "aws/request.Request" representing the
+// client's request for the ModifyUser operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyUser for more information on using the ModifyUser
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ModifyUserRequest method.
+//	req, resp := client.ModifyUserRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyUser
+func (c *PaaS) ModifyUserRequest(input *ModifyUserInput) (req *request.Request, output *ModifyUserOutput) {
+	op := &request.Operation{
+		Name:       opModifyUser,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/users/{userId}",
+	}
+
+	if input == nil {
+		input = &ModifyUserInput{}
+	}
+
+	output = &ModifyUserOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyUser API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation ModifyUser for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/ModifyUser
+func (c *PaaS) ModifyUser(input *ModifyUserInput) (*ModifyUserOutput, error) {
+	req, out := c.ModifyUserRequest(input)
+	return out, req.Send()
+}
+
+// ModifyUserWithContext is the same as ModifyUser with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyUser for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) ModifyUserWithContext(ctx aws.Context, input *ModifyUserInput, opts ...request.Option) (*ModifyUserOutput, error) {
+	req, out := c.ModifyUserRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opPatchServiceParameters = "PatchServiceParameters"
+
+// PatchServiceParametersRequest generates a "aws/request.Request" representing the
+// client's request for the PatchServiceParameters operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See PatchServiceParameters for more information on using the PatchServiceParameters
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the PatchServiceParametersRequest method.
+//	req, resp := client.PatchServiceParametersRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/PatchServiceParameters
+func (c *PaaS) PatchServiceParametersRequest(input *PatchServiceParametersInput) (req *request.Request, output *PatchServiceParametersOutput) {
+	op := &request.Operation{
+		Name:       opPatchServiceParameters,
+		HTTPMethod: "PATCH",
+		HTTPPath:   "/services/{serviceId}/parameters",
+	}
+
+	if input == nil {
+		input = &PatchServiceParametersInput{}
+	}
+
+	output = &PatchServiceParametersOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// PatchServiceParameters API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation PatchServiceParameters for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/PatchServiceParameters
+func (c *PaaS) PatchServiceParameters(input *PatchServiceParametersInput) (*PatchServiceParametersOutput, error) {
+	req, out := c.PatchServiceParametersRequest(input)
+	return out, req.Send()
+}
+
+// PatchServiceParametersWithContext is the same as PatchServiceParameters with the addition of
+// the ability to pass a context and additional request options.
+//
+// See PatchServiceParameters for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) PatchServiceParametersWithContext(ctx aws.Context, input *PatchServiceParametersInput, opts ...request.Option) (*PatchServiceParametersOutput, error) {
+	req, out := c.PatchServiceParametersRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRestartService = "RestartService"
+
+// RestartServiceRequest generates a "aws/request.Request" representing the
+// client's request for the RestartService operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See RestartService for more information on using the RestartService
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the RestartServiceRequest method.
+//	req, resp := client.RestartServiceRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/RestartService
+func (c *PaaS) RestartServiceRequest(input *RestartServiceInput) (req *request.Request, output *RestartServiceOutput) {
+	op := &request.Operation{
+		Name:       opRestartService,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/restart",
+	}
+
+	if input == nil {
+		input = &RestartServiceInput{}
+	}
+
+	output = &RestartServiceOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// RestartService API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation RestartService for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/RestartService
+func (c *PaaS) RestartService(input *RestartServiceInput) (*RestartServiceOutput, error) {
+	req, out := c.RestartServiceRequest(input)
+	return out, req.Send()
+}
+
+// RestartServiceWithContext is the same as RestartService with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RestartService for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) RestartServiceWithContext(ctx aws.Context, input *RestartServiceInput, opts ...request.Option) (*RestartServiceOutput, error) {
+	req, out := c.RestartServiceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opStartService = "StartService"
+
+// StartServiceRequest generates a "aws/request.Request" representing the
+// client's request for the StartService operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StartService for more information on using the StartService
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the StartServiceRequest method.
+//	req, resp := client.StartServiceRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/StartService
+func (c *PaaS) StartServiceRequest(input *StartServiceInput) (req *request.Request, output *StartServiceOutput) {
+	op := &request.Operation{
+		Name:       opStartService,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/start",
+	}
+
+	if input == nil {
+		input = &StartServiceInput{}
+	}
+
+	output = &StartServiceOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StartService API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation StartService for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/StartService
+func (c *PaaS) StartService(input *StartServiceInput) (*StartServiceOutput, error) {
+	req, out := c.StartServiceRequest(input)
+	return out, req.Send()
+}
+
+// StartServiceWithContext is the same as StartService with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StartService for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) StartServiceWithContext(ctx aws.Context, input *StartServiceInput, opts ...request.Option) (*StartServiceOutput, error) {
+	req, out := c.StartServiceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opStopService = "StopService"
+
+// StopServiceRequest generates a "aws/request.Request" representing the
+// client's request for the StopService operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StopService for more information on using the StopService
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the StopServiceRequest method.
+//	req, resp := client.StopServiceRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/StopService
+func (c *PaaS) StopServiceRequest(input *StopServiceInput) (req *request.Request, output *StopServiceOutput) {
+	op := &request.Operation{
+		Name:       opStopService,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/stop",
+	}
+
+	if input == nil {
+		input = &StopServiceInput{}
+	}
+
+	output = &StopServiceOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StopService API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation StopService for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/StopService
+func (c *PaaS) StopService(input *StopServiceInput) (*StopServiceOutput, error) {
+	req, out := c.StopServiceRequest(input)
+	return out, req.Send()
+}
+
+// StopServiceWithContext is the same as StopService with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StopService for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) StopServiceWithContext(ctx aws.Context, input *StopServiceInput, opts ...request.Option) (*StopServiceOutput, error) {
+	req, out := c.StopServiceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opSynchronizeServiceStatus = "SynchronizeServiceStatus"
+
+// SynchronizeServiceStatusRequest generates a "aws/request.Request" representing the
+// client's request for the SynchronizeServiceStatus operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See SynchronizeServiceStatus for more information on using the SynchronizeServiceStatus
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the SynchronizeServiceStatusRequest method.
+//	req, resp := client.SynchronizeServiceStatusRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/SynchronizeServiceStatus
+func (c *PaaS) SynchronizeServiceStatusRequest(input *SynchronizeServiceStatusInput) (req *request.Request, output *SynchronizeServiceStatusOutput) {
+	op := &request.Operation{
+		Name:       opSynchronizeServiceStatus,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/services/{serviceId}/synchronize-status",
+	}
+
+	if input == nil {
+		input = &SynchronizeServiceStatusInput{}
+	}
+
+	output = &SynchronizeServiceStatusOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// SynchronizeServiceStatus API operation for AWS PaaS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS PaaS's
+// API operation SynchronizeServiceStatus for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/paas-2022-09-06/SynchronizeServiceStatus
+func (c *PaaS) SynchronizeServiceStatus(input *SynchronizeServiceStatusInput) (*SynchronizeServiceStatusOutput, error) {
+	req, out := c.SynchronizeServiceStatusRequest(input)
+	return out, req.Send()
+}
+
+// SynchronizeServiceStatusWithContext is the same as SynchronizeServiceStatus with the addition of
+// the ability to pass a context and additional request options.
+//
+// See SynchronizeServiceStatus for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *PaaS) SynchronizeServiceStatusWithContext(ctx aws.Context, input *SynchronizeServiceStatusInput, opts ...request.Option) (*SynchronizeServiceStatusOutput, error) {
+	req, out := c.SynchronizeServiceStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -1068,9 +4413,15 @@ type BackupUser struct {
 
 	Id *string `locationName:"id" type:"string"`
 
+	LastLoginTime *int64 `locationName:"lastLoginTime" type:"integer"`
+
 	Login *string `locationName:"login" type:"string"`
 
+	ModifyTime *int64 `locationName:"modifyTime" type:"integer"`
+
 	Name *string `locationName:"name" type:"string"`
+
+	ProjectGrants []*string `locationName:"projectGrants" type:"list"`
 }
 
 // String returns the string representation.
@@ -1109,9 +4460,21 @@ func (s *BackupUser) SetId(v string) *BackupUser {
 	return s
 }
 
+// SetLastLoginTime sets the LastLoginTime field's value.
+func (s *BackupUser) SetLastLoginTime(v int64) *BackupUser {
+	s.LastLoginTime = &v
+	return s
+}
+
 // SetLogin sets the Login field's value.
 func (s *BackupUser) SetLogin(v string) *BackupUser {
 	s.Login = &v
+	return s
+}
+
+// SetModifyTime sets the ModifyTime field's value.
+func (s *BackupUser) SetModifyTime(v int64) *BackupUser {
+	s.ModifyTime = &v
 	return s
 }
 
@@ -1121,12 +4484,764 @@ func (s *BackupUser) SetName(v string) *BackupUser {
 	return s
 }
 
+// SetProjectGrants sets the ProjectGrants field's value.
+func (s *BackupUser) SetProjectGrants(v []*string) *BackupUser {
+	s.ProjectGrants = v
+	return s
+}
+
+type BalancerTarget struct {
+	_ struct{} `type:"structure"`
+
+	Port *int64 `locationName:"port" type:"integer"`
+
+	Protocol *string `locationName:"protocol" type:"string"`
+
+	ServiceCaption *string `locationName:"serviceCaption" type:"string"`
+
+	ServiceType *string `locationName:"serviceType" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s BalancerTarget) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s BalancerTarget) GoString() string {
+	return s.String()
+}
+
+// SetPort sets the Port field's value.
+func (s *BalancerTarget) SetPort(v int64) *BalancerTarget {
+	s.Port = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *BalancerTarget) SetProtocol(v string) *BalancerTarget {
+	s.Protocol = &v
+	return s
+}
+
+// SetServiceCaption sets the ServiceCaption field's value.
+func (s *BalancerTarget) SetServiceCaption(v string) *BalancerTarget {
+	s.ServiceCaption = &v
+	return s
+}
+
+// SetServiceType sets the ServiceType field's value.
+func (s *BalancerTarget) SetServiceType(v string) *BalancerTarget {
+	s.ServiceType = &v
+	return s
+}
+
+type CreateDatabaseInput struct {
+	_ struct{} `type:"structure"`
+
+	// Database is a required field
+	Database *DatabaseCreateRequest `locationName:"database" type:"structure" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateDatabaseInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateDatabaseInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateDatabaseInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateDatabaseInput"}
+	if s.Database == nil {
+		invalidParams.Add(request.NewErrParamRequired("Database"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+	if s.Database != nil {
+		if err := s.Database.Validate(); err != nil {
+			invalidParams.AddNested("Database", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDatabase sets the Database field's value.
+func (s *CreateDatabaseInput) SetDatabase(v *DatabaseCreateRequest) *CreateDatabaseInput {
+	s.Database = v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *CreateDatabaseInput) SetServiceId(v string) *CreateDatabaseInput {
+	s.ServiceId = &v
+	return s
+}
+
+type CreateDatabaseOutput struct {
+	_ struct{} `type:"structure"`
+
+	Database *DatabaseResponse `locationName:"database" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateDatabaseOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateDatabaseOutput) GoString() string {
+	return s.String()
+}
+
+// SetDatabase sets the Database field's value.
+func (s *CreateDatabaseOutput) SetDatabase(v *DatabaseResponse) *CreateDatabaseOutput {
+	s.Database = v
+	return s
+}
+
+type CreateElasticsearchSnapshotRepositoryInput struct {
+	_ struct{} `type:"structure"`
+
+	// Parameters is a required field
+	Parameters map[string]interface{} `locationName:"parameters" type:"none" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateElasticsearchSnapshotRepositoryInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateElasticsearchSnapshotRepositoryInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateElasticsearchSnapshotRepositoryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateElasticsearchSnapshotRepositoryInput"}
+	if s.Parameters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Parameters"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *CreateElasticsearchSnapshotRepositoryInput) SetParameters(v map[string]interface{}) *CreateElasticsearchSnapshotRepositoryInput {
+	s.Parameters = v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *CreateElasticsearchSnapshotRepositoryInput) SetServiceId(v string) *CreateElasticsearchSnapshotRepositoryInput {
+	s.ServiceId = &v
+	return s
+}
+
+type CreateElasticsearchSnapshotRepositoryOutput struct {
+	_ struct{} `type:"structure"`
+
+	Repository *ElasticsearchSnapshotRepositoryResponse `locationName:"repository" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateElasticsearchSnapshotRepositoryOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateElasticsearchSnapshotRepositoryOutput) GoString() string {
+	return s.String()
+}
+
+// SetRepository sets the Repository field's value.
+func (s *CreateElasticsearchSnapshotRepositoryOutput) SetRepository(v *ElasticsearchSnapshotRepositoryResponse) *CreateElasticsearchSnapshotRepositoryOutput {
+	s.Repository = v
+	return s
+}
+
+type CreateKafkaTopicInput struct {
+	_ struct{} `type:"structure"`
+
+	// Name is a required field
+	Name *string `locationName:"name" type:"string" required:"true"`
+
+	// Parameters is a required field
+	Parameters map[string]interface{} `locationName:"parameters" type:"none" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateKafkaTopicInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateKafkaTopicInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateKafkaTopicInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateKafkaTopicInput"}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Parameters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Parameters"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetName sets the Name field's value.
+func (s *CreateKafkaTopicInput) SetName(v string) *CreateKafkaTopicInput {
+	s.Name = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *CreateKafkaTopicInput) SetParameters(v map[string]interface{}) *CreateKafkaTopicInput {
+	s.Parameters = v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *CreateKafkaTopicInput) SetServiceId(v string) *CreateKafkaTopicInput {
+	s.ServiceId = &v
+	return s
+}
+
+type CreateKafkaTopicOutput struct {
+	_ struct{} `type:"structure"`
+
+	KafkaTopic *KafkaTopic `locationName:"kafkaTopic" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateKafkaTopicOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateKafkaTopicOutput) GoString() string {
+	return s.String()
+}
+
+// SetKafkaTopic sets the KafkaTopic field's value.
+func (s *CreateKafkaTopicOutput) SetKafkaTopic(v *KafkaTopic) *CreateKafkaTopicOutput {
+	s.KafkaTopic = v
+	return s
+}
+
+type CreateLogstashPipelineInput struct {
+	_ struct{} `type:"structure"`
+
+	// Configuration is a required field
+	Configuration *string `locationName:"configuration" type:"string" required:"true"`
+
+	// Name is a required field
+	Name *string `locationName:"name" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateLogstashPipelineInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateLogstashPipelineInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateLogstashPipelineInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateLogstashPipelineInput"}
+	if s.Configuration == nil {
+		invalidParams.Add(request.NewErrParamRequired("Configuration"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetConfiguration sets the Configuration field's value.
+func (s *CreateLogstashPipelineInput) SetConfiguration(v string) *CreateLogstashPipelineInput {
+	s.Configuration = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *CreateLogstashPipelineInput) SetName(v string) *CreateLogstashPipelineInput {
+	s.Name = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *CreateLogstashPipelineInput) SetServiceId(v string) *CreateLogstashPipelineInput {
+	s.ServiceId = &v
+	return s
+}
+
+type CreateLogstashPipelineOutput struct {
+	_ struct{} `type:"structure"`
+
+	LogstashPipeline *LogstashPipeline `locationName:"logstashPipeline" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateLogstashPipelineOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateLogstashPipelineOutput) GoString() string {
+	return s.String()
+}
+
+// SetLogstashPipeline sets the LogstashPipeline field's value.
+func (s *CreateLogstashPipelineOutput) SetLogstashPipeline(v *LogstashPipeline) *CreateLogstashPipelineOutput {
+	s.LogstashPipeline = v
+	return s
+}
+
+type CreateNotificationChannelInput struct {
+	_ struct{} `type:"structure"`
+
+	// Name is a required field
+	Name *string `locationName:"name" type:"string" required:"true"`
+
+	// Parameters is a required field
+	Parameters map[string]interface{} `locationName:"parameters" type:"none" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateNotificationChannelInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateNotificationChannelInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateNotificationChannelInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateNotificationChannelInput"}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Parameters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Parameters"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetName sets the Name field's value.
+func (s *CreateNotificationChannelInput) SetName(v string) *CreateNotificationChannelInput {
+	s.Name = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *CreateNotificationChannelInput) SetParameters(v map[string]interface{}) *CreateNotificationChannelInput {
+	s.Parameters = v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *CreateNotificationChannelInput) SetServiceId(v string) *CreateNotificationChannelInput {
+	s.ServiceId = &v
+	return s
+}
+
+type CreateNotificationChannelOutput struct {
+	_ struct{} `type:"structure"`
+
+	NotificationChannel *NotificationChannel `locationName:"notificationChannel" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateNotificationChannelOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateNotificationChannelOutput) GoString() string {
+	return s.String()
+}
+
+// SetNotificationChannel sets the NotificationChannel field's value.
+func (s *CreateNotificationChannelOutput) SetNotificationChannel(v *NotificationChannel) *CreateNotificationChannelOutput {
+	s.NotificationChannel = v
+	return s
+}
+
+type CreatePrometheusRouteInput struct {
+	_ struct{} `type:"structure"`
+
+	// Name is a required field
+	Name *string `locationName:"name" type:"string" required:"true"`
+
+	// Parameters is a required field
+	Parameters map[string]interface{} `locationName:"parameters" type:"none" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreatePrometheusRouteInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreatePrometheusRouteInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreatePrometheusRouteInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreatePrometheusRouteInput"}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Parameters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Parameters"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetName sets the Name field's value.
+func (s *CreatePrometheusRouteInput) SetName(v string) *CreatePrometheusRouteInput {
+	s.Name = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *CreatePrometheusRouteInput) SetParameters(v map[string]interface{}) *CreatePrometheusRouteInput {
+	s.Parameters = v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *CreatePrometheusRouteInput) SetServiceId(v string) *CreatePrometheusRouteInput {
+	s.ServiceId = &v
+	return s
+}
+
+type CreatePrometheusRouteOutput struct {
+	_ struct{} `type:"structure"`
+
+	PrometheusRoute *PrometheusRoute `locationName:"prometheusRoute" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreatePrometheusRouteOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreatePrometheusRouteOutput) GoString() string {
+	return s.String()
+}
+
+// SetPrometheusRoute sets the PrometheusRoute field's value.
+func (s *CreatePrometheusRouteOutput) SetPrometheusRoute(v *PrometheusRoute) *CreatePrometheusRouteOutput {
+	s.PrometheusRoute = v
+	return s
+}
+
+type CreatePrometheusScrapeJobInput struct {
+	_ struct{} `type:"structure"`
+
+	// Name is a required field
+	Name *string `locationName:"name" type:"string" required:"true"`
+
+	// Parameters is a required field
+	Parameters map[string]interface{} `locationName:"parameters" type:"none" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreatePrometheusScrapeJobInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreatePrometheusScrapeJobInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreatePrometheusScrapeJobInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreatePrometheusScrapeJobInput"}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Parameters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Parameters"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetName sets the Name field's value.
+func (s *CreatePrometheusScrapeJobInput) SetName(v string) *CreatePrometheusScrapeJobInput {
+	s.Name = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *CreatePrometheusScrapeJobInput) SetParameters(v map[string]interface{}) *CreatePrometheusScrapeJobInput {
+	s.Parameters = v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *CreatePrometheusScrapeJobInput) SetServiceId(v string) *CreatePrometheusScrapeJobInput {
+	s.ServiceId = &v
+	return s
+}
+
+type CreatePrometheusScrapeJobOutput struct {
+	_ struct{} `type:"structure"`
+
+	PrometheusScrapeJob *PrometheusScrapeJob `locationName:"prometheusScrapeJob" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreatePrometheusScrapeJobOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreatePrometheusScrapeJobOutput) GoString() string {
+	return s.String()
+}
+
+// SetPrometheusScrapeJob sets the PrometheusScrapeJob field's value.
+func (s *CreatePrometheusScrapeJobOutput) SetPrometheusScrapeJob(v *PrometheusScrapeJob) *CreatePrometheusScrapeJobOutput {
+	s.PrometheusScrapeJob = v
+	return s
+}
+
 type CreateServiceInput struct {
 	_ struct{} `type:"structure"`
+
+	AdditionalRoles []*string `locationName:"additionalRoles" type:"list"`
 
 	ArbitratorRequired *bool `locationName:"arbitratorRequired" type:"boolean"`
 
 	BackupSettings *BackupSettingsRequest `locationName:"backupSettings" type:"structure"`
+
+	Coordinator *NodeRequest `locationName:"coordinator" type:"structure"`
 
 	DataVolumeIops *int64 `locationName:"dataVolumeIops" type:"integer"`
 
@@ -1134,11 +5249,19 @@ type CreateServiceInput struct {
 
 	DataVolumeType *string `locationName:"dataVolumeType" type:"string"`
 
+	ExternalBalancerRequired *bool `locationName:"externalBalancerRequired" type:"boolean"`
+
 	// HighAvailability is a required field
 	HighAvailability *bool `locationName:"highAvailability" type:"boolean" required:"true"`
 
+	InstanceQty *int64 `locationName:"instanceQty" type:"integer"`
+
 	// InstanceType is a required field
 	InstanceType *string `locationName:"instanceType" type:"string" required:"true"`
+
+	InternalBalancerRequired *bool `locationName:"internalBalancerRequired" type:"boolean"`
+
+	Maintenance *MaintenancePeriod `locationName:"maintenance" type:"structure"`
 
 	// Name is a required field
 	Name *string `locationName:"name" type:"string" required:"true"`
@@ -1168,6 +5291,8 @@ type CreateServiceInput struct {
 	SshKeyName *string `locationName:"sshKeyName" type:"string"`
 
 	SubnetIds []*string `locationName:"subnetIds" type:"list"`
+
+	Tags []*Tag `locationName:"tags" locationNameList:"item" type:"list"`
 
 	UserData *string `locationName:"userData" type:"string"`
 
@@ -1227,11 +5352,22 @@ func (s *CreateServiceInput) Validate() error {
 			invalidParams.AddNested("BackupSettings", err.(request.ErrInvalidParams))
 		}
 	}
+	if s.Coordinator != nil {
+		if err := s.Coordinator.Validate(); err != nil {
+			invalidParams.AddNested("Coordinator", err.(request.ErrInvalidParams))
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAdditionalRoles sets the AdditionalRoles field's value.
+func (s *CreateServiceInput) SetAdditionalRoles(v []*string) *CreateServiceInput {
+	s.AdditionalRoles = v
+	return s
 }
 
 // SetArbitratorRequired sets the ArbitratorRequired field's value.
@@ -1243,6 +5379,12 @@ func (s *CreateServiceInput) SetArbitratorRequired(v bool) *CreateServiceInput {
 // SetBackupSettings sets the BackupSettings field's value.
 func (s *CreateServiceInput) SetBackupSettings(v *BackupSettingsRequest) *CreateServiceInput {
 	s.BackupSettings = v
+	return s
+}
+
+// SetCoordinator sets the Coordinator field's value.
+func (s *CreateServiceInput) SetCoordinator(v *NodeRequest) *CreateServiceInput {
+	s.Coordinator = v
 	return s
 }
 
@@ -1264,15 +5406,39 @@ func (s *CreateServiceInput) SetDataVolumeType(v string) *CreateServiceInput {
 	return s
 }
 
+// SetExternalBalancerRequired sets the ExternalBalancerRequired field's value.
+func (s *CreateServiceInput) SetExternalBalancerRequired(v bool) *CreateServiceInput {
+	s.ExternalBalancerRequired = &v
+	return s
+}
+
 // SetHighAvailability sets the HighAvailability field's value.
 func (s *CreateServiceInput) SetHighAvailability(v bool) *CreateServiceInput {
 	s.HighAvailability = &v
 	return s
 }
 
+// SetInstanceQty sets the InstanceQty field's value.
+func (s *CreateServiceInput) SetInstanceQty(v int64) *CreateServiceInput {
+	s.InstanceQty = &v
+	return s
+}
+
 // SetInstanceType sets the InstanceType field's value.
 func (s *CreateServiceInput) SetInstanceType(v string) *CreateServiceInput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetInternalBalancerRequired sets the InternalBalancerRequired field's value.
+func (s *CreateServiceInput) SetInternalBalancerRequired(v bool) *CreateServiceInput {
+	s.InternalBalancerRequired = &v
+	return s
+}
+
+// SetMaintenance sets the Maintenance field's value.
+func (s *CreateServiceInput) SetMaintenance(v *MaintenancePeriod) *CreateServiceInput {
+	s.Maintenance = v
 	return s
 }
 
@@ -1342,6 +5508,12 @@ func (s *CreateServiceInput) SetSubnetIds(v []*string) *CreateServiceInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateServiceInput) SetTags(v []*Tag) *CreateServiceInput {
+	s.Tags = v
+	return s
+}
+
 // SetUserData sets the UserData field's value.
 func (s *CreateServiceInput) SetUserData(v string) *CreateServiceInput {
 	s.UserData = &v
@@ -1384,12 +5556,102 @@ func (s *CreateServiceOutput) SetService(v *Service) *CreateServiceOutput {
 	return s
 }
 
-type DatabaseBackup struct {
+type CreateUserInput struct {
 	_ struct{} `type:"structure"`
 
-	BackupEnabled *bool `locationName:"backupEnabled" type:"boolean"`
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
 
-	Id *string `locationName:"id" type:"string"`
+	// User is a required field
+	User *UserCreateRequest `locationName:"user" type:"structure" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateUserInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateUserInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateUserInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateUserInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+	if s.User == nil {
+		invalidParams.Add(request.NewErrParamRequired("User"))
+	}
+	if s.User != nil {
+		if err := s.User.Validate(); err != nil {
+			invalidParams.AddNested("User", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *CreateUserInput) SetServiceId(v string) *CreateUserInput {
+	s.ServiceId = &v
+	return s
+}
+
+// SetUser sets the User field's value.
+func (s *CreateUserInput) SetUser(v *UserCreateRequest) *CreateUserInput {
+	s.User = v
+	return s
+}
+
+type CreateUserOutput struct {
+	_ struct{} `type:"structure"`
+
+	User *UserResponse `locationName:"user" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateUserOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateUserOutput) GoString() string {
+	return s.String()
+}
+
+// SetUser sets the User field's value.
+func (s *CreateUserOutput) SetUser(v *UserResponse) *CreateUserOutput {
+	s.User = v
+	return s
+}
+
+type DatabaseBackup struct {
+	_ struct{} `type:"structure"`
 
 	Location *string `locationName:"location" type:"string"`
 
@@ -1402,8 +5664,6 @@ type DatabaseBackup struct {
 	Size *int64 `locationName:"size" type:"integer"`
 
 	Status *string `locationName:"status" type:"string"`
-
-	Users []*UserResponse `locationName:"users" type:"list"`
 }
 
 // String returns the string representation.
@@ -1422,18 +5682,6 @@ func (s DatabaseBackup) String() string {
 // value will be replaced with "sensitive".
 func (s DatabaseBackup) GoString() string {
 	return s.String()
-}
-
-// SetBackupEnabled sets the BackupEnabled field's value.
-func (s *DatabaseBackup) SetBackupEnabled(v bool) *DatabaseBackup {
-	s.BackupEnabled = &v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *DatabaseBackup) SetId(v string) *DatabaseBackup {
-	s.Id = &v
-	return s
 }
 
 // SetLocation sets the Location field's value.
@@ -1472,9 +5720,49 @@ func (s *DatabaseBackup) SetStatus(v string) *DatabaseBackup {
 	return s
 }
 
-// SetUsers sets the Users field's value.
-func (s *DatabaseBackup) SetUsers(v []*UserResponse) *DatabaseBackup {
-	s.Users = v
+type DatabaseCompactResponse struct {
+	_ struct{} `type:"structure"`
+
+	Id *string `locationName:"id" type:"string"`
+
+	Name *string `locationName:"name" type:"string"`
+
+	Status *string `locationName:"status" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DatabaseCompactResponse) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DatabaseCompactResponse) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *DatabaseCompactResponse) SetId(v string) *DatabaseCompactResponse {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DatabaseCompactResponse) SetName(v string) *DatabaseCompactResponse {
+	s.Name = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DatabaseCompactResponse) SetStatus(v string) *DatabaseCompactResponse {
+	s.Status = &v
 	return s
 }
 
@@ -1556,6 +5844,72 @@ func (s *DatabaseCreateRequest) SetUsers(v []*UserCreateRequest) *DatabaseCreate
 	return s
 }
 
+type DatabaseModifyRequest struct {
+	_ struct{} `type:"structure"`
+
+	BackupEnabled *bool `locationName:"backupEnabled" type:"boolean"`
+
+	Parameters map[string]interface{} `locationName:"parameters" type:"none"`
+
+	Users []*UserCreateRequest `locationName:"users" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DatabaseModifyRequest) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DatabaseModifyRequest) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DatabaseModifyRequest) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DatabaseModifyRequest"}
+	if s.Users != nil {
+		for i, v := range s.Users {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Users", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBackupEnabled sets the BackupEnabled field's value.
+func (s *DatabaseModifyRequest) SetBackupEnabled(v bool) *DatabaseModifyRequest {
+	s.BackupEnabled = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *DatabaseModifyRequest) SetParameters(v map[string]interface{}) *DatabaseModifyRequest {
+	s.Parameters = v
+	return s
+}
+
+// SetUsers sets the Users field's value.
+func (s *DatabaseModifyRequest) SetUsers(v []*UserCreateRequest) *DatabaseModifyRequest {
+	s.Users = v
+	return s
+}
+
 type DatabaseResponse struct {
 	_ struct{} `type:"structure"`
 
@@ -1567,6 +5921,8 @@ type DatabaseResponse struct {
 	Name *string `locationName:"name" type:"string" required:"true"`
 
 	Parameters map[string]interface{} `locationName:"parameters" type:"none"`
+
+	Status *string `locationName:"status" type:"string"`
 
 	Users []*UserResponse `locationName:"users" type:"list"`
 }
@@ -1610,6 +5966,12 @@ func (s *DatabaseResponse) SetName(v string) *DatabaseResponse {
 // SetParameters sets the Parameters field's value.
 func (s *DatabaseResponse) SetParameters(v map[string]interface{}) *DatabaseResponse {
 	s.Parameters = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DatabaseResponse) SetStatus(v string) *DatabaseResponse {
+	s.Status = &v
 	return s
 }
 
@@ -1696,6 +6058,594 @@ func (s DeleteBackupsOutput) GoString() string {
 	return s.String()
 }
 
+type DeleteDatabaseInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// DatabaseId is a required field
+	DatabaseId *string `location:"uri" locationName:"databaseId" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteDatabaseInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteDatabaseInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteDatabaseInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteDatabaseInput"}
+	if s.DatabaseId == nil {
+		invalidParams.Add(request.NewErrParamRequired("DatabaseId"))
+	}
+	if s.DatabaseId != nil && len(*s.DatabaseId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("DatabaseId", 1))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDatabaseId sets the DatabaseId field's value.
+func (s *DeleteDatabaseInput) SetDatabaseId(v string) *DeleteDatabaseInput {
+	s.DatabaseId = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *DeleteDatabaseInput) SetServiceId(v string) *DeleteDatabaseInput {
+	s.ServiceId = &v
+	return s
+}
+
+type DeleteDatabaseOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteDatabaseOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteDatabaseOutput) GoString() string {
+	return s.String()
+}
+
+type DeleteElasticsearchSnapshotRepositoryInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// RepositoryId is a required field
+	RepositoryId *string `location:"uri" locationName:"repositoryId" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteElasticsearchSnapshotRepositoryInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteElasticsearchSnapshotRepositoryInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteElasticsearchSnapshotRepositoryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteElasticsearchSnapshotRepositoryInput"}
+	if s.RepositoryId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RepositoryId"))
+	}
+	if s.RepositoryId != nil && len(*s.RepositoryId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RepositoryId", 1))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetRepositoryId sets the RepositoryId field's value.
+func (s *DeleteElasticsearchSnapshotRepositoryInput) SetRepositoryId(v string) *DeleteElasticsearchSnapshotRepositoryInput {
+	s.RepositoryId = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *DeleteElasticsearchSnapshotRepositoryInput) SetServiceId(v string) *DeleteElasticsearchSnapshotRepositoryInput {
+	s.ServiceId = &v
+	return s
+}
+
+type DeleteElasticsearchSnapshotRepositoryOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteElasticsearchSnapshotRepositoryOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteElasticsearchSnapshotRepositoryOutput) GoString() string {
+	return s.String()
+}
+
+type DeleteKafkaTopicInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+
+	// TopicId is a required field
+	TopicId *string `location:"uri" locationName:"topicId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteKafkaTopicInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteKafkaTopicInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteKafkaTopicInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteKafkaTopicInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+	if s.TopicId == nil {
+		invalidParams.Add(request.NewErrParamRequired("TopicId"))
+	}
+	if s.TopicId != nil && len(*s.TopicId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("TopicId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *DeleteKafkaTopicInput) SetServiceId(v string) *DeleteKafkaTopicInput {
+	s.ServiceId = &v
+	return s
+}
+
+// SetTopicId sets the TopicId field's value.
+func (s *DeleteKafkaTopicInput) SetTopicId(v string) *DeleteKafkaTopicInput {
+	s.TopicId = &v
+	return s
+}
+
+type DeleteKafkaTopicOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteKafkaTopicOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteKafkaTopicOutput) GoString() string {
+	return s.String()
+}
+
+type DeleteLogstashPipelineInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// PipelineId is a required field
+	PipelineId *string `location:"uri" locationName:"pipelineId" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteLogstashPipelineInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteLogstashPipelineInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteLogstashPipelineInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteLogstashPipelineInput"}
+	if s.PipelineId == nil {
+		invalidParams.Add(request.NewErrParamRequired("PipelineId"))
+	}
+	if s.PipelineId != nil && len(*s.PipelineId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PipelineId", 1))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetPipelineId sets the PipelineId field's value.
+func (s *DeleteLogstashPipelineInput) SetPipelineId(v string) *DeleteLogstashPipelineInput {
+	s.PipelineId = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *DeleteLogstashPipelineInput) SetServiceId(v string) *DeleteLogstashPipelineInput {
+	s.ServiceId = &v
+	return s
+}
+
+type DeleteLogstashPipelineOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteLogstashPipelineOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteLogstashPipelineOutput) GoString() string {
+	return s.String()
+}
+
+type DeleteNotificationChannelInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ChannelId is a required field
+	ChannelId *string `location:"uri" locationName:"channelId" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteNotificationChannelInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteNotificationChannelInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteNotificationChannelInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteNotificationChannelInput"}
+	if s.ChannelId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChannelId"))
+	}
+	if s.ChannelId != nil && len(*s.ChannelId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ChannelId", 1))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetChannelId sets the ChannelId field's value.
+func (s *DeleteNotificationChannelInput) SetChannelId(v string) *DeleteNotificationChannelInput {
+	s.ChannelId = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *DeleteNotificationChannelInput) SetServiceId(v string) *DeleteNotificationChannelInput {
+	s.ServiceId = &v
+	return s
+}
+
+type DeleteNotificationChannelOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteNotificationChannelOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteNotificationChannelOutput) GoString() string {
+	return s.String()
+}
+
+type DeletePrometheusRouteInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// RouteId is a required field
+	RouteId *string `location:"uri" locationName:"routeId" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeletePrometheusRouteInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeletePrometheusRouteInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeletePrometheusRouteInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeletePrometheusRouteInput"}
+	if s.RouteId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RouteId"))
+	}
+	if s.RouteId != nil && len(*s.RouteId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RouteId", 1))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetRouteId sets the RouteId field's value.
+func (s *DeletePrometheusRouteInput) SetRouteId(v string) *DeletePrometheusRouteInput {
+	s.RouteId = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *DeletePrometheusRouteInput) SetServiceId(v string) *DeletePrometheusRouteInput {
+	s.ServiceId = &v
+	return s
+}
+
+type DeletePrometheusRouteOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeletePrometheusRouteOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeletePrometheusRouteOutput) GoString() string {
+	return s.String()
+}
+
+type DeletePrometheusScrapeJobInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// JobId is a required field
+	JobId *string `location:"uri" locationName:"jobId" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeletePrometheusScrapeJobInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeletePrometheusScrapeJobInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeletePrometheusScrapeJobInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeletePrometheusScrapeJobInput"}
+	if s.JobId == nil {
+		invalidParams.Add(request.NewErrParamRequired("JobId"))
+	}
+	if s.JobId != nil && len(*s.JobId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("JobId", 1))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetJobId sets the JobId field's value.
+func (s *DeletePrometheusScrapeJobInput) SetJobId(v string) *DeletePrometheusScrapeJobInput {
+	s.JobId = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *DeletePrometheusScrapeJobInput) SetServiceId(v string) *DeletePrometheusScrapeJobInput {
+	s.ServiceId = &v
+	return s
+}
+
+type DeletePrometheusScrapeJobOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeletePrometheusScrapeJobOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeletePrometheusScrapeJobOutput) GoString() string {
+	return s.String()
+}
+
 type DeleteServiceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -1777,6 +6727,90 @@ func (s DeleteServiceOutput) GoString() string {
 	return s.String()
 }
 
+type DeleteUserInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+
+	// UserId is a required field
+	UserId *string `location:"uri" locationName:"userId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteUserInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteUserInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteUserInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteUserInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+	if s.UserId == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserId"))
+	}
+	if s.UserId != nil && len(*s.UserId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("UserId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *DeleteUserInput) SetServiceId(v string) *DeleteUserInput {
+	s.ServiceId = &v
+	return s
+}
+
+// SetUserId sets the UserId field's value.
+func (s *DeleteUserInput) SetUserId(v string) *DeleteUserInput {
+	s.UserId = &v
+	return s
+}
+
+type DeleteUserOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteUserOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteUserOutput) GoString() string {
+	return s.String()
+}
+
 type DescribeBackupInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
@@ -1854,6 +6888,98 @@ func (s *DescribeBackupOutput) SetBackup(v *Backup) *DescribeBackupOutput {
 	return s
 }
 
+type DescribeDatabaseInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// DatabaseId is a required field
+	DatabaseId *string `location:"uri" locationName:"databaseId" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeDatabaseInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeDatabaseInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeDatabaseInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeDatabaseInput"}
+	if s.DatabaseId == nil {
+		invalidParams.Add(request.NewErrParamRequired("DatabaseId"))
+	}
+	if s.DatabaseId != nil && len(*s.DatabaseId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("DatabaseId", 1))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDatabaseId sets the DatabaseId field's value.
+func (s *DescribeDatabaseInput) SetDatabaseId(v string) *DescribeDatabaseInput {
+	s.DatabaseId = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *DescribeDatabaseInput) SetServiceId(v string) *DescribeDatabaseInput {
+	s.ServiceId = &v
+	return s
+}
+
+type DescribeDatabaseOutput struct {
+	_ struct{} `type:"structure"`
+
+	Database *DatabaseResponse `locationName:"database" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeDatabaseOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeDatabaseOutput) GoString() string {
+	return s.String()
+}
+
+// SetDatabase sets the Database field's value.
+func (s *DescribeDatabaseOutput) SetDatabase(v *DatabaseResponse) *DescribeDatabaseOutput {
+	s.Database = v
+	return s
+}
+
 type DescribeServiceInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
@@ -1928,6 +7054,328 @@ func (s DescribeServiceOutput) GoString() string {
 // SetService sets the Service field's value.
 func (s *DescribeServiceOutput) SetService(v *Service) *DescribeServiceOutput {
 	s.Service = v
+	return s
+}
+
+type DescribeUserInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+
+	// UserId is a required field
+	UserId *string `location:"uri" locationName:"userId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeUserInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeUserInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeUserInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeUserInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+	if s.UserId == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserId"))
+	}
+	if s.UserId != nil && len(*s.UserId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("UserId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *DescribeUserInput) SetServiceId(v string) *DescribeUserInput {
+	s.ServiceId = &v
+	return s
+}
+
+// SetUserId sets the UserId field's value.
+func (s *DescribeUserInput) SetUserId(v string) *DescribeUserInput {
+	s.UserId = &v
+	return s
+}
+
+type DescribeUserOutput struct {
+	_ struct{} `type:"structure"`
+
+	User *UserResponse `locationName:"user" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeUserOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeUserOutput) GoString() string {
+	return s.String()
+}
+
+// SetUser sets the User field's value.
+func (s *DescribeUserOutput) SetUser(v *UserResponse) *DescribeUserOutput {
+	s.User = v
+	return s
+}
+
+type DisableElasticsearchSnapshotRepositoryInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// RepositoryId is a required field
+	RepositoryId *string `location:"uri" locationName:"repositoryId" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DisableElasticsearchSnapshotRepositoryInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DisableElasticsearchSnapshotRepositoryInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DisableElasticsearchSnapshotRepositoryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DisableElasticsearchSnapshotRepositoryInput"}
+	if s.RepositoryId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RepositoryId"))
+	}
+	if s.RepositoryId != nil && len(*s.RepositoryId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RepositoryId", 1))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetRepositoryId sets the RepositoryId field's value.
+func (s *DisableElasticsearchSnapshotRepositoryInput) SetRepositoryId(v string) *DisableElasticsearchSnapshotRepositoryInput {
+	s.RepositoryId = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *DisableElasticsearchSnapshotRepositoryInput) SetServiceId(v string) *DisableElasticsearchSnapshotRepositoryInput {
+	s.ServiceId = &v
+	return s
+}
+
+type DisableElasticsearchSnapshotRepositoryOutput struct {
+	_ struct{} `type:"structure"`
+
+	Repository *ElasticsearchSnapshotRepositoryResponse `locationName:"repository" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DisableElasticsearchSnapshotRepositoryOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DisableElasticsearchSnapshotRepositoryOutput) GoString() string {
+	return s.String()
+}
+
+// SetRepository sets the Repository field's value.
+func (s *DisableElasticsearchSnapshotRepositoryOutput) SetRepository(v *ElasticsearchSnapshotRepositoryResponse) *DisableElasticsearchSnapshotRepositoryOutput {
+	s.Repository = v
+	return s
+}
+
+type ElasticsearchSnapshotRepositoryResponse struct {
+	_ struct{} `type:"structure"`
+
+	Id *string `locationName:"id" type:"string"`
+
+	Name *string `locationName:"name" type:"string"`
+
+	Parameters map[string]interface{} `locationName:"parameters" type:"none"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ElasticsearchSnapshotRepositoryResponse) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ElasticsearchSnapshotRepositoryResponse) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *ElasticsearchSnapshotRepositoryResponse) SetId(v string) *ElasticsearchSnapshotRepositoryResponse {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ElasticsearchSnapshotRepositoryResponse) SetName(v string) *ElasticsearchSnapshotRepositoryResponse {
+	s.Name = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *ElasticsearchSnapshotRepositoryResponse) SetParameters(v map[string]interface{}) *ElasticsearchSnapshotRepositoryResponse {
+	s.Parameters = v
+	return s
+}
+
+type EnableElasticsearchSnapshotRepositoryInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// RepositoryId is a required field
+	RepositoryId *string `location:"uri" locationName:"repositoryId" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s EnableElasticsearchSnapshotRepositoryInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s EnableElasticsearchSnapshotRepositoryInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *EnableElasticsearchSnapshotRepositoryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "EnableElasticsearchSnapshotRepositoryInput"}
+	if s.RepositoryId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RepositoryId"))
+	}
+	if s.RepositoryId != nil && len(*s.RepositoryId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RepositoryId", 1))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetRepositoryId sets the RepositoryId field's value.
+func (s *EnableElasticsearchSnapshotRepositoryInput) SetRepositoryId(v string) *EnableElasticsearchSnapshotRepositoryInput {
+	s.RepositoryId = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *EnableElasticsearchSnapshotRepositoryInput) SetServiceId(v string) *EnableElasticsearchSnapshotRepositoryInput {
+	s.ServiceId = &v
+	return s
+}
+
+type EnableElasticsearchSnapshotRepositoryOutput struct {
+	_ struct{} `type:"structure"`
+
+	Repository *ElasticsearchSnapshotRepositoryResponse `locationName:"repository" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s EnableElasticsearchSnapshotRepositoryOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s EnableElasticsearchSnapshotRepositoryOutput) GoString() string {
+	return s.String()
+}
+
+// SetRepository sets the Repository field's value.
+func (s *EnableElasticsearchSnapshotRepositoryOutput) SetRepository(v *ElasticsearchSnapshotRepositoryResponse) *EnableElasticsearchSnapshotRepositoryOutput {
+	s.Repository = v
 	return s
 }
 
@@ -2055,6 +7503,52 @@ func (s *InstanceEndpoint) SetName(v string) *InstanceEndpoint {
 	return s
 }
 
+type KafkaTopic struct {
+	_ struct{} `type:"structure"`
+
+	Id *string `locationName:"id" type:"string"`
+
+	Name *string `locationName:"name" type:"string"`
+
+	Parameters map[string]interface{} `locationName:"parameters" type:"none"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s KafkaTopic) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s KafkaTopic) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *KafkaTopic) SetId(v string) *KafkaTopic {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *KafkaTopic) SetName(v string) *KafkaTopic {
+	s.Name = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *KafkaTopic) SetParameters(v map[string]interface{}) *KafkaTopic {
+	s.Parameters = v
+	return s
+}
+
 type ListBackupUsersInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 }
@@ -2110,6 +7604,10 @@ func (s *ListBackupUsersOutput) SetUsers(v []*BackupUser) *ListBackupUsersOutput
 type ListBackupsInput struct {
 	_ struct{} `type:"structure"`
 
+	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
+
+	NextToken *string `locationName:"nextToken" type:"string"`
+
 	ServiceClass *string `locationName:"serviceClass" type:"string"`
 
 	ServiceId *string `locationName:"serviceId" type:"string"`
@@ -2135,6 +7633,31 @@ func (s ListBackupsInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListBackupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListBackupsInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListBackupsInput) SetMaxResults(v int64) *ListBackupsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListBackupsInput) SetNextToken(v string) *ListBackupsInput {
+	s.NextToken = &v
+	return s
+}
+
 // SetServiceClass sets the ServiceClass field's value.
 func (s *ListBackupsInput) SetServiceClass(v string) *ListBackupsInput {
 	s.ServiceClass = &v
@@ -2157,6 +7680,8 @@ type ListBackupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	Backups []*Backup `locationName:"backups" type:"list"`
+
+	NextToken *string `locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation.
@@ -2183,10 +7708,636 @@ func (s *ListBackupsOutput) SetBackups(v []*Backup) *ListBackupsOutput {
 	return s
 }
 
+// SetNextToken sets the NextToken field's value.
+func (s *ListBackupsOutput) SetNextToken(v string) *ListBackupsOutput {
+	s.NextToken = &v
+	return s
+}
+
+type ListDatabasesInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListDatabasesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListDatabasesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListDatabasesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListDatabasesInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ListDatabasesInput) SetServiceId(v string) *ListDatabasesInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ListDatabasesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Databases []*DatabaseCompactResponse `locationName:"databases" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListDatabasesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListDatabasesOutput) GoString() string {
+	return s.String()
+}
+
+// SetDatabases sets the Databases field's value.
+func (s *ListDatabasesOutput) SetDatabases(v []*DatabaseCompactResponse) *ListDatabasesOutput {
+	s.Databases = v
+	return s
+}
+
+type ListElasticsearchServicesSuitableForRecoveryInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListElasticsearchServicesSuitableForRecoveryInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListElasticsearchServicesSuitableForRecoveryInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListElasticsearchServicesSuitableForRecoveryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListElasticsearchServicesSuitableForRecoveryInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ListElasticsearchServicesSuitableForRecoveryInput) SetServiceId(v string) *ListElasticsearchServicesSuitableForRecoveryInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ListElasticsearchServicesSuitableForRecoveryOutput struct {
+	_ struct{} `type:"structure"`
+
+	Services []*ListServiceItem `locationName:"services" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListElasticsearchServicesSuitableForRecoveryOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListElasticsearchServicesSuitableForRecoveryOutput) GoString() string {
+	return s.String()
+}
+
+// SetServices sets the Services field's value.
+func (s *ListElasticsearchServicesSuitableForRecoveryOutput) SetServices(v []*ListServiceItem) *ListElasticsearchServicesSuitableForRecoveryOutput {
+	s.Services = v
+	return s
+}
+
+type ListElasticsearchSnapshotRepositoriesInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListElasticsearchSnapshotRepositoriesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListElasticsearchSnapshotRepositoriesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListElasticsearchSnapshotRepositoriesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListElasticsearchSnapshotRepositoriesInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ListElasticsearchSnapshotRepositoriesInput) SetServiceId(v string) *ListElasticsearchSnapshotRepositoriesInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ListElasticsearchSnapshotRepositoriesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Repositories []*ElasticsearchSnapshotRepositoryResponse `locationName:"repositories" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListElasticsearchSnapshotRepositoriesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListElasticsearchSnapshotRepositoriesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRepositories sets the Repositories field's value.
+func (s *ListElasticsearchSnapshotRepositoriesOutput) SetRepositories(v []*ElasticsearchSnapshotRepositoryResponse) *ListElasticsearchSnapshotRepositoriesOutput {
+	s.Repositories = v
+	return s
+}
+
+type ListKafkaTopicsInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListKafkaTopicsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListKafkaTopicsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListKafkaTopicsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListKafkaTopicsInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ListKafkaTopicsInput) SetServiceId(v string) *ListKafkaTopicsInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ListKafkaTopicsOutput struct {
+	_ struct{} `type:"structure"`
+
+	KafkaTopics []*KafkaTopic `locationName:"kafkaTopics" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListKafkaTopicsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListKafkaTopicsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKafkaTopics sets the KafkaTopics field's value.
+func (s *ListKafkaTopicsOutput) SetKafkaTopics(v []*KafkaTopic) *ListKafkaTopicsOutput {
+	s.KafkaTopics = v
+	return s
+}
+
+type ListLogstashPipelinesInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListLogstashPipelinesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListLogstashPipelinesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListLogstashPipelinesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListLogstashPipelinesInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ListLogstashPipelinesInput) SetServiceId(v string) *ListLogstashPipelinesInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ListLogstashPipelinesOutput struct {
+	_ struct{} `type:"structure"`
+
+	LogstashPipelines []*LogstashPipeline `locationName:"logstashPipelines" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListLogstashPipelinesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListLogstashPipelinesOutput) GoString() string {
+	return s.String()
+}
+
+// SetLogstashPipelines sets the LogstashPipelines field's value.
+func (s *ListLogstashPipelinesOutput) SetLogstashPipelines(v []*LogstashPipeline) *ListLogstashPipelinesOutput {
+	s.LogstashPipelines = v
+	return s
+}
+
+type ListNotificationChannelsInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListNotificationChannelsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListNotificationChannelsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListNotificationChannelsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListNotificationChannelsInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ListNotificationChannelsInput) SetServiceId(v string) *ListNotificationChannelsInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ListNotificationChannelsOutput struct {
+	_ struct{} `type:"structure"`
+
+	NotificationChannels []*NotificationChannel `locationName:"notificationChannels" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListNotificationChannelsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListNotificationChannelsOutput) GoString() string {
+	return s.String()
+}
+
+// SetNotificationChannels sets the NotificationChannels field's value.
+func (s *ListNotificationChannelsOutput) SetNotificationChannels(v []*NotificationChannel) *ListNotificationChannelsOutput {
+	s.NotificationChannels = v
+	return s
+}
+
+type ListPrometheusRoutesInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListPrometheusRoutesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListPrometheusRoutesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListPrometheusRoutesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListPrometheusRoutesInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ListPrometheusRoutesInput) SetServiceId(v string) *ListPrometheusRoutesInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ListPrometheusRoutesOutput struct {
+	_ struct{} `type:"structure"`
+
+	PrometheusRoutes []*PrometheusRoute `locationName:"prometheusRoutes" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListPrometheusRoutesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListPrometheusRoutesOutput) GoString() string {
+	return s.String()
+}
+
+// SetPrometheusRoutes sets the PrometheusRoutes field's value.
+func (s *ListPrometheusRoutesOutput) SetPrometheusRoutes(v []*PrometheusRoute) *ListPrometheusRoutesOutput {
+	s.PrometheusRoutes = v
+	return s
+}
+
+type ListPrometheusScrapeJobsInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListPrometheusScrapeJobsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListPrometheusScrapeJobsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListPrometheusScrapeJobsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListPrometheusScrapeJobsInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ListPrometheusScrapeJobsInput) SetServiceId(v string) *ListPrometheusScrapeJobsInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ListPrometheusScrapeJobsOutput struct {
+	_ struct{} `type:"structure"`
+
+	PrometheusScrapeJobs []*PrometheusScrapeJob `locationName:"prometheusScrapeJobs" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListPrometheusScrapeJobsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListPrometheusScrapeJobsOutput) GoString() string {
+	return s.String()
+}
+
+// SetPrometheusScrapeJobs sets the PrometheusScrapeJobs field's value.
+func (s *ListPrometheusScrapeJobsOutput) SetPrometheusScrapeJobs(v []*PrometheusScrapeJob) *ListPrometheusScrapeJobsOutput {
+	s.PrometheusScrapeJobs = v
+	return s
+}
+
 type ListServiceItem struct {
 	_ struct{} `type:"structure"`
 
+	EnvironmentVersion *string `locationName:"environmentVersion" type:"string"`
+
 	ErrorCode *string `locationName:"errorCode" type:"string"`
+
+	ErrorRecoverable *bool `locationName:"errorRecoverable" type:"boolean"`
 
 	Id *string `locationName:"id" type:"string"`
 
@@ -2200,11 +8351,17 @@ type ListServiceItem struct {
 
 	Status *string `locationName:"status" type:"string"`
 
+	SupportedFeatures []*string `locationName:"supportedFeatures" type:"list"`
+
+	Tags []*Tag `locationName:"tags" locationNameList:"item" type:"list"`
+
 	TotalCpuCount *int64 `locationName:"totalCpuCount" type:"integer"`
 
 	TotalMemory *int64 `locationName:"totalMemory" type:"integer"`
 
 	Version *string `locationName:"version" type:"string"`
+
+	VpcId *string `locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation.
@@ -2225,9 +8382,21 @@ func (s ListServiceItem) GoString() string {
 	return s.String()
 }
 
+// SetEnvironmentVersion sets the EnvironmentVersion field's value.
+func (s *ListServiceItem) SetEnvironmentVersion(v string) *ListServiceItem {
+	s.EnvironmentVersion = &v
+	return s
+}
+
 // SetErrorCode sets the ErrorCode field's value.
 func (s *ListServiceItem) SetErrorCode(v string) *ListServiceItem {
 	s.ErrorCode = &v
+	return s
+}
+
+// SetErrorRecoverable sets the ErrorRecoverable field's value.
+func (s *ListServiceItem) SetErrorRecoverable(v bool) *ListServiceItem {
+	s.ErrorRecoverable = &v
 	return s
 }
 
@@ -2267,6 +8436,18 @@ func (s *ListServiceItem) SetStatus(v string) *ListServiceItem {
 	return s
 }
 
+// SetSupportedFeatures sets the SupportedFeatures field's value.
+func (s *ListServiceItem) SetSupportedFeatures(v []*string) *ListServiceItem {
+	s.SupportedFeatures = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ListServiceItem) SetTags(v []*Tag) *ListServiceItem {
+	s.Tags = v
+	return s
+}
+
 // SetTotalCpuCount sets the TotalCpuCount field's value.
 func (s *ListServiceItem) SetTotalCpuCount(v int64) *ListServiceItem {
 	s.TotalCpuCount = &v
@@ -2282,6 +8463,12 @@ func (s *ListServiceItem) SetTotalMemory(v int64) *ListServiceItem {
 // SetVersion sets the Version field's value.
 func (s *ListServiceItem) SetVersion(v string) *ListServiceItem {
 	s.Version = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *ListServiceItem) SetVpcId(v string) *ListServiceItem {
+	s.VpcId = &v
 	return s
 }
 
@@ -2350,6 +8537,405 @@ func (s ListServicesOutput) GoString() string {
 // SetServices sets the Services field's value.
 func (s *ListServicesOutput) SetServices(v []*ListServiceItem) *ListServicesOutput {
 	s.Services = v
+	return s
+}
+
+type ListUsersInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListUsersInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListUsersInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListUsersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListUsersInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ListUsersInput) SetServiceId(v string) *ListUsersInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ListUsersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Users []*UserCompactResponse `locationName:"users" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListUsersOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListUsersOutput) GoString() string {
+	return s.String()
+}
+
+// SetUsers sets the Users field's value.
+func (s *ListUsersOutput) SetUsers(v []*UserCompactResponse) *ListUsersOutput {
+	s.Users = v
+	return s
+}
+
+type LoadBalancer struct {
+	_ struct{} `type:"structure"`
+
+	BalancerId *string `locationName:"balancerId" type:"string"`
+
+	BalancerName *string `locationName:"balancerName" type:"string"`
+
+	DnsName *string `locationName:"dnsName" type:"string"`
+
+	Listeners []*LoadBalancerListener `locationName:"listeners" type:"list"`
+
+	TargetGroups []*LoadBalancerTargetGroup `locationName:"targetGroups" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LoadBalancer) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LoadBalancer) GoString() string {
+	return s.String()
+}
+
+// SetBalancerId sets the BalancerId field's value.
+func (s *LoadBalancer) SetBalancerId(v string) *LoadBalancer {
+	s.BalancerId = &v
+	return s
+}
+
+// SetBalancerName sets the BalancerName field's value.
+func (s *LoadBalancer) SetBalancerName(v string) *LoadBalancer {
+	s.BalancerName = &v
+	return s
+}
+
+// SetDnsName sets the DnsName field's value.
+func (s *LoadBalancer) SetDnsName(v string) *LoadBalancer {
+	s.DnsName = &v
+	return s
+}
+
+// SetListeners sets the Listeners field's value.
+func (s *LoadBalancer) SetListeners(v []*LoadBalancerListener) *LoadBalancer {
+	s.Listeners = v
+	return s
+}
+
+// SetTargetGroups sets the TargetGroups field's value.
+func (s *LoadBalancer) SetTargetGroups(v []*LoadBalancerTargetGroup) *LoadBalancer {
+	s.TargetGroups = v
+	return s
+}
+
+type LoadBalancerListener struct {
+	_ struct{} `type:"structure"`
+
+	Arn *string `locationName:"arn" type:"string"`
+
+	Port *int64 `locationName:"port" type:"integer"`
+
+	Protocol *string `locationName:"protocol" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LoadBalancerListener) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LoadBalancerListener) GoString() string {
+	return s.String()
+}
+
+// SetArn sets the Arn field's value.
+func (s *LoadBalancerListener) SetArn(v string) *LoadBalancerListener {
+	s.Arn = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *LoadBalancerListener) SetPort(v int64) *LoadBalancerListener {
+	s.Port = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *LoadBalancerListener) SetProtocol(v string) *LoadBalancerListener {
+	s.Protocol = &v
+	return s
+}
+
+type LoadBalancerTargetGroup struct {
+	_ struct{} `type:"structure"`
+
+	Arn *string `locationName:"arn" type:"string"`
+
+	Port *int64 `locationName:"port" type:"integer"`
+
+	Protocol *string `locationName:"protocol" type:"string"`
+
+	TargetType *string `locationName:"targetType" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LoadBalancerTargetGroup) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LoadBalancerTargetGroup) GoString() string {
+	return s.String()
+}
+
+// SetArn sets the Arn field's value.
+func (s *LoadBalancerTargetGroup) SetArn(v string) *LoadBalancerTargetGroup {
+	s.Arn = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *LoadBalancerTargetGroup) SetPort(v int64) *LoadBalancerTargetGroup {
+	s.Port = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *LoadBalancerTargetGroup) SetProtocol(v string) *LoadBalancerTargetGroup {
+	s.Protocol = &v
+	return s
+}
+
+// SetTargetType sets the TargetType field's value.
+func (s *LoadBalancerTargetGroup) SetTargetType(v string) *LoadBalancerTargetGroup {
+	s.TargetType = &v
+	return s
+}
+
+type LoadBalancers struct {
+	_ struct{} `type:"structure"`
+
+	ExternalBalancers []*LoadBalancer `locationName:"externalBalancers" type:"list"`
+
+	InternalBalancers []*LoadBalancer `locationName:"internalBalancers" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LoadBalancers) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LoadBalancers) GoString() string {
+	return s.String()
+}
+
+// SetExternalBalancers sets the ExternalBalancers field's value.
+func (s *LoadBalancers) SetExternalBalancers(v []*LoadBalancer) *LoadBalancers {
+	s.ExternalBalancers = v
+	return s
+}
+
+// SetInternalBalancers sets the InternalBalancers field's value.
+func (s *LoadBalancers) SetInternalBalancers(v []*LoadBalancer) *LoadBalancers {
+	s.InternalBalancers = v
+	return s
+}
+
+type LogstashPipeline struct {
+	_ struct{} `type:"structure"`
+
+	Configuration *string `locationName:"configuration" type:"string"`
+
+	Id *string `locationName:"id" type:"string"`
+
+	Name *string `locationName:"name" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LogstashPipeline) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LogstashPipeline) GoString() string {
+	return s.String()
+}
+
+// SetConfiguration sets the Configuration field's value.
+func (s *LogstashPipeline) SetConfiguration(v string) *LogstashPipeline {
+	s.Configuration = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *LogstashPipeline) SetId(v string) *LogstashPipeline {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *LogstashPipeline) SetName(v string) *LogstashPipeline {
+	s.Name = &v
+	return s
+}
+
+type MaintenancePeriod struct {
+	_ struct{} `type:"structure"`
+
+	DayOfWeek *string `locationName:"dayOfWeek" type:"string"`
+
+	Hour *int64 `locationName:"hour" type:"integer"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s MaintenancePeriod) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s MaintenancePeriod) GoString() string {
+	return s.String()
+}
+
+// SetDayOfWeek sets the DayOfWeek field's value.
+func (s *MaintenancePeriod) SetDayOfWeek(v string) *MaintenancePeriod {
+	s.DayOfWeek = &v
+	return s
+}
+
+// SetHour sets the Hour field's value.
+func (s *MaintenancePeriod) SetHour(v int64) *MaintenancePeriod {
+	s.Hour = &v
+	return s
+}
+
+type MaintenancePreferences struct {
+	_ struct{} `type:"structure"`
+
+	Anytime *bool `locationName:"anytime" type:"boolean"`
+
+	Period *MaintenancePeriod `locationName:"period" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s MaintenancePreferences) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s MaintenancePreferences) GoString() string {
+	return s.String()
+}
+
+// SetAnytime sets the Anytime field's value.
+func (s *MaintenancePreferences) SetAnytime(v bool) *MaintenancePreferences {
+	s.Anytime = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *MaintenancePreferences) SetPeriod(v *MaintenancePeriod) *MaintenancePreferences {
+	s.Period = v
 	return s
 }
 
@@ -2435,6 +9021,1193 @@ func (s ModifyBackupOutput) GoString() string {
 // SetBackup sets the Backup field's value.
 func (s *ModifyBackupOutput) SetBackup(v *Backup) *ModifyBackupOutput {
 	s.Backup = v
+	return s
+}
+
+type ModifyDatabaseInput struct {
+	_ struct{} `type:"structure"`
+
+	// Database is a required field
+	Database *DatabaseModifyRequest `locationName:"database" type:"structure" required:"true"`
+
+	// DatabaseId is a required field
+	DatabaseId *string `location:"uri" locationName:"databaseId" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyDatabaseInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyDatabaseInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDatabaseInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDatabaseInput"}
+	if s.Database == nil {
+		invalidParams.Add(request.NewErrParamRequired("Database"))
+	}
+	if s.DatabaseId == nil {
+		invalidParams.Add(request.NewErrParamRequired("DatabaseId"))
+	}
+	if s.DatabaseId != nil && len(*s.DatabaseId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("DatabaseId", 1))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+	if s.Database != nil {
+		if err := s.Database.Validate(); err != nil {
+			invalidParams.AddNested("Database", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDatabase sets the Database field's value.
+func (s *ModifyDatabaseInput) SetDatabase(v *DatabaseModifyRequest) *ModifyDatabaseInput {
+	s.Database = v
+	return s
+}
+
+// SetDatabaseId sets the DatabaseId field's value.
+func (s *ModifyDatabaseInput) SetDatabaseId(v string) *ModifyDatabaseInput {
+	s.DatabaseId = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyDatabaseInput) SetServiceId(v string) *ModifyDatabaseInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ModifyDatabaseOutput struct {
+	_ struct{} `type:"structure"`
+
+	Database *DatabaseResponse `locationName:"database" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyDatabaseOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyDatabaseOutput) GoString() string {
+	return s.String()
+}
+
+// SetDatabase sets the Database field's value.
+func (s *ModifyDatabaseOutput) SetDatabase(v *DatabaseResponse) *ModifyDatabaseOutput {
+	s.Database = v
+	return s
+}
+
+type ModifyInstanceTypeInput struct {
+	_ struct{} `type:"structure"`
+
+	// InstanceType is a required field
+	InstanceType *string `locationName:"instanceType" type:"string" required:"true"`
+
+	// NodeRole is a required field
+	NodeRole *string `locationName:"nodeRole" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyInstanceTypeInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyInstanceTypeInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyInstanceTypeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyInstanceTypeInput"}
+	if s.InstanceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
+	}
+	if s.NodeRole == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeRole"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *ModifyInstanceTypeInput) SetInstanceType(v string) *ModifyInstanceTypeInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetNodeRole sets the NodeRole field's value.
+func (s *ModifyInstanceTypeInput) SetNodeRole(v string) *ModifyInstanceTypeInput {
+	s.NodeRole = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyInstanceTypeInput) SetServiceId(v string) *ModifyInstanceTypeInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ModifyInstanceTypeOutput struct {
+	_ struct{} `type:"structure"`
+
+	Service *Service `locationName:"service" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyInstanceTypeOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyInstanceTypeOutput) GoString() string {
+	return s.String()
+}
+
+// SetService sets the Service field's value.
+func (s *ModifyInstanceTypeOutput) SetService(v *Service) *ModifyInstanceTypeOutput {
+	s.Service = v
+	return s
+}
+
+type ModifyInstanceVolumeIopsInput struct {
+	_ struct{} `type:"structure"`
+
+	// Iops is a required field
+	Iops *int64 `locationName:"iops" type:"integer" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyInstanceVolumeIopsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyInstanceVolumeIopsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyInstanceVolumeIopsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyInstanceVolumeIopsInput"}
+	if s.Iops == nil {
+		invalidParams.Add(request.NewErrParamRequired("Iops"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetIops sets the Iops field's value.
+func (s *ModifyInstanceVolumeIopsInput) SetIops(v int64) *ModifyInstanceVolumeIopsInput {
+	s.Iops = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyInstanceVolumeIopsInput) SetServiceId(v string) *ModifyInstanceVolumeIopsInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ModifyInstanceVolumeIopsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Service *Service `locationName:"service" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyInstanceVolumeIopsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyInstanceVolumeIopsOutput) GoString() string {
+	return s.String()
+}
+
+// SetService sets the Service field's value.
+func (s *ModifyInstanceVolumeIopsOutput) SetService(v *Service) *ModifyInstanceVolumeIopsOutput {
+	s.Service = v
+	return s
+}
+
+type ModifyInstanceVolumeSizeInput struct {
+	_ struct{} `type:"structure"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+
+	// Size is a required field
+	Size *int64 `locationName:"size" type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyInstanceVolumeSizeInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyInstanceVolumeSizeInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyInstanceVolumeSizeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyInstanceVolumeSizeInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+	if s.Size == nil {
+		invalidParams.Add(request.NewErrParamRequired("Size"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyInstanceVolumeSizeInput) SetServiceId(v string) *ModifyInstanceVolumeSizeInput {
+	s.ServiceId = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *ModifyInstanceVolumeSizeInput) SetSize(v int64) *ModifyInstanceVolumeSizeInput {
+	s.Size = &v
+	return s
+}
+
+type ModifyInstanceVolumeSizeOutput struct {
+	_ struct{} `type:"structure"`
+
+	Service *Service `locationName:"service" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyInstanceVolumeSizeOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyInstanceVolumeSizeOutput) GoString() string {
+	return s.String()
+}
+
+// SetService sets the Service field's value.
+func (s *ModifyInstanceVolumeSizeOutput) SetService(v *Service) *ModifyInstanceVolumeSizeOutput {
+	s.Service = v
+	return s
+}
+
+type ModifyKafkaTopicInput struct {
+	_ struct{} `type:"structure"`
+
+	// Parameters is a required field
+	Parameters map[string]interface{} `locationName:"parameters" type:"none" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+
+	// TopicId is a required field
+	TopicId *string `location:"uri" locationName:"topicId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyKafkaTopicInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyKafkaTopicInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyKafkaTopicInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyKafkaTopicInput"}
+	if s.Parameters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Parameters"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+	if s.TopicId == nil {
+		invalidParams.Add(request.NewErrParamRequired("TopicId"))
+	}
+	if s.TopicId != nil && len(*s.TopicId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("TopicId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *ModifyKafkaTopicInput) SetParameters(v map[string]interface{}) *ModifyKafkaTopicInput {
+	s.Parameters = v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyKafkaTopicInput) SetServiceId(v string) *ModifyKafkaTopicInput {
+	s.ServiceId = &v
+	return s
+}
+
+// SetTopicId sets the TopicId field's value.
+func (s *ModifyKafkaTopicInput) SetTopicId(v string) *ModifyKafkaTopicInput {
+	s.TopicId = &v
+	return s
+}
+
+type ModifyKafkaTopicOutput struct {
+	_ struct{} `type:"structure"`
+
+	KafkaTopic *KafkaTopic `locationName:"kafkaTopic" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyKafkaTopicOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyKafkaTopicOutput) GoString() string {
+	return s.String()
+}
+
+// SetKafkaTopic sets the KafkaTopic field's value.
+func (s *ModifyKafkaTopicOutput) SetKafkaTopic(v *KafkaTopic) *ModifyKafkaTopicOutput {
+	s.KafkaTopic = v
+	return s
+}
+
+type ModifyLoadBalancersInput struct {
+	_ struct{} `type:"structure"`
+
+	ExternalBalancerRequired *bool `locationName:"externalBalancerRequired" type:"boolean"`
+
+	InternalBalancerRequired *bool `locationName:"internalBalancerRequired" type:"boolean"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyLoadBalancersInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyLoadBalancersInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyLoadBalancersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyLoadBalancersInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetExternalBalancerRequired sets the ExternalBalancerRequired field's value.
+func (s *ModifyLoadBalancersInput) SetExternalBalancerRequired(v bool) *ModifyLoadBalancersInput {
+	s.ExternalBalancerRequired = &v
+	return s
+}
+
+// SetInternalBalancerRequired sets the InternalBalancerRequired field's value.
+func (s *ModifyLoadBalancersInput) SetInternalBalancerRequired(v bool) *ModifyLoadBalancersInput {
+	s.InternalBalancerRequired = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyLoadBalancersInput) SetServiceId(v string) *ModifyLoadBalancersInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ModifyLoadBalancersOutput struct {
+	_ struct{} `type:"structure"`
+
+	ExternalBalancerRequired *bool `locationName:"externalBalancerRequired" type:"boolean"`
+
+	InternalBalancerRequired *bool `locationName:"internalBalancerRequired" type:"boolean"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyLoadBalancersOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyLoadBalancersOutput) GoString() string {
+	return s.String()
+}
+
+// SetExternalBalancerRequired sets the ExternalBalancerRequired field's value.
+func (s *ModifyLoadBalancersOutput) SetExternalBalancerRequired(v bool) *ModifyLoadBalancersOutput {
+	s.ExternalBalancerRequired = &v
+	return s
+}
+
+// SetInternalBalancerRequired sets the InternalBalancerRequired field's value.
+func (s *ModifyLoadBalancersOutput) SetInternalBalancerRequired(v bool) *ModifyLoadBalancersOutput {
+	s.InternalBalancerRequired = &v
+	return s
+}
+
+type ModifyLogstashPipelineInput struct {
+	_ struct{} `type:"structure"`
+
+	// Configuration is a required field
+	Configuration *string `locationName:"configuration" type:"string" required:"true"`
+
+	// PipelineId is a required field
+	PipelineId *string `location:"uri" locationName:"pipelineId" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyLogstashPipelineInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyLogstashPipelineInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyLogstashPipelineInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyLogstashPipelineInput"}
+	if s.Configuration == nil {
+		invalidParams.Add(request.NewErrParamRequired("Configuration"))
+	}
+	if s.PipelineId == nil {
+		invalidParams.Add(request.NewErrParamRequired("PipelineId"))
+	}
+	if s.PipelineId != nil && len(*s.PipelineId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PipelineId", 1))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetConfiguration sets the Configuration field's value.
+func (s *ModifyLogstashPipelineInput) SetConfiguration(v string) *ModifyLogstashPipelineInput {
+	s.Configuration = &v
+	return s
+}
+
+// SetPipelineId sets the PipelineId field's value.
+func (s *ModifyLogstashPipelineInput) SetPipelineId(v string) *ModifyLogstashPipelineInput {
+	s.PipelineId = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyLogstashPipelineInput) SetServiceId(v string) *ModifyLogstashPipelineInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ModifyLogstashPipelineOutput struct {
+	_ struct{} `type:"structure"`
+
+	LogstashPipeline *LogstashPipeline `locationName:"logstashPipeline" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyLogstashPipelineOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyLogstashPipelineOutput) GoString() string {
+	return s.String()
+}
+
+// SetLogstashPipeline sets the LogstashPipeline field's value.
+func (s *ModifyLogstashPipelineOutput) SetLogstashPipeline(v *LogstashPipeline) *ModifyLogstashPipelineOutput {
+	s.LogstashPipeline = v
+	return s
+}
+
+type ModifyMaintenancePreferencesInput struct {
+	_ struct{} `type:"structure"`
+
+	Anytime *bool `locationName:"anytime" type:"boolean"`
+
+	Period *MaintenancePeriod `locationName:"period" type:"structure"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyMaintenancePreferencesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyMaintenancePreferencesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyMaintenancePreferencesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyMaintenancePreferencesInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAnytime sets the Anytime field's value.
+func (s *ModifyMaintenancePreferencesInput) SetAnytime(v bool) *ModifyMaintenancePreferencesInput {
+	s.Anytime = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *ModifyMaintenancePreferencesInput) SetPeriod(v *MaintenancePeriod) *ModifyMaintenancePreferencesInput {
+	s.Period = v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyMaintenancePreferencesInput) SetServiceId(v string) *ModifyMaintenancePreferencesInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ModifyMaintenancePreferencesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Service *Service `locationName:"service" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyMaintenancePreferencesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyMaintenancePreferencesOutput) GoString() string {
+	return s.String()
+}
+
+// SetService sets the Service field's value.
+func (s *ModifyMaintenancePreferencesOutput) SetService(v *Service) *ModifyMaintenancePreferencesOutput {
+	s.Service = v
+	return s
+}
+
+type ModifyNotificationChannelInput struct {
+	_ struct{} `type:"structure"`
+
+	// ChannelId is a required field
+	ChannelId *string `location:"uri" locationName:"channelId" type:"string" required:"true"`
+
+	// Parameters is a required field
+	Parameters map[string]interface{} `locationName:"parameters" type:"none" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyNotificationChannelInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyNotificationChannelInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyNotificationChannelInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyNotificationChannelInput"}
+	if s.ChannelId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChannelId"))
+	}
+	if s.ChannelId != nil && len(*s.ChannelId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ChannelId", 1))
+	}
+	if s.Parameters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Parameters"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetChannelId sets the ChannelId field's value.
+func (s *ModifyNotificationChannelInput) SetChannelId(v string) *ModifyNotificationChannelInput {
+	s.ChannelId = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *ModifyNotificationChannelInput) SetParameters(v map[string]interface{}) *ModifyNotificationChannelInput {
+	s.Parameters = v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyNotificationChannelInput) SetServiceId(v string) *ModifyNotificationChannelInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ModifyNotificationChannelOutput struct {
+	_ struct{} `type:"structure"`
+
+	NotificationChannel *NotificationChannel `locationName:"notificationChannel" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyNotificationChannelOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyNotificationChannelOutput) GoString() string {
+	return s.String()
+}
+
+// SetNotificationChannel sets the NotificationChannel field's value.
+func (s *ModifyNotificationChannelOutput) SetNotificationChannel(v *NotificationChannel) *ModifyNotificationChannelOutput {
+	s.NotificationChannel = v
+	return s
+}
+
+type ModifyPrometheusRouteInput struct {
+	_ struct{} `type:"structure"`
+
+	// Parameters is a required field
+	Parameters map[string]interface{} `locationName:"parameters" type:"none" required:"true"`
+
+	// RouteId is a required field
+	RouteId *string `location:"uri" locationName:"routeId" type:"string" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyPrometheusRouteInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyPrometheusRouteInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyPrometheusRouteInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyPrometheusRouteInput"}
+	if s.Parameters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Parameters"))
+	}
+	if s.RouteId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RouteId"))
+	}
+	if s.RouteId != nil && len(*s.RouteId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RouteId", 1))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *ModifyPrometheusRouteInput) SetParameters(v map[string]interface{}) *ModifyPrometheusRouteInput {
+	s.Parameters = v
+	return s
+}
+
+// SetRouteId sets the RouteId field's value.
+func (s *ModifyPrometheusRouteInput) SetRouteId(v string) *ModifyPrometheusRouteInput {
+	s.RouteId = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyPrometheusRouteInput) SetServiceId(v string) *ModifyPrometheusRouteInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ModifyPrometheusRouteOutput struct {
+	_ struct{} `type:"structure"`
+
+	PrometheusRoute *PrometheusRoute `locationName:"prometheusRoute" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyPrometheusRouteOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyPrometheusRouteOutput) GoString() string {
+	return s.String()
+}
+
+// SetPrometheusRoute sets the PrometheusRoute field's value.
+func (s *ModifyPrometheusRouteOutput) SetPrometheusRoute(v *PrometheusRoute) *ModifyPrometheusRouteOutput {
+	s.PrometheusRoute = v
+	return s
+}
+
+type ModifyPrometheusScrapeJobInput struct {
+	_ struct{} `type:"structure"`
+
+	// JobId is a required field
+	JobId *string `location:"uri" locationName:"jobId" type:"string" required:"true"`
+
+	// Parameters is a required field
+	Parameters map[string]interface{} `locationName:"parameters" type:"none" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyPrometheusScrapeJobInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyPrometheusScrapeJobInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyPrometheusScrapeJobInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyPrometheusScrapeJobInput"}
+	if s.JobId == nil {
+		invalidParams.Add(request.NewErrParamRequired("JobId"))
+	}
+	if s.JobId != nil && len(*s.JobId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("JobId", 1))
+	}
+	if s.Parameters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Parameters"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetJobId sets the JobId field's value.
+func (s *ModifyPrometheusScrapeJobInput) SetJobId(v string) *ModifyPrometheusScrapeJobInput {
+	s.JobId = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *ModifyPrometheusScrapeJobInput) SetParameters(v map[string]interface{}) *ModifyPrometheusScrapeJobInput {
+	s.Parameters = v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyPrometheusScrapeJobInput) SetServiceId(v string) *ModifyPrometheusScrapeJobInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ModifyPrometheusScrapeJobOutput struct {
+	_ struct{} `type:"structure"`
+
+	PrometheusScrapeJob *PrometheusScrapeJob `locationName:"prometheusScrapeJob" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyPrometheusScrapeJobOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyPrometheusScrapeJobOutput) GoString() string {
+	return s.String()
+}
+
+// SetPrometheusScrapeJob sets the PrometheusScrapeJob field's value.
+func (s *ModifyPrometheusScrapeJobOutput) SetPrometheusScrapeJob(v *PrometheusScrapeJob) *ModifyPrometheusScrapeJobOutput {
+	s.PrometheusScrapeJob = v
+	return s
+}
+
+type ModifyServiceEnvironmentInput struct {
+	_ struct{} `type:"structure"`
+
+	EnvironmentVersion *string `locationName:"environmentVersion" type:"string"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyServiceEnvironmentInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyServiceEnvironmentInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyServiceEnvironmentInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyServiceEnvironmentInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEnvironmentVersion sets the EnvironmentVersion field's value.
+func (s *ModifyServiceEnvironmentInput) SetEnvironmentVersion(v string) *ModifyServiceEnvironmentInput {
+	s.EnvironmentVersion = &v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyServiceEnvironmentInput) SetServiceId(v string) *ModifyServiceEnvironmentInput {
+	s.ServiceId = &v
+	return s
+}
+
+type ModifyServiceEnvironmentOutput struct {
+	_ struct{} `type:"structure"`
+
+	Service *Service `locationName:"service" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyServiceEnvironmentOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyServiceEnvironmentOutput) GoString() string {
+	return s.String()
+}
+
+// SetService sets the Service field's value.
+func (s *ModifyServiceEnvironmentOutput) SetService(v *Service) *ModifyServiceEnvironmentOutput {
+	s.Service = v
 	return s
 }
 
@@ -2653,6 +10426,662 @@ func (s *ModifyServiceParametersOutput) SetService(v *Service) *ModifyServicePar
 	return s
 }
 
+type ModifyUserInput struct {
+	_ struct{} `type:"structure"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+
+	// User is a required field
+	User *UserModifyRequest `locationName:"user" type:"structure" required:"true"`
+
+	// UserId is a required field
+	UserId *string `location:"uri" locationName:"userId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyUserInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyUserInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyUserInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyUserInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+	if s.User == nil {
+		invalidParams.Add(request.NewErrParamRequired("User"))
+	}
+	if s.UserId == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserId"))
+	}
+	if s.UserId != nil && len(*s.UserId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("UserId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *ModifyUserInput) SetServiceId(v string) *ModifyUserInput {
+	s.ServiceId = &v
+	return s
+}
+
+// SetUser sets the User field's value.
+func (s *ModifyUserInput) SetUser(v *UserModifyRequest) *ModifyUserInput {
+	s.User = v
+	return s
+}
+
+// SetUserId sets the UserId field's value.
+func (s *ModifyUserInput) SetUserId(v string) *ModifyUserInput {
+	s.UserId = &v
+	return s
+}
+
+type ModifyUserOutput struct {
+	_ struct{} `type:"structure"`
+
+	User *UserResponse `locationName:"user" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyUserOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ModifyUserOutput) GoString() string {
+	return s.String()
+}
+
+// SetUser sets the User field's value.
+func (s *ModifyUserOutput) SetUser(v *UserResponse) *ModifyUserOutput {
+	s.User = v
+	return s
+}
+
+type Node struct {
+	_ struct{} `type:"structure"`
+
+	DataVolumeIops *int64 `locationName:"dataVolumeIops" type:"integer"`
+
+	DataVolumeSize *int64 `locationName:"dataVolumeSize" type:"integer"`
+
+	DataVolumeType *string `locationName:"dataVolumeType" type:"string"`
+
+	InstanceType *string `locationName:"instanceType" type:"string"`
+
+	IsMain *bool `locationName:"isMain" type:"boolean"`
+
+	NodeQty *int64 `locationName:"nodeQty" type:"integer"`
+
+	Role *string `locationName:"role" type:"string"`
+
+	RootVolumeIops *int64 `locationName:"rootVolumeIops" type:"integer"`
+
+	RootVolumeSize *int64 `locationName:"rootVolumeSize" type:"integer"`
+
+	RootVolumeType *string `locationName:"rootVolumeType" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Node) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Node) GoString() string {
+	return s.String()
+}
+
+// SetDataVolumeIops sets the DataVolumeIops field's value.
+func (s *Node) SetDataVolumeIops(v int64) *Node {
+	s.DataVolumeIops = &v
+	return s
+}
+
+// SetDataVolumeSize sets the DataVolumeSize field's value.
+func (s *Node) SetDataVolumeSize(v int64) *Node {
+	s.DataVolumeSize = &v
+	return s
+}
+
+// SetDataVolumeType sets the DataVolumeType field's value.
+func (s *Node) SetDataVolumeType(v string) *Node {
+	s.DataVolumeType = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *Node) SetInstanceType(v string) *Node {
+	s.InstanceType = &v
+	return s
+}
+
+// SetIsMain sets the IsMain field's value.
+func (s *Node) SetIsMain(v bool) *Node {
+	s.IsMain = &v
+	return s
+}
+
+// SetNodeQty sets the NodeQty field's value.
+func (s *Node) SetNodeQty(v int64) *Node {
+	s.NodeQty = &v
+	return s
+}
+
+// SetRole sets the Role field's value.
+func (s *Node) SetRole(v string) *Node {
+	s.Role = &v
+	return s
+}
+
+// SetRootVolumeIops sets the RootVolumeIops field's value.
+func (s *Node) SetRootVolumeIops(v int64) *Node {
+	s.RootVolumeIops = &v
+	return s
+}
+
+// SetRootVolumeSize sets the RootVolumeSize field's value.
+func (s *Node) SetRootVolumeSize(v int64) *Node {
+	s.RootVolumeSize = &v
+	return s
+}
+
+// SetRootVolumeType sets the RootVolumeType field's value.
+func (s *Node) SetRootVolumeType(v string) *Node {
+	s.RootVolumeType = &v
+	return s
+}
+
+type NodeRequest struct {
+	_ struct{} `type:"structure"`
+
+	DataVolumeIops *int64 `locationName:"dataVolumeIops" type:"integer"`
+
+	DataVolumeSize *int64 `locationName:"dataVolumeSize" type:"integer"`
+
+	DataVolumeType *string `locationName:"dataVolumeType" type:"string"`
+
+	// InstanceType is a required field
+	InstanceType *string `locationName:"instanceType" type:"string" required:"true"`
+
+	RootVolumeIops *int64 `locationName:"rootVolumeIops" type:"integer"`
+
+	// RootVolumeSize is a required field
+	RootVolumeSize *int64 `locationName:"rootVolumeSize" type:"integer" required:"true"`
+
+	// RootVolumeType is a required field
+	RootVolumeType *string `locationName:"rootVolumeType" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s NodeRequest) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s NodeRequest) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *NodeRequest) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "NodeRequest"}
+	if s.InstanceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
+	}
+	if s.RootVolumeSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("RootVolumeSize"))
+	}
+	if s.RootVolumeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("RootVolumeType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDataVolumeIops sets the DataVolumeIops field's value.
+func (s *NodeRequest) SetDataVolumeIops(v int64) *NodeRequest {
+	s.DataVolumeIops = &v
+	return s
+}
+
+// SetDataVolumeSize sets the DataVolumeSize field's value.
+func (s *NodeRequest) SetDataVolumeSize(v int64) *NodeRequest {
+	s.DataVolumeSize = &v
+	return s
+}
+
+// SetDataVolumeType sets the DataVolumeType field's value.
+func (s *NodeRequest) SetDataVolumeType(v string) *NodeRequest {
+	s.DataVolumeType = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *NodeRequest) SetInstanceType(v string) *NodeRequest {
+	s.InstanceType = &v
+	return s
+}
+
+// SetRootVolumeIops sets the RootVolumeIops field's value.
+func (s *NodeRequest) SetRootVolumeIops(v int64) *NodeRequest {
+	s.RootVolumeIops = &v
+	return s
+}
+
+// SetRootVolumeSize sets the RootVolumeSize field's value.
+func (s *NodeRequest) SetRootVolumeSize(v int64) *NodeRequest {
+	s.RootVolumeSize = &v
+	return s
+}
+
+// SetRootVolumeType sets the RootVolumeType field's value.
+func (s *NodeRequest) SetRootVolumeType(v string) *NodeRequest {
+	s.RootVolumeType = &v
+	return s
+}
+
+type Nodes struct {
+	_ struct{} `type:"structure"`
+
+	Arbitrator *Node `locationName:"arbitrator" type:"structure"`
+
+	Coordinator *Node `locationName:"coordinator" type:"structure"`
+
+	Main *Node `locationName:"main" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Nodes) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Nodes) GoString() string {
+	return s.String()
+}
+
+// SetArbitrator sets the Arbitrator field's value.
+func (s *Nodes) SetArbitrator(v *Node) *Nodes {
+	s.Arbitrator = v
+	return s
+}
+
+// SetCoordinator sets the Coordinator field's value.
+func (s *Nodes) SetCoordinator(v *Node) *Nodes {
+	s.Coordinator = v
+	return s
+}
+
+// SetMain sets the Main field's value.
+func (s *Nodes) SetMain(v *Node) *Nodes {
+	s.Main = v
+	return s
+}
+
+type NotificationChannel struct {
+	_ struct{} `type:"structure"`
+
+	Id *string `locationName:"id" type:"string"`
+
+	Name *string `locationName:"name" type:"string"`
+
+	Parameters map[string]interface{} `locationName:"parameters" type:"none"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s NotificationChannel) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s NotificationChannel) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *NotificationChannel) SetId(v string) *NotificationChannel {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *NotificationChannel) SetName(v string) *NotificationChannel {
+	s.Name = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *NotificationChannel) SetParameters(v map[string]interface{}) *NotificationChannel {
+	s.Parameters = v
+	return s
+}
+
+type PatchServiceParametersInput struct {
+	_ struct{} `type:"structure"`
+
+	// Parameters is a required field
+	Parameters map[string]interface{} `locationName:"parameters" type:"none" required:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PatchServiceParametersInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PatchServiceParametersInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *PatchServiceParametersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "PatchServiceParametersInput"}
+	if s.Parameters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Parameters"))
+	}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *PatchServiceParametersInput) SetParameters(v map[string]interface{}) *PatchServiceParametersInput {
+	s.Parameters = v
+	return s
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *PatchServiceParametersInput) SetServiceId(v string) *PatchServiceParametersInput {
+	s.ServiceId = &v
+	return s
+}
+
+type PatchServiceParametersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Service *Service `locationName:"service" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PatchServiceParametersOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PatchServiceParametersOutput) GoString() string {
+	return s.String()
+}
+
+// SetService sets the Service field's value.
+func (s *PatchServiceParametersOutput) SetService(v *Service) *PatchServiceParametersOutput {
+	s.Service = v
+	return s
+}
+
+type PrometheusRoute struct {
+	_ struct{} `type:"structure"`
+
+	Id *string `locationName:"id" type:"string"`
+
+	Name *string `locationName:"name" type:"string"`
+
+	Parameters map[string]interface{} `locationName:"parameters" type:"none"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PrometheusRoute) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PrometheusRoute) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *PrometheusRoute) SetId(v string) *PrometheusRoute {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *PrometheusRoute) SetName(v string) *PrometheusRoute {
+	s.Name = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *PrometheusRoute) SetParameters(v map[string]interface{}) *PrometheusRoute {
+	s.Parameters = v
+	return s
+}
+
+type PrometheusScrapeJob struct {
+	_ struct{} `type:"structure"`
+
+	Id *string `locationName:"id" type:"string"`
+
+	Name *string `locationName:"name" type:"string"`
+
+	Parameters map[string]interface{} `locationName:"parameters" type:"none"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PrometheusScrapeJob) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PrometheusScrapeJob) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *PrometheusScrapeJob) SetId(v string) *PrometheusScrapeJob {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *PrometheusScrapeJob) SetName(v string) *PrometheusScrapeJob {
+	s.Name = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *PrometheusScrapeJob) SetParameters(v map[string]interface{}) *PrometheusScrapeJob {
+	s.Parameters = v
+	return s
+}
+
+type RestartServiceInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestartServiceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestartServiceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RestartServiceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RestartServiceInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *RestartServiceInput) SetServiceId(v string) *RestartServiceInput {
+	s.ServiceId = &v
+	return s
+}
+
+type RestartServiceOutput struct {
+	_ struct{} `type:"structure"`
+
+	Service *Service `locationName:"service" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestartServiceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestartServiceOutput) GoString() string {
+	return s.String()
+}
+
+// SetService sets the Service field's value.
+func (s *RestartServiceOutput) SetService(v *Service) *RestartServiceOutput {
+	s.Service = v
+	return s
+}
+
 type SecurityGroup struct {
 	_ struct{} `type:"structure"`
 
@@ -2714,19 +11143,41 @@ type Service struct {
 
 	ErrorDescription *string `locationName:"errorDescription" type:"string"`
 
+	ErrorRecoverable *bool `locationName:"errorRecoverable" type:"boolean"`
+
+	ExternalBalancerAllowed *bool `locationName:"externalBalancerAllowed" type:"boolean"`
+
+	ExternalBalancerRequired *bool `locationName:"externalBalancerRequired" type:"boolean"`
+
+	ExternalBalancerTargets []*BalancerTarget `locationName:"externalBalancerTargets" type:"list"`
+
 	HighAvailability *bool `locationName:"highAvailability" type:"boolean"`
 
 	Id *string `locationName:"id" type:"string"`
+
+	InstanceQty *int64 `locationName:"instanceQty" type:"integer"`
 
 	InstanceType *string `locationName:"instanceType" type:"string"`
 
 	Instances []*Instance `locationName:"instances" type:"list"`
 
+	InternalBalancerAllowed *bool `locationName:"internalBalancerAllowed" type:"boolean"`
+
+	InternalBalancerRequired *bool `locationName:"internalBalancerRequired" type:"boolean"`
+
+	InternalBalancerTargets []*BalancerTarget `locationName:"internalBalancerTargets" type:"list"`
+
 	IsRolledBack *bool `locationName:"isRolledBack" type:"boolean"`
+
+	LoadBalancers *LoadBalancers `locationName:"loadBalancers" type:"structure"`
+
+	Maintenance *MaintenancePreferences `locationName:"maintenance" type:"structure"`
 
 	Name *string `locationName:"name" type:"string"`
 
 	NetworkInterfaceIds []*string `locationName:"networkInterfaceIds" type:"list"`
+
+	Nodes *Nodes `locationName:"nodes" type:"structure"`
 
 	Parameters map[string]interface{} `locationName:"parameters" type:"none"`
 
@@ -2749,6 +11200,8 @@ type Service struct {
 	SubnetIds []*string `locationName:"subnetIds" type:"list"`
 
 	SupportedFeatures []*string `locationName:"supportedFeatures" type:"list"`
+
+	Tags []*Tag `locationName:"tags" locationNameList:"item" type:"list"`
 
 	TotalCpuCount *int64 `locationName:"totalCpuCount" type:"integer"`
 
@@ -2837,6 +11290,30 @@ func (s *Service) SetErrorDescription(v string) *Service {
 	return s
 }
 
+// SetErrorRecoverable sets the ErrorRecoverable field's value.
+func (s *Service) SetErrorRecoverable(v bool) *Service {
+	s.ErrorRecoverable = &v
+	return s
+}
+
+// SetExternalBalancerAllowed sets the ExternalBalancerAllowed field's value.
+func (s *Service) SetExternalBalancerAllowed(v bool) *Service {
+	s.ExternalBalancerAllowed = &v
+	return s
+}
+
+// SetExternalBalancerRequired sets the ExternalBalancerRequired field's value.
+func (s *Service) SetExternalBalancerRequired(v bool) *Service {
+	s.ExternalBalancerRequired = &v
+	return s
+}
+
+// SetExternalBalancerTargets sets the ExternalBalancerTargets field's value.
+func (s *Service) SetExternalBalancerTargets(v []*BalancerTarget) *Service {
+	s.ExternalBalancerTargets = v
+	return s
+}
+
 // SetHighAvailability sets the HighAvailability field's value.
 func (s *Service) SetHighAvailability(v bool) *Service {
 	s.HighAvailability = &v
@@ -2846,6 +11323,12 @@ func (s *Service) SetHighAvailability(v bool) *Service {
 // SetId sets the Id field's value.
 func (s *Service) SetId(v string) *Service {
 	s.Id = &v
+	return s
+}
+
+// SetInstanceQty sets the InstanceQty field's value.
+func (s *Service) SetInstanceQty(v int64) *Service {
+	s.InstanceQty = &v
 	return s
 }
 
@@ -2861,9 +11344,39 @@ func (s *Service) SetInstances(v []*Instance) *Service {
 	return s
 }
 
+// SetInternalBalancerAllowed sets the InternalBalancerAllowed field's value.
+func (s *Service) SetInternalBalancerAllowed(v bool) *Service {
+	s.InternalBalancerAllowed = &v
+	return s
+}
+
+// SetInternalBalancerRequired sets the InternalBalancerRequired field's value.
+func (s *Service) SetInternalBalancerRequired(v bool) *Service {
+	s.InternalBalancerRequired = &v
+	return s
+}
+
+// SetInternalBalancerTargets sets the InternalBalancerTargets field's value.
+func (s *Service) SetInternalBalancerTargets(v []*BalancerTarget) *Service {
+	s.InternalBalancerTargets = v
+	return s
+}
+
 // SetIsRolledBack sets the IsRolledBack field's value.
 func (s *Service) SetIsRolledBack(v bool) *Service {
 	s.IsRolledBack = &v
+	return s
+}
+
+// SetLoadBalancers sets the LoadBalancers field's value.
+func (s *Service) SetLoadBalancers(v *LoadBalancers) *Service {
+	s.LoadBalancers = v
+	return s
+}
+
+// SetMaintenance sets the Maintenance field's value.
+func (s *Service) SetMaintenance(v *MaintenancePreferences) *Service {
+	s.Maintenance = v
 	return s
 }
 
@@ -2876,6 +11389,12 @@ func (s *Service) SetName(v string) *Service {
 // SetNetworkInterfaceIds sets the NetworkInterfaceIds field's value.
 func (s *Service) SetNetworkInterfaceIds(v []*string) *Service {
 	s.NetworkInterfaceIds = v
+	return s
+}
+
+// SetNodes sets the Nodes field's value.
+func (s *Service) SetNodes(v *Nodes) *Service {
+	s.Nodes = v
 	return s
 }
 
@@ -2945,6 +11464,12 @@ func (s *Service) SetSupportedFeatures(v []*string) *Service {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *Service) SetTags(v []*Tag) *Service {
+	s.Tags = v
+	return s
+}
+
 // SetTotalCpuCount sets the TotalCpuCount field's value.
 func (s *Service) SetTotalCpuCount(v int64) *Service {
 	s.TotalCpuCount = &v
@@ -3007,6 +11532,313 @@ func (s *ServiceEndpoint) SetName(v string) *ServiceEndpoint {
 	return s
 }
 
+type StartServiceInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartServiceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartServiceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StartServiceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StartServiceInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *StartServiceInput) SetServiceId(v string) *StartServiceInput {
+	s.ServiceId = &v
+	return s
+}
+
+type StartServiceOutput struct {
+	_ struct{} `type:"structure"`
+
+	Service *Service `locationName:"service" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartServiceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartServiceOutput) GoString() string {
+	return s.String()
+}
+
+// SetService sets the Service field's value.
+func (s *StartServiceOutput) SetService(v *Service) *StartServiceOutput {
+	s.Service = v
+	return s
+}
+
+type StopServiceInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StopServiceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StopServiceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StopServiceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StopServiceInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *StopServiceInput) SetServiceId(v string) *StopServiceInput {
+	s.ServiceId = &v
+	return s
+}
+
+type StopServiceOutput struct {
+	_ struct{} `type:"structure"`
+
+	Service *Service `locationName:"service" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StopServiceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StopServiceOutput) GoString() string {
+	return s.String()
+}
+
+// SetService sets the Service field's value.
+func (s *StopServiceOutput) SetService(v *Service) *StopServiceOutput {
+	s.Service = v
+	return s
+}
+
+type SynchronizeServiceStatusInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// ServiceId is a required field
+	ServiceId *string `location:"uri" locationName:"serviceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SynchronizeServiceStatusInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SynchronizeServiceStatusInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *SynchronizeServiceStatusInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "SynchronizeServiceStatusInput"}
+	if s.ServiceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceId"))
+	}
+	if s.ServiceId != nil && len(*s.ServiceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceId sets the ServiceId field's value.
+func (s *SynchronizeServiceStatusInput) SetServiceId(v string) *SynchronizeServiceStatusInput {
+	s.ServiceId = &v
+	return s
+}
+
+type SynchronizeServiceStatusOutput struct {
+	_ struct{} `type:"structure"`
+
+	Service *Service `locationName:"service" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SynchronizeServiceStatusOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SynchronizeServiceStatusOutput) GoString() string {
+	return s.String()
+}
+
+// SetService sets the Service field's value.
+func (s *SynchronizeServiceStatusOutput) SetService(v *Service) *SynchronizeServiceStatusOutput {
+	s.Service = v
+	return s
+}
+
+type Tag struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `locationName:"key" type:"string"`
+
+	Value *string `locationName:"value" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Tag) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Tag) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *Tag) SetKey(v string) *Tag {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *Tag) SetValue(v string) *Tag {
+	s.Value = &v
+	return s
+}
+
+type UserCompactResponse struct {
+	_ struct{} `type:"structure"`
+
+	Id *string `locationName:"id" type:"string"`
+
+	Name *string `locationName:"name" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UserCompactResponse) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UserCompactResponse) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *UserCompactResponse) SetId(v string) *UserCompactResponse {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *UserCompactResponse) SetName(v string) *UserCompactResponse {
+	s.Name = &v
+	return s
+}
+
 type UserCreateRequest struct {
 	_ struct{} `type:"structure"`
 
@@ -3055,6 +11887,36 @@ func (s *UserCreateRequest) SetName(v string) *UserCreateRequest {
 
 // SetParameters sets the Parameters field's value.
 func (s *UserCreateRequest) SetParameters(v map[string]interface{}) *UserCreateRequest {
+	s.Parameters = v
+	return s
+}
+
+type UserModifyRequest struct {
+	_ struct{} `type:"structure"`
+
+	Parameters map[string]interface{} `locationName:"parameters" type:"none"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UserModifyRequest) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UserModifyRequest) GoString() string {
+	return s.String()
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *UserModifyRequest) SetParameters(v map[string]interface{}) *UserModifyRequest {
 	s.Parameters = v
 	return s
 }
