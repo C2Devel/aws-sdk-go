@@ -8,17 +8,28 @@ on:
 jobs:
   bump-version:
     runs-on: ubuntu-22.04
+    environment: provider-writer
     steps:
       - name: Setup Go
         uses: actions/setup-go@v2
         with:
           go-version: 1.21.x
 
+      - name: Create provider-only GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PEM }}
+          owner: C2Devel
+          repositories: terraform-provider-rockitcloud
+          permission-contents: write
+
       - uses: actions/checkout@v4
         with:
           ref: develop
           repository: C2Devel/terraform-provider-rockitcloud
-          token: ${{ secrets.AUTOMATION_PAT }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Set release number
         run: |
@@ -34,38 +45,14 @@ jobs:
         run: |
           go mod tidy
 
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.AUTOMATION_PAT }}
-          repository: C2Devel/terraform-provider-rockitcloud
-          message: "bump aws-sdk-go version"
-          branch: "${{ env.LATEST_RELEASE }}"
-  
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
-        id: cpr
-        with:
-          token: ${{ secrets.AUTOMATION_PAT }}
-          commit-message: Update report
-          committer: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-          branch: ${{ env.LATEST_RELEASE }}
-          base: develop
-          delete-branch: true
-          title: "Bump aws-sdk-go to ${{ env.LATEST_RELEASE }}"
-          body: |
-            Bump aws-sdk-go to ${{ env.LATEST_RELEASE }}
-            - aws-sdk-go module is updated to ${{ env.LATEST_RELEASE }}
-          labels: |
-            automated pr
-          draft: false
-  
-      - name: Enable Pull Request Automerge
-        if: steps.cpr.outputs.pull-request-operation == 'created'
-        uses: peter-evans/enable-pull-request-automerge@v3
-        with:
-          token: ${{ secrets.AUTOMATION_PAT }}
-          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-          merge-method: merge
-          repository: C2Devel/terraform-provider-rockitcloud
+      - name: Commit and push directly to provider develop
+        run: |
+          if git diff --quiet -- go.mod go.sum; then
+            echo "Provider already uses ${{ env.LATEST_RELEASE }}"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add go.mod go.sum
+          git commit -m "bump aws-sdk-go version"
+          git push origin HEAD:develop
