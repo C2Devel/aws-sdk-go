@@ -3016,6 +3016,8 @@ type CreateSecretOutput struct {
 	//    * InSync, which indicates that the replica was created.
 	ReplicationStatus []*ReplicationStatusType `type:"list"`
 
+	SecretId *string `min:"1" type:"string"`
+
 	// The unique identifier associated with the version of the new secret.
 	VersionId *string `min:"32" type:"string"`
 }
@@ -3053,6 +3055,12 @@ func (s *CreateSecretOutput) SetName(v string) *CreateSecretOutput {
 // SetReplicationStatus sets the ReplicationStatus field's value.
 func (s *CreateSecretOutput) SetReplicationStatus(v []*ReplicationStatusType) *CreateSecretOutput {
 	s.ReplicationStatus = v
+	return s
+}
+
+// SetSecretId sets the SecretId field's value.
+func (s *CreateSecretOutput) SetSecretId(v string) *CreateSecretOutput {
+	s.SecretId = &v
 	return s
 }
 
@@ -3319,6 +3327,8 @@ type DeleteSecretOutput struct {
 
 	// The name of the secret.
 	Name *string `min:"1" type:"string"`
+
+	SecretId *string `min:"1" type:"string"`
 }
 
 // String returns the string representation.
@@ -3354,6 +3364,12 @@ func (s *DeleteSecretOutput) SetDeletionDate(v time.Time) *DeleteSecretOutput {
 // SetName sets the Name field's value.
 func (s *DeleteSecretOutput) SetName(v string) *DeleteSecretOutput {
 	s.Name = &v
+	return s
+}
+
+// SetSecretId sets the SecretId field's value.
+func (s *DeleteSecretOutput) SetSecretId(v string) *DeleteSecretOutput {
+	s.SecretId = &v
 	return s
 }
 
@@ -3482,6 +3498,8 @@ type DescribeSecretOutput struct {
 	// the previous rotation schedule and rotation function. If the secret never
 	// had rotation turned on, this field is omitted.
 	RotationRules *RotationRulesType `type:"structure"`
+
+	SecretId *string `min:"1" type:"string"`
 
 	// The list of tags attached to the secret. To add tags to a secret, use TagResource.
 	// To remove tags, use UntagResource.
@@ -3615,6 +3633,12 @@ func (s *DescribeSecretOutput) SetRotationLambdaARN(v string) *DescribeSecretOut
 // SetRotationRules sets the RotationRules field's value.
 func (s *DescribeSecretOutput) SetRotationRules(v *RotationRulesType) *DescribeSecretOutput {
 	s.RotationRules = v
+	return s
+}
+
+// SetSecretId sets the SecretId field's value.
+func (s *DescribeSecretOutput) SetSecretId(v string) *DescribeSecretOutput {
+	s.SecretId = &v
 	return s
 }
 
@@ -4140,6 +4164,8 @@ type GetSecretValueOutput struct {
 	// SecretBinary is automatically base64 encoded/decoded by the SDK.
 	SecretBinary []byte `type:"blob" sensitive:"true"`
 
+	SecretId *string `min:"1" type:"string"`
+
 	// The decrypted secret value, if the secret value was originally provided as
 	// a string or through the Secrets Manager console.
 	//
@@ -4198,6 +4224,12 @@ func (s *GetSecretValueOutput) SetName(v string) *GetSecretValueOutput {
 // SetSecretBinary sets the SecretBinary field's value.
 func (s *GetSecretValueOutput) SetSecretBinary(v []byte) *GetSecretValueOutput {
 	s.SecretBinary = v
+	return s
+}
+
+// SetSecretId sets the SecretId field's value.
+func (s *GetSecretValueOutput) SetSecretId(v string) *GetSecretValueOutput {
+	s.SecretId = &v
 	return s
 }
 
@@ -4656,6 +4688,8 @@ type ListSecretVersionIdsOutput struct {
 	// this value.
 	NextToken *string `min:"1" type:"string"`
 
+	SecretId *string `min:"1" type:"string"`
+
 	// A list of the versions of the secret.
 	Versions []*SecretVersionsListEntry `type:"list"`
 }
@@ -4696,6 +4730,12 @@ func (s *ListSecretVersionIdsOutput) SetNextToken(v string) *ListSecretVersionId
 	return s
 }
 
+// SetSecretId sets the SecretId field's value.
+func (s *ListSecretVersionIdsOutput) SetSecretId(v string) *ListSecretVersionIdsOutput {
+	s.SecretId = &v
+	return s
+}
+
 // SetVersions sets the Versions field's value.
 func (s *ListSecretVersionIdsOutput) SetVersions(v []*SecretVersionsListEntry) *ListSecretVersionIdsOutput {
 	s.Versions = v
@@ -4708,6 +4748,8 @@ type ListSecretsInput struct {
 	// The filters to apply to the list of secrets.
 	Filters []*Filter `type:"list"`
 
+	IncludePlannedDeletion *bool `type:"boolean"`
+
 	// The number of results to include in the response.
 	//
 	// If there are more results available, in the response, Secrets Manager includes
@@ -4719,6 +4761,8 @@ type ListSecretsInput struct {
 	// call did not show all results. To get the next results, call ListSecrets
 	// again with this value.
 	NextToken *string `min:"1" type:"string"`
+
+	SortBy *string `type:"string" enum:"SortByType"`
 
 	// Lists secrets in the requested order.
 	SortOrder *string `type:"string" enum:"SortOrderType"`
@@ -4774,6 +4818,12 @@ func (s *ListSecretsInput) SetFilters(v []*Filter) *ListSecretsInput {
 	return s
 }
 
+// SetIncludePlannedDeletion sets the IncludePlannedDeletion field's value.
+func (s *ListSecretsInput) SetIncludePlannedDeletion(v bool) *ListSecretsInput {
+	s.IncludePlannedDeletion = &v
+	return s
+}
+
 // SetMaxResults sets the MaxResults field's value.
 func (s *ListSecretsInput) SetMaxResults(v int64) *ListSecretsInput {
 	s.MaxResults = &v
@@ -4783,6 +4833,12 @@ func (s *ListSecretsInput) SetMaxResults(v int64) *ListSecretsInput {
 // SetNextToken sets the NextToken field's value.
 func (s *ListSecretsInput) SetNextToken(v string) *ListSecretsInput {
 	s.NextToken = &v
+	return s
+}
+
+// SetSortBy sets the SortBy field's value.
+func (s *ListSecretsInput) SetSortBy(v string) *ListSecretsInput {
+	s.SortBy = &v
 	return s
 }
 
@@ -5314,6 +5370,8 @@ type PutSecretValueOutput struct {
 	// The name of the secret.
 	Name *string `min:"1" type:"string"`
 
+	SecretId *string `min:"1" type:"string"`
+
 	// The unique identifier of the version of the secret.
 	VersionId *string `min:"32" type:"string"`
 
@@ -5350,6 +5408,12 @@ func (s *PutSecretValueOutput) SetARN(v string) *PutSecretValueOutput {
 // SetName sets the Name field's value.
 func (s *PutSecretValueOutput) SetName(v string) *PutSecretValueOutput {
 	s.Name = &v
+	return s
+}
+
+// SetSecretId sets the SecretId field's value.
+func (s *PutSecretValueOutput) SetSecretId(v string) *PutSecretValueOutput {
+	s.SecretId = &v
 	return s
 }
 
@@ -5909,6 +5973,8 @@ type RestoreSecretOutput struct {
 
 	// The name of the secret that was restored.
 	Name *string `min:"1" type:"string"`
+
+	SecretId *string `min:"1" type:"string"`
 }
 
 // String returns the string representation.
@@ -5938,6 +6004,12 @@ func (s *RestoreSecretOutput) SetARN(v string) *RestoreSecretOutput {
 // SetName sets the Name field's value.
 func (s *RestoreSecretOutput) SetName(v string) *RestoreSecretOutput {
 	s.Name = &v
+	return s
+}
+
+// SetSecretId sets the SecretId field's value.
+func (s *RestoreSecretOutput) SetSecretId(v string) *RestoreSecretOutput {
+	s.SecretId = &v
 	return s
 }
 
@@ -6269,6 +6341,8 @@ type SecretListEntry struct {
 	// A structure that defines the rotation configuration for the secret.
 	RotationRules *RotationRulesType `type:"structure"`
 
+	SecretId *string `min:"1" type:"string"`
+
 	// A list of all of the currently assigned SecretVersionStage staging labels
 	// and the SecretVersionId attached to each one. Staging labels are used to
 	// keep track of the different versions during the rotation process.
@@ -6382,6 +6456,12 @@ func (s *SecretListEntry) SetRotationLambdaARN(v string) *SecretListEntry {
 // SetRotationRules sets the RotationRules field's value.
 func (s *SecretListEntry) SetRotationRules(v *RotationRulesType) *SecretListEntry {
 	s.RotationRules = v
+	return s
+}
+
+// SetSecretId sets the SecretId field's value.
+func (s *SecretListEntry) SetSecretId(v string) *SecretListEntry {
+	s.SecretId = &v
 	return s
 }
 
@@ -6953,6 +7033,8 @@ type UpdateSecretOutput struct {
 	// The name of the secret that was updated.
 	Name *string `min:"1" type:"string"`
 
+	SecretId *string `min:"1" type:"string"`
+
 	// If Secrets Manager created a new version of the secret during this operation,
 	// then VersionId contains the unique identifier of the new version.
 	VersionId *string `min:"32" type:"string"`
@@ -6985,6 +7067,12 @@ func (s *UpdateSecretOutput) SetARN(v string) *UpdateSecretOutput {
 // SetName sets the Name field's value.
 func (s *UpdateSecretOutput) SetName(v string) *UpdateSecretOutput {
 	s.Name = &v
+	return s
+}
+
+// SetSecretId sets the SecretId field's value.
+func (s *UpdateSecretOutput) SetSecretId(v string) *UpdateSecretOutput {
+	s.SecretId = &v
 	return s
 }
 
@@ -7104,6 +7192,8 @@ type UpdateSecretVersionStageOutput struct {
 
 	// The name of the secret that was updated.
 	Name *string `min:"1" type:"string"`
+
+	SecretId *string `min:"1" type:"string"`
 }
 
 // String returns the string representation.
@@ -7133,6 +7223,12 @@ func (s *UpdateSecretVersionStageOutput) SetARN(v string) *UpdateSecretVersionSt
 // SetName sets the Name field's value.
 func (s *UpdateSecretVersionStageOutput) SetName(v string) *UpdateSecretVersionStageOutput {
 	s.Name = &v
+	return s
+}
+
+// SetSecretId sets the SecretId field's value.
+func (s *UpdateSecretVersionStageOutput) SetSecretId(v string) *UpdateSecretVersionStageOutput {
+	s.SecretId = &v
 	return s
 }
 
@@ -7311,6 +7407,30 @@ func FilterNameStringType_Values() []string {
 		FilterNameStringTypeTagValue,
 		FilterNameStringTypePrimaryRegion,
 		FilterNameStringTypeAll,
+	}
+}
+
+const (
+	// SortByTypeCreatedDate is a SortByType enum value
+	SortByTypeCreatedDate = "created-date"
+
+	// SortByTypeLastAccessedDate is a SortByType enum value
+	SortByTypeLastAccessedDate = "last-accessed-date"
+
+	// SortByTypeLastChangedDate is a SortByType enum value
+	SortByTypeLastChangedDate = "last-changed-date"
+
+	// SortByTypeName is a SortByType enum value
+	SortByTypeName = "name"
+)
+
+// SortByType_Values returns all elements of the SortByType enum
+func SortByType_Values() []string {
+	return []string{
+		SortByTypeCreatedDate,
+		SortByTypeLastAccessedDate,
+		SortByTypeLastChangedDate,
+		SortByTypeName,
 	}
 }
 

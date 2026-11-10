@@ -414,6 +414,7 @@
       "type":"structure",
       "members":{
         "ARN":{"shape":"SecretARNType"},
+        "SecretId":{"shape":"SecretIdType"},
         "Name":{"shape":"SecretNameType"},
         "VersionId":{"shape":"SecretVersionIdType"},
         "ReplicationStatus":{"shape":"ReplicationStatusListType"}
@@ -460,6 +461,7 @@
       "type":"structure",
       "members":{
         "ARN":{"shape":"SecretARNType"},
+        "SecretId":{"shape":"SecretIdType"},
         "Name":{"shape":"SecretNameType"},
         "DeletionDate":{
           "shape":"DeletionDateType",
@@ -480,6 +482,7 @@
       "type":"structure",
       "members":{
         "ARN":{"shape":"SecretARNType"},
+        "SecretId":{"shape":"SecretIdType"},
         "Name":{"shape":"SecretNameType"},
         "Description":{"shape":"DescriptionType"},
         "KmsKeyId":{"shape":"KmsKeyIdType"},
@@ -645,6 +648,7 @@
       "type":"structure",
       "members":{
         "ARN":{"shape":"SecretARNType"},
+        "SecretId":{"shape":"SecretIdType"},
         "Name":{"shape":"SecretNameType"},
         "VersionId":{"shape":"SecretVersionIdType"},
         "SecretBinary":{"shape":"SecretBinaryType"},
@@ -727,6 +731,7 @@
         "Versions":{"shape":"SecretVersionsListType"},
         "NextToken":{"shape":"NextTokenType"},
         "ARN":{"shape":"SecretARNType"},
+        "SecretId":{"shape":"SecretIdType"},
         "Name":{"shape":"SecretNameType"}
       }
     },
@@ -739,6 +744,11 @@
         },
         "NextToken":{"shape":"NextTokenType"},
         "Filters":{"shape":"FiltersListType"},
+        "IncludePlannedDeletion":{
+          "shape":"BooleanType",
+          "box":true
+        },
+        "SortBy":{"shape":"SortByType"},
         "SortOrder":{"shape":"SortOrderType"}
       }
     },
@@ -840,6 +850,7 @@
       "type":"structure",
       "members":{
         "ARN":{"shape":"SecretARNType"},
+        "SecretId":{"shape":"SecretIdType"},
         "Name":{"shape":"SecretNameType"},
         "VersionId":{"shape":"SecretVersionIdType"},
         "VersionStages":{"shape":"SecretVersionStagesType"}
@@ -947,6 +958,7 @@
       "type":"structure",
       "members":{
         "ARN":{"shape":"SecretARNType"},
+        "SecretId":{"shape":"SecretIdType"},
         "Name":{"shape":"SecretNameType"}
       }
     },
@@ -1021,6 +1033,7 @@
       "type":"structure",
       "members":{
         "ARN":{"shape":"SecretARNType"},
+        "SecretId":{"shape":"SecretIdType"},
         "Name":{"shape":"SecretNameType"},
         "Description":{"shape":"DescriptionType"},
         "KmsKeyId":{"shape":"KmsKeyIdType"},
@@ -1108,6 +1121,15 @@
       "type":"map",
       "key":{"shape":"SecretVersionIdType"},
       "value":{"shape":"SecretVersionStagesType"}
+    },
+    "SortByType":{
+      "type":"string",
+      "enum":[
+        "created-date",
+        "last-accessed-date",
+        "last-changed-date",
+        "name"
+      ]
     },
     "SortOrderType":{
       "type":"string",
@@ -1209,6 +1231,7 @@
       "type":"structure",
       "members":{
         "ARN":{"shape":"SecretARNType"},
+        "SecretId":{"shape":"SecretIdType"},
         "Name":{"shape":"SecretNameType"},
         "VersionId":{"shape":"SecretVersionIdType"}
       }
@@ -1236,6 +1259,7 @@
       "type":"structure",
       "members":{
         "ARN":{"shape":"SecretARNType"},
+        "SecretId":{"shape":"SecretIdType"},
         "Name":{"shape":"SecretNameType"}
       }
     },
