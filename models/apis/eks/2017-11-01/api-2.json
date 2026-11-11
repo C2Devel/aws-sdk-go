@@ -808,6 +808,7 @@
         "encryptionConfig":{"shape":"EncryptionConfigList"},
         "connectorConfig":{"shape":"ConnectorConfigResponse"},
         "legacyClusterParams":{"shape":"LegacyClusterParamsResponse"},
+        "controlPlaneScalingConfig":{"shape":"ControlPlaneScalingConfig"},
         "health":{"shape":"ClusterHealth"}
       }
     },
@@ -937,6 +938,13 @@
         "addon":{"shape":"Addon"}
       }
     },
+    "ControlPlaneScalingConfig":{
+      "type":"structure",
+      "required":["tier"],
+      "members":{
+        "tier":{"shape":"String"}
+      }
+    },
     "CreateClusterRequest":{
       "type":"structure",
       "required":[
@@ -961,7 +969,8 @@
         },
         "tags":{"shape":"TagMap"},
         "encryptionConfig":{"shape":"EncryptionConfigList"},
-        "legacyClusterParams":{"shape":"LegacyClusterParamsRequest"}
+        "legacyClusterParams":{"shape":"LegacyClusterParamsRequest"},
+        "controlPlaneScalingConfig":{"shape":"ControlPlaneScalingConfig"}
       }
     },
     "CreateClusterResponse":{
@@ -2364,6 +2373,7 @@
         },
         "resourcesVpcConfig":{"shape":"VpcConfigRequest"},
         "logging":{"shape":"Logging"},
+        "controlPlaneScalingConfig":{"shape":"ControlPlaneScalingConfig"},
         "clientRequestToken":{
           "shape":"String",
           "idempotencyToken":true

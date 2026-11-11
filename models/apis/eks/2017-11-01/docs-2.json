@@ -287,6 +287,14 @@
         "Cluster$connectorConfig": "<p>The configuration used to connect to a cluster for registration.</p>"
       }
     },
+    "ControlPlaneScalingConfig": {
+      "base": "<p>C2 EKS v3 control plane performance tier. Changing the tier updates the existing cluster without recreating it.</p>",
+      "refs": {
+        "Cluster$controlPlaneScalingConfig": "<p>The current control plane tier. Existing clusters may report standard.</p>",
+        "CreateClusterRequest$controlPlaneScalingConfig": "<p>The control plane tier for a new EKS v3 cluster. Omit to use the service default.</p>",
+        "UpdateClusterConfigRequest$controlPlaneScalingConfig": "<p>The new control plane tier for an existing EKS v3 cluster. Send separately from security group changes.</p>"
+      }
+    },
     "CreateAddonRequest": {
       "base": null,
       "refs": {
