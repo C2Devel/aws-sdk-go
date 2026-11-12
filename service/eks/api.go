@@ -5594,6 +5594,10 @@ type CreateClusterInput struct {
 	// Name is a required field
 	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
 
+	// The C2 EKS platform version, such as eks.1 or eks.3. Omit to use the service
+	// default.
+	PlatformVersion *string `locationName:"platformVersion" type:"string"`
+
 	// The remote access configuration for the Kubernetes cluster.
 	//
 	// Deprecated: RemoteAccessConfig has been deprecated
@@ -5720,6 +5724,12 @@ func (s *CreateClusterInput) SetLogging(v *Logging) *CreateClusterInput {
 // SetName sets the Name field's value.
 func (s *CreateClusterInput) SetName(v string) *CreateClusterInput {
 	s.Name = &v
+	return s
+}
+
+// SetPlatformVersion sets the PlatformVersion field's value.
+func (s *CreateClusterInput) SetPlatformVersion(v string) *CreateClusterInput {
+	s.PlatformVersion = &v
 	return s
 }
 

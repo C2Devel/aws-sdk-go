@@ -955,6 +955,7 @@
       "members":{
         "name":{"shape":"ClusterName"},
         "version":{"shape":"String"},
+        "platformVersion":{"shape":"String"},
         "roleArn":{"shape":"String"},
         "remoteAccessConfig":{
           "shape":"RemoteAccessConfig",

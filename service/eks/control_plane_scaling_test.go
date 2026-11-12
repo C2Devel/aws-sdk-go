@@ -45,6 +45,7 @@ func TestControlPlaneScalingConfigWireContract(t *testing.T) {
 	created, err := client.CreateCluster(&eks.CreateClusterInput{
 		Name:                      aws.String("test"),
 		Version:                   aws.String("1.30"),
+		PlatformVersion:           aws.String("eks.3"),
 		ResourcesVpcConfig:        &eks.VpcConfigRequest{SubnetIds: aws.StringSlice([]string{"subnet-1"})},
 		ControlPlaneScalingConfig: &eks.ControlPlaneScalingConfig{Tier: aws.String("tier-large")},
 	})
@@ -53,6 +54,9 @@ func TestControlPlaneScalingConfigWireContract(t *testing.T) {
 	}
 	if got := aws.StringValue(created.Cluster.ControlPlaneScalingConfig.Tier); got != "tier-large" {
 		t.Fatalf("create response tier: %q", got)
+	}
+	if got := requests[0]["platformVersion"]; got != "eks.3" {
+		t.Fatalf("create platform version: %v", got)
 	}
 
 	_, err = client.UpdateClusterConfig(&eks.UpdateClusterConfigInput{
