@@ -159908,6 +159908,10 @@ type VpnConnectionOptions struct {
 	// Indicates whether acceleration is enabled for the VPN connection.
 	EnableAcceleration *bool `locationName:"enableAcceleration" type:"boolean"`
 
+	// Indicates whether the VPN connection has a second tunnel in another availability
+	// zone.
+	HighAvailability *bool `locationName:"highAvailability" type:"boolean"`
+
 	// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	LocalIpv4NetworkCidr *string `locationName:"localIpv4NetworkCidr" type:"string"`
 
@@ -159952,6 +159956,12 @@ func (s VpnConnectionOptions) GoString() string {
 // SetEnableAcceleration sets the EnableAcceleration field's value.
 func (s *VpnConnectionOptions) SetEnableAcceleration(v bool) *VpnConnectionOptions {
 	s.EnableAcceleration = &v
+	return s
+}
+
+// SetHighAvailability sets the HighAvailability field's value.
+func (s *VpnConnectionOptions) SetHighAvailability(v bool) *VpnConnectionOptions {
+	s.HighAvailability = &v
 	return s
 }
 

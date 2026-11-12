@@ -2413,6 +2413,7 @@
         "VpcPeeringConnectionOptionsDescription$AllowEgressFromLocalClassicLinkToRemoteVpc": "<p>Indicates whether a local ClassicLink connection can communicate with the peer VPC over the VPC peering connection.</p>",
         "VpcPeeringConnectionOptionsDescription$AllowEgressFromLocalVpcToRemoteClassicLink": "<p>Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC peering connection.</p>",
         "VpnConnectionOptions$EnableAcceleration": "<p>Indicates whether acceleration is enabled for the VPN connection.</p>",
+        "VpnConnectionOptions$HighAvailability": "<p>Indicates whether the VPN connection has a second tunnel in another availability zone.</p>",
         "VpnConnectionOptions$StaticRoutesOnly": "<p>Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.</p>",
         "VpnConnectionOptionsSpecification$EnableAcceleration": "<p>Indicate whether to enable acceleration for the VPN connection.</p> <p>Default: <code>false</code> </p>",
         "VpnConnectionOptionsSpecification$StaticRoutesOnly": "<p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify <code>true</code>. Use <a>CreateVpnConnectionRoute</a> to create a static route.</p> <p>Default: <code>false</code> </p>",
