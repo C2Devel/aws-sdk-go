@@ -8917,7 +8917,7 @@
     "CreateCustomerGatewayRequest":{
       "type":"structure",
       "required":[
-        "BgpAsn",
+        "PublicIp",
         "Type"
       ],
       "members":{

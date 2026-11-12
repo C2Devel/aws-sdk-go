@@ -60739,9 +60739,7 @@ type CreateCustomerGatewayInput struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//
 	// Default: 65000
-	//
-	// BgpAsn is a required field
-	BgpAsn *int64 `type:"integer" required:"true"`
+	BgpAsn *int64 `type:"integer"`
 
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn *string `type:"string"`
@@ -60759,7 +60757,9 @@ type CreateCustomerGatewayInput struct {
 
 	// The Internet-routable IP address for the customer gateway's outside interface.
 	// The address must be static.
-	PublicIp *string `locationName:"IpAddress" type:"string"`
+	//
+	// PublicIp is a required field
+	PublicIp *string `locationName:"IpAddress" type:"string" required:"true"`
 
 	// The tags to apply to the customer gateway.
 	TagSpecifications []*TagSpecification `locationName:"TagSpecification" locationNameList:"item" type:"list"`
@@ -60791,8 +60791,8 @@ func (s CreateCustomerGatewayInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateCustomerGatewayInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateCustomerGatewayInput"}
-	if s.BgpAsn == nil {
-		invalidParams.Add(request.NewErrParamRequired("BgpAsn"))
+	if s.PublicIp == nil {
+		invalidParams.Add(request.NewErrParamRequired("PublicIp"))
 	}
 	if s.Type == nil {
 		invalidParams.Add(request.NewErrParamRequired("Type"))
