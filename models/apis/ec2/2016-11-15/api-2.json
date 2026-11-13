@@ -39855,10 +39855,6 @@
         "TunnelOptions":{
           "shape":"TunnelOptionsList",
           "locationName":"tunnelOptionSet"
-        },
-        "HighAvailability":{
-          "shape":"Boolean",
-          "locationName":"highAvailability"
         }
       }
     },
