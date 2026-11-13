@@ -4835,6 +4835,9 @@ type Cluster struct {
 	// The configuration used to connect to a cluster for registration.
 	ConnectorConfig *ConnectorConfigResponse `locationName:"connectorConfig" type:"structure"`
 
+	// The current control plane tier. Existing clusters may report standard.
+	ControlPlaneScalingConfig *ControlPlaneScalingConfig `locationName:"controlPlaneScalingConfig" type:"structure"`
+
 	// The Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp"`
 
@@ -4934,6 +4937,12 @@ func (s *Cluster) SetClientRequestToken(v string) *Cluster {
 // SetConnectorConfig sets the ConnectorConfig field's value.
 func (s *Cluster) SetConnectorConfig(v *ConnectorConfigResponse) *Cluster {
 	s.ConnectorConfig = v
+	return s
+}
+
+// SetControlPlaneScalingConfig sets the ControlPlaneScalingConfig field's value.
+func (s *Cluster) SetControlPlaneScalingConfig(v *ControlPlaneScalingConfig) *Cluster {
+	s.ControlPlaneScalingConfig = v
 	return s
 }
 
@@ -5343,6 +5352,52 @@ func (s *ConnectorConfigResponse) SetRoleArn(v string) *ConnectorConfigResponse 
 	return s
 }
 
+// C2 EKS v3 control plane performance tier. Changing the tier updates the existing
+// cluster without recreating it.
+type ControlPlaneScalingConfig struct {
+	_ struct{} `type:"structure"`
+
+	// Tier is a required field
+	Tier *string `locationName:"tier" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ControlPlaneScalingConfig) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ControlPlaneScalingConfig) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ControlPlaneScalingConfig) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ControlPlaneScalingConfig"}
+	if s.Tier == nil {
+		invalidParams.Add(request.NewErrParamRequired("Tier"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetTier sets the Tier field's value.
+func (s *ControlPlaneScalingConfig) SetTier(v string) *ControlPlaneScalingConfig {
+	s.Tier = &v
+	return s
+}
+
 type CreateAddonInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5511,6 +5566,10 @@ type CreateClusterInput struct {
 	// of the request.
 	ClientRequestToken *string `locationName:"clientRequestToken" type:"string" idempotencyToken:"true"`
 
+	// The control plane tier for a new EKS v3 cluster. Omit to use the service
+	// default.
+	ControlPlaneScalingConfig *ControlPlaneScalingConfig `locationName:"controlPlaneScalingConfig" type:"structure"`
+
 	// The encryption configuration for the cluster.
 	EncryptionConfig []*EncryptionConfig `locationName:"encryptionConfig" type:"list"`
 
@@ -5534,6 +5593,10 @@ type CreateClusterInput struct {
 	//
 	// Name is a required field
 	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+
+	// The C2 EKS platform version, such as eks.1 or eks.3. Omit to use the service
+	// default.
+	PlatformVersion *string `locationName:"platformVersion" type:"string"`
 
 	// The remote access configuration for the Kubernetes cluster.
 	//
@@ -5605,6 +5668,11 @@ func (s *CreateClusterInput) Validate() error {
 	if s.Version == nil {
 		invalidParams.Add(request.NewErrParamRequired("Version"))
 	}
+	if s.ControlPlaneScalingConfig != nil {
+		if err := s.ControlPlaneScalingConfig.Validate(); err != nil {
+			invalidParams.AddNested("ControlPlaneScalingConfig", err.(request.ErrInvalidParams))
+		}
+	}
 	if s.LegacyClusterParams != nil {
 		if err := s.LegacyClusterParams.Validate(); err != nil {
 			invalidParams.AddNested("LegacyClusterParams", err.(request.ErrInvalidParams))
@@ -5620,6 +5688,12 @@ func (s *CreateClusterInput) Validate() error {
 // SetClientRequestToken sets the ClientRequestToken field's value.
 func (s *CreateClusterInput) SetClientRequestToken(v string) *CreateClusterInput {
 	s.ClientRequestToken = &v
+	return s
+}
+
+// SetControlPlaneScalingConfig sets the ControlPlaneScalingConfig field's value.
+func (s *CreateClusterInput) SetControlPlaneScalingConfig(v *ControlPlaneScalingConfig) *CreateClusterInput {
+	s.ControlPlaneScalingConfig = v
 	return s
 }
 
@@ -5650,6 +5724,12 @@ func (s *CreateClusterInput) SetLogging(v *Logging) *CreateClusterInput {
 // SetName sets the Name field's value.
 func (s *CreateClusterInput) SetName(v string) *CreateClusterInput {
 	s.Name = &v
+	return s
+}
+
+// SetPlatformVersion sets the PlatformVersion field's value.
+func (s *CreateClusterInput) SetPlatformVersion(v string) *CreateClusterInput {
+	s.PlatformVersion = &v
 	return s
 }
 
@@ -11948,6 +12028,10 @@ type UpdateClusterConfigInput struct {
 	// of the request.
 	ClientRequestToken *string `locationName:"clientRequestToken" type:"string" idempotencyToken:"true"`
 
+	// The new control plane tier for an existing EKS v3 cluster. Send separately
+	// from security group changes.
+	ControlPlaneScalingConfig *ControlPlaneScalingConfig `locationName:"controlPlaneScalingConfig" type:"structure"`
+
 	// Enable or disable exporting the Kubernetes control plane logs for your cluster
 	// to CloudWatch Logs. By default, cluster control plane logs aren't exported
 	// to CloudWatch Logs. For more information, see Amazon EKS cluster control
@@ -11995,6 +12079,11 @@ func (s *UpdateClusterConfigInput) Validate() error {
 	if s.Name != nil && len(*s.Name) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
 	}
+	if s.ControlPlaneScalingConfig != nil {
+		if err := s.ControlPlaneScalingConfig.Validate(); err != nil {
+			invalidParams.AddNested("ControlPlaneScalingConfig", err.(request.ErrInvalidParams))
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -12005,6 +12094,12 @@ func (s *UpdateClusterConfigInput) Validate() error {
 // SetClientRequestToken sets the ClientRequestToken field's value.
 func (s *UpdateClusterConfigInput) SetClientRequestToken(v string) *UpdateClusterConfigInput {
 	s.ClientRequestToken = &v
+	return s
+}
+
+// SetControlPlaneScalingConfig sets the ControlPlaneScalingConfig field's value.
+func (s *UpdateClusterConfigInput) SetControlPlaneScalingConfig(v *ControlPlaneScalingConfig) *UpdateClusterConfigInput {
+	s.ControlPlaneScalingConfig = v
 	return s
 }
 

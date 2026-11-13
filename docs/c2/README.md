@@ -10,6 +10,7 @@
     - [Генерация SDK для API](#генерация-sdk-для-api)
     - [Работа с endpoints.json](#работа-с-endpointsjson)
     - [Установка и запуск линтеров](#установка-и-запуск-линтеров)
+  - [Уровень control plane в EKS v3](#уровень-control-plane-в-eks-v3)
   - [Тесты](#тесты)
   - [Выпуск релиза](#выпуск-релиза)
     - [Версионирование](#версионирование)
@@ -54,6 +55,46 @@ AWS API представлено в виде `.json` файлов в сабди�
 Установка линтеров: `make install-deps-verify`
 
 Запуск линтеров: `make verify`
+
+## Уровень control plane в EKS v3
+
+В C2 EKS v3 поле `controlPlaneScalingConfig.tier` задаёт лимиты ресурсов
+контейнеров control plane. Это расширение API C2. Доступны значения
+`tier-large`, `tier-2large`, `tier-4large` и `tier-8large`.
+Если поле не передано при создании, сервис выбирает уровень по умолчанию.
+У существующих кластеров может возвращаться `standard`; его нельзя выбрать
+при создании нового кластера.
+
+При создании добавьте `ControlPlaneScalingConfig` в `eks.CreateClusterInput`:
+
+```go
+input.ControlPlaneScalingConfig = &eks.ControlPlaneScalingConfig{
+    Tier: aws.String("tier-large"),
+}
+```
+
+Уровень существующего кластера меняется без пересоздания через
+`UpdateClusterConfig`. Дождитесь успешного завершения операции по ID из
+`output.Update.Id`, затем прочитайте фактический уровень через
+`DescribeCluster`:
+
+```go
+output, err := client.UpdateClusterConfig(&eks.UpdateClusterConfigInput{
+    Name: aws.String(clusterName),
+    ControlPlaneScalingConfig: &eks.ControlPlaneScalingConfig{
+        Tier: aws.String("tier-2large"),
+    },
+})
+if err != nil {
+    return err
+}
+updateID := aws.StringValue(output.Update.Id)
+// Опросите DescribeUpdate с updateID до статуса Successful.
+```
+
+Обновление уровня отправляйте отдельно от изменения security groups: C2 не
+принимает их в одном запросе `UpdateClusterConfig`. Для EKS v2 это поле не
+поддерживается.
 
 ## Тесты
 
